@@ -35,6 +35,8 @@ func (op OpCode) IsStaticJump() bool {
 	return op == JUMP
 }
 
+// TODO: add marconid specific opcodes
+
 const (
 	// 0x0 range - arithmetic ops
 	STOP OpCode = iota
