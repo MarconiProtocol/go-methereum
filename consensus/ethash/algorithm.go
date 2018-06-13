@@ -17,6 +17,7 @@
 package ethash
 
 import (
+	"crypto/sha256"
 	"encoding/binary"
 	"hash"
 	"math/big"
@@ -325,6 +326,21 @@ func generateDataset(dest []uint32, epoch uint64, cache []uint32) {
 	}
 	// Wait for all the generators to finish and return
 	pend.Wait()
+}
+
+
+// Similar to hashimoto, doubleSha256 accepts 32 byte block header
+// hash and 8 byte nonce, then returns 32 byte digest and 32 byte result.
+func doubleSha256(block_header_hash []byte, nonce uint64) ([]byte, []byte) {
+	header_concat_nonce := make([]byte, 40)
+	copy(header_concat_nonce, block_header_hash)
+	binary.LittleEndian.PutUint64(header_concat_nonce[32:], nonce)
+	single_sha := sha256.Sum256(header_concat_nonce)
+	double_sha := sha256.Sum256(single_sha[:])
+	// The digest is always equal to the result, since unlike
+	// hashimoto, there's no need for separate full and light versions
+	// of double sha hashing.
+	return double_sha[:], double_sha[:]
 }
 
 // hashimoto aggregates data from the full dataset in order to produce our final

@@ -69,7 +69,7 @@ func (ethash *Ethash) Seal(chain consensus.ChainReader, block *types.Block, stop
 		pend.Add(1)
 		go func(id int, nonce uint64) {
 			defer pend.Done()
-			ethash.mine(block, id, nonce, abort, found)
+			ethash.mine(block, id, nonce, ethash.config.PowMode, abort, found)
 		}(i, uint64(ethash.rand.Int63()))
 	}
 	// Wait until sealing is terminated or a nonce is found
@@ -94,15 +94,18 @@ func (ethash *Ethash) Seal(chain consensus.ChainReader, block *types.Block, stop
 
 // mine is the actual proof-of-work miner that searches for a nonce starting from
 // seed that results in correct final block difficulty.
-func (ethash *Ethash) mine(block *types.Block, id int, seed uint64, abort chan struct{}, found chan *types.Block) {
+func (ethash *Ethash) mine(block *types.Block, id int, seed uint64, pow_mode Mode, abort chan struct{}, found chan *types.Block) {
 	// Extract some data from the header
 	var (
 		header  = block.Header()
 		hash    = header.HashNoNonce().Bytes()
 		target  = new(big.Int).Div(maxUint256, header.Difficulty)
 		number  = header.Number.Uint64()
-		dataset = ethash.dataset(number)
+		dataset *dataset = nil
 	)
+	if pow_mode != ModeDoubleSha {
+		dataset = ethash.dataset(number)
+	}
 	// Start generating random nonces until we abort or find a good one
 	var (
 		attempts = int64(0)
@@ -127,7 +130,13 @@ search:
 				attempts = 0
 			}
 			// Compute the PoW value of this nonce
-			digest, result := hashimotoFull(dataset.dataset, hash, nonce)
+			var digest []byte
+			var result []byte
+			if pow_mode == ModeDoubleSha {
+				digest, result = doubleSha256(hash, nonce)
+			} else {
+				digest, result = hashimotoFull(dataset.dataset, hash, nonce)
+			}
 			if new(big.Int).SetBytes(result).Cmp(target) <= 0 {
 				// Correct nonce found, create a new header with it
 				header = types.CopyHeader(header)
@@ -148,5 +157,7 @@ search:
 	}
 	// Datasets are unmapped in a finalizer. Ensure that the dataset stays live
 	// during sealing so it's not unmapped while being read.
-	runtime.KeepAlive(dataset)
+	if pow_mode != ModeDoubleSha {
+		runtime.KeepAlive(dataset)
+	}
 }

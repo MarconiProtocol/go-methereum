@@ -43,6 +43,36 @@ func TestTestMode(t *testing.T) {
 	}
 }
 
+// Tests that block sealing and seal verification works correctly in
+// double sha mode.
+func TestDoubleShaMode(t *testing.T) {
+	head := &types.Header{Number: big.NewInt(1), Difficulty: big.NewInt(100)}
+
+	ethash := NewDoubleSha()
+	// Override the randomness used for nonce generation to have a
+	// constant seed, that way this test is deterministic.
+	ethash.rand = rand.New(rand.NewSource(0))
+	block, err := ethash.Seal(nil, types.NewBlockWithHeader(head), nil)
+	if err != nil {
+		t.Fatalf("failed to seal block: %v", err)
+	}
+	head.Nonce = types.EncodeNonce(block.Nonce())
+	head.MixDigest = block.MixDigest()
+	if err := ethash.VerifySeal(nil, head); err != nil {
+		t.Fatalf("unexpected verification error: %v", err)
+	}
+	// If we change the nonce, verification should now fail.
+	head.Nonce = types.EncodeNonce(block.Nonce() + 1)
+	if err := ethash.VerifySeal(nil, head); err != errInvalidMixDigest {
+		t.Fatalf("expected invalid mix digest but got: %v", err)
+	}
+	// As a sanity check, changing the nonce back should succeed again.
+	head.Nonce = types.EncodeNonce(block.Nonce())
+	if err := ethash.VerifySeal(nil, head); err != nil {
+		t.Fatalf("unexpected verification error: %v", err)
+	}
+}
+
 // This test checks that cache lru logic doesn't crash under load.
 // It reproduces https://github.com/ethereum/go-ethereum/issues/14943
 func TestCacheFileEvict(t *testing.T) {

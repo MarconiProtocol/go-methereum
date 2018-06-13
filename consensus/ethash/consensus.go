@@ -478,17 +478,22 @@ func (ethash *Ethash) VerifySeal(chain consensus.ChainReader, header *types.Head
 		return errInvalidDifficulty
 	}
 	// Recompute the digest and PoW value and verify against the header
-	number := header.Number.Uint64()
-
-	cache := ethash.cache(number)
-	size := datasetSize(number)
-	if ethash.config.PowMode == ModeTest {
-		size = 32 * 1024
+	var digest []byte
+	var result []byte
+	if ethash.config.PowMode == ModeDoubleSha {
+		digest, result = doubleSha256(header.HashNoNonce().Bytes(), header.Nonce.Uint64())
+	} else {
+		number := header.Number.Uint64()
+		cache := ethash.cache(number)
+		size := datasetSize(number)
+		if ethash.config.PowMode == ModeTest {
+			size = 32 * 1024
+		}
+		digest, result = hashimotoLight(size, cache.cache, header.HashNoNonce().Bytes(), header.Nonce.Uint64())
+		// Caches are unmapped in a finalizer. Ensure that the cache stays live
+		// until after the call to hashimotoLight so it's not unmapped while being used.
+		runtime.KeepAlive(cache)
 	}
-	digest, result := hashimotoLight(size, cache.cache, header.HashNoNonce().Bytes(), header.Nonce.Uint64())
-	// Caches are unmapped in a finalizer. Ensure that the cache stays live
-	// until after the call to hashimotoLight so it's not unmapped while being used.
-	runtime.KeepAlive(cache)
 
 	if !bytes.Equal(header.MixDigest[:], digest) {
 		return errInvalidMixDigest

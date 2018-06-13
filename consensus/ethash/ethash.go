@@ -376,6 +376,7 @@ const (
 	ModeTest
 	ModeFake
 	ModeFullFake
+	ModeDoubleSha
 )
 
 // Config are the configuration parameters of the ethash.
@@ -427,6 +428,17 @@ func New(config Config) *Ethash {
 		config:   config,
 		caches:   newlru("cache", config.CachesInMem, newCache),
 		datasets: newlru("dataset", config.DatasetsInMem, newDataset),
+		update:   make(chan struct{}),
+		hashrate: metrics.NewMeter(),
+	}
+}
+
+// NewDoubleSha creates a new double sha PoW scheme.
+func NewDoubleSha() *Ethash {
+	return &Ethash{
+		config: Config{
+			PowMode: ModeDoubleSha,
+		},
 		update:   make(chan struct{}),
 		hashrate: metrics.NewMeter(),
 	}
