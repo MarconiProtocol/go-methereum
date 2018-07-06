@@ -208,6 +208,7 @@ var AppHelpFlagGroups = []flagGroup{
 		Flags: append([]cli.Flag{
 			utils.MetricsEnabledFlag,
 			utils.FakePoWFlag,
+			utils.DoubleShaPoWFlag,
 			utils.NoCompactionFlag,
 		}, debug.Flags...),
 	},

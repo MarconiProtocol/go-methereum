@@ -368,6 +368,10 @@ var (
 		Name:  "fakepow",
 		Usage: "Disables proof-of-work verification",
 	}
+	DoubleShaPoWFlag = cli.BoolTFlag{
+		Name:  "doubleshapow",
+		Usage: "Use double sha256 proof-of-work for both mining and verification, rather than ethash. This flag is true by default.",
+	}
 	NoCompactionFlag = cli.BoolFlag{
 		Name:  "nocompaction",
 		Usage: "Disables db compaction after import",
@@ -959,6 +963,9 @@ func setEthash(ctx *cli.Context, cfg *eth.Config) {
 	if ctx.GlobalIsSet(EthashDatasetsOnDiskFlag.Name) {
 		cfg.Ethash.DatasetsOnDisk = ctx.GlobalInt(EthashDatasetsOnDiskFlag.Name)
 	}
+	if ctx.GlobalBool(DoubleShaPoWFlag.Name) {
+		cfg.Ethash.PowMode = ethash.ModeDoubleSha
+	}
 }
 
 // checkExclusive verifies that only a single isntance of the provided flags was
@@ -1009,7 +1016,9 @@ func SetShhConfig(ctx *cli.Context, stack *node.Node, cfg *whisper.Config) {
 	}
 }
 
-// SetEthConfig applies eth-related command line flags to the config.
+// SetEthConfig applies eth-related command line flags to the
+// config. This gets run on the main code path when starting a geth
+// node, for example when mining.
 func SetEthConfig(ctx *cli.Context, stack *node.Node, cfg *eth.Config) {
 	// Avoid conflicting network flags
 	checkExclusive(ctx, DeveloperFlag, TestnetFlag, RinkebyFlag)
@@ -1211,7 +1220,10 @@ func MakeGenesis(ctx *cli.Context) *core.Genesis {
 	return genesis
 }
 
-// MakeChain creates a chain manager from set command line flags.
+
+// MakeChain creates a chain manager from set command line flags. This
+// doesn't get run on the main geth code path (e.g. when mining). It's
+// only used by auxiliary commands like import, export, or copydb.
 func MakeChain(ctx *cli.Context, stack *node.Node) (chain *core.BlockChain, chainDb ethdb.Database) {
 	var err error
 	chainDb = MakeChainDatabase(ctx, stack)
@@ -1223,18 +1235,19 @@ func MakeChain(ctx *cli.Context, stack *node.Node) (chain *core.BlockChain, chai
 	var engine consensus.Engine
 	if config.Clique != nil {
 		engine = clique.New(config.Clique, chainDb)
-	} else {
+	} else if ctx.GlobalBool(FakePoWFlag.Name) {
 		engine = ethash.NewFaker()
-		if !ctx.GlobalBool(FakePoWFlag.Name) {
-			engine = ethash.New(ethash.Config{
-				CacheDir:       stack.ResolvePath(eth.DefaultConfig.Ethash.CacheDir),
-				CachesInMem:    eth.DefaultConfig.Ethash.CachesInMem,
-				CachesOnDisk:   eth.DefaultConfig.Ethash.CachesOnDisk,
-				DatasetDir:     stack.ResolvePath(eth.DefaultConfig.Ethash.DatasetDir),
-				DatasetsInMem:  eth.DefaultConfig.Ethash.DatasetsInMem,
-				DatasetsOnDisk: eth.DefaultConfig.Ethash.DatasetsOnDisk,
-			})
-		}
+	} else if ctx.GlobalBool(DoubleShaPoWFlag.Name) {
+		engine = ethash.NewDoubleSha()
+	} else {
+		engine = ethash.New(ethash.Config{
+			CacheDir:       stack.ResolvePath(eth.DefaultConfig.Ethash.CacheDir),
+			CachesInMem:    eth.DefaultConfig.Ethash.CachesInMem,
+			CachesOnDisk:   eth.DefaultConfig.Ethash.CachesOnDisk,
+			DatasetDir:     stack.ResolvePath(eth.DefaultConfig.Ethash.DatasetDir),
+			DatasetsInMem:  eth.DefaultConfig.Ethash.DatasetsInMem,
+			DatasetsOnDisk: eth.DefaultConfig.Ethash.DatasetsOnDisk,
+		})
 	}
 	if gcmode := ctx.GlobalString(GCModeFlag.Name); gcmode != "full" && gcmode != "archive" {
 		Fatalf("--%s must be either 'full' or 'archive'", GCModeFlag.Name)

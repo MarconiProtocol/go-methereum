@@ -652,6 +652,32 @@ func TestDatasetGeneration(t *testing.T) {
 	}
 }
 
+// Tests doubleSha256 does roughly what we expect.
+func TestDoubleSha256(t *testing.T) {
+	// Create a block to verify
+	hash := hexutil.MustDecode("0xc9149cc0386e689d789a1c2f3d5d169a61a6218ed30e74414dc736e442ef3d1f")
+	nonce := uint64(0)
+
+	wantDigest := hexutil.MustDecode("0xee446fb4e3c8394ff006097bf28f83cd9cc7f506acbf05ca818f8883711f0496")
+	// Note digest is always equal to result for doubleSha256.
+	wantResult := wantDigest
+
+	digest, result := doubleSha256(hash, nonce)
+	if !bytes.Equal(digest, wantDigest) {
+		t.Errorf("digest mismatch: have %x, want %x", digest, wantDigest)
+	}
+	if !bytes.Equal(result, wantResult) {
+		t.Errorf("result mismatch: have %x, want %x", result, wantResult)
+	}
+
+	// Slightly different input should give wildly different output.
+	digest, _ = doubleSha256(hash, nonce + 1)
+	wantDigest = hexutil.MustDecode("0xc0f4af9368fcb6e39b5514cad2d4dfa0421f3693d9435653924494aa288329b7")
+	if !bytes.Equal(digest, wantDigest) {
+		t.Errorf("digest mismatch: have %x, want %x", digest, wantDigest)
+	}
+}
+
 // Tests whether the hashimoto lookup works for both light as well as the full
 // datasets.
 func TestHashimoto(t *testing.T) {

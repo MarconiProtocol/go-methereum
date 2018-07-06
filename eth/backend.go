@@ -227,6 +227,11 @@ func CreateConsensusEngine(ctx *node.ServiceContext, config *ethash.Config, chai
 	case config.PowMode == ethash.ModeShared:
 		log.Warn("Ethash used in shared mode")
 		return ethash.NewShared()
+	case config.PowMode == ethash.ModeDoubleSha:
+		log.Warn("Ethash used in double sha mode")
+		engine := ethash.NewDoubleSha()
+		engine.SetThreads(-1) // Begin with the miner in idle mode (no work being done).
+		return engine
 	default:
 		engine := ethash.New(ethash.Config{
 			CacheDir:       ctx.ResolvePath(config.CacheDir),
@@ -236,7 +241,7 @@ func CreateConsensusEngine(ctx *node.ServiceContext, config *ethash.Config, chai
 			DatasetsInMem:  config.DatasetsInMem,
 			DatasetsOnDisk: config.DatasetsOnDisk,
 		})
-		engine.SetThreads(-1) // Disable CPU mining
+		engine.SetThreads(-1) // Begin with the miner in idle mode (no work being done).
 		return engine
 	}
 }
