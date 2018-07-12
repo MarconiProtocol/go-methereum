@@ -298,12 +298,12 @@ func (ethash *Ethash) CalcDifficulty(chain consensus.ChainReader, time uint64, p
 func CalcDifficulty(config *params.ChainConfig, time uint64, parent *types.Header) *big.Int {
 	next := new(big.Int).Add(parent.Number, big1)
 	switch {
-		case config.IsByzantium(next):
-			return calcDifficultyByzantium(time, parent)
-		default:
-			// still use Byzantium's algorithm, but log an warning
-			log.Warn("CalcDifficulty found unknown release version in ChainConfig")
-			return calcDifficultyByzantium(time, parent)
+	case config.IsByzantium(next):
+		return calcDifficultyByzantium(time, parent)
+	default:
+		// still use Byzantium's algorithm, but log an warning
+		log.Warn("CalcDifficulty found unknown release version in ChainConfig")
+		return calcDifficultyByzantium(time, parent)
 	}
 }
 
