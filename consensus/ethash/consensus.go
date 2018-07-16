@@ -357,6 +357,10 @@ func calcDifficultyByzantium(time uint64, parent *types.Header) *big.Int {
 		x.Set(params.MinimumDifficulty)
 	}
 
+	// TODO determine if we need to have a ice-age logic which jacks up the difficulty after a certain number of blocks.
+	// Ice-age is used in Ethereum to encourage users to moving to new hard forks. Adding the logic is simple, however
+	// it might be more preferable to incentivize upgrades in other ways.
+
 	return x
 }
 
