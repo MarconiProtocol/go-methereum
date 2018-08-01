@@ -231,6 +231,11 @@ func CreateConsensusEngine(ctx *node.ServiceContext, chainConfig *params.ChainCo
 		engine := ethash.NewDoubleSha(notify)
 		engine.SetThreads(-1) // Begin with the miner in idle mode (no work being done).
 		return engine
+	case ethash.ModeCryptonight:
+		log.Warn("Ethash used in cryptonight mode")
+		engine := ethash.NewCryptonight(notify)
+		engine.SetThreads(-1) // Begin with the miner in idle mode (no work being done).
+		return engine
 	default:
 		engine := ethash.New(ethash.Config{
 			CacheDir:       ctx.ResolvePath(config.CacheDir),

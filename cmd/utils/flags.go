@@ -385,9 +385,13 @@ var (
 		Name:  "fakepow",
 		Usage: "Disables proof-of-work verification",
 	}
-	DoubleShaPoWFlag = cli.BoolTFlag{
-		Name:  "doubleshapow",
-		Usage: "Use double sha256 proof-of-work for both mining and verification, rather than ethash. This flag is true by default.",
+	ethashPowMode string = "ethash"
+	doubleshaPowMode string = "doublesha"
+	cryptonightPowMode string = "cryptonight"
+	PowModeFlag = cli.StringFlag{
+		Name:  "powmode",
+		Usage: "Which proof-of-work hash function to use for both mining and verification. Can be one of 'ethash', 'doublesha', or 'cryptonight'.",
+		Value: "cryptonight",
 	}
 	NoCompactionFlag = cli.BoolFlag{
 		Name:  "nocompaction",
@@ -1027,8 +1031,10 @@ func setEthash(ctx *cli.Context, cfg *eth.Config) {
 	if ctx.GlobalIsSet(EthashDatasetsOnDiskFlag.Name) {
 		cfg.Ethash.DatasetsOnDisk = ctx.GlobalInt(EthashDatasetsOnDiskFlag.Name)
 	}
-	if ctx.GlobalBool(DoubleShaPoWFlag.Name) {
+	if ctx.GlobalString(PowModeFlag.Name) == doubleshaPowMode {
 		cfg.Ethash.PowMode = ethash.ModeDoubleSha
+	} else if ctx.GlobalString(PowModeFlag.Name) == cryptonightPowMode {
+		cfg.Ethash.PowMode = ethash.ModeCryptonight
 	}
 }
 
@@ -1333,9 +1339,11 @@ func MakeChain(ctx *cli.Context, stack *node.Node) (chain *core.BlockChain, chai
 		engine = clique.New(config.Clique, chainDb)
 	} else if ctx.GlobalBool(FakePoWFlag.Name) {
 		engine = ethash.NewFaker()
-	} else if ctx.GlobalBool(DoubleShaPoWFlag.Name) {
+	} else if ctx.GlobalString(PowModeFlag.Name) == doubleshaPowMode {
 		engine = ethash.NewDoubleSha(nil)
-	} else {
+	} else if ctx.GlobalString(PowModeFlag.Name) == cryptonightPowMode {
+		engine = ethash.NewCryptonight(nil)
+	} else if ctx.GlobalString(PowModeFlag.Name) == ethashPowMode {
 		engine = ethash.New(ethash.Config{
 			CacheDir:       stack.ResolvePath(eth.DefaultConfig.Ethash.CacheDir),
 			CachesInMem:    eth.DefaultConfig.Ethash.CachesInMem,
@@ -1344,6 +1352,8 @@ func MakeChain(ctx *cli.Context, stack *node.Node) (chain *core.BlockChain, chai
 			DatasetsInMem:  eth.DefaultConfig.Ethash.DatasetsInMem,
 			DatasetsOnDisk: eth.DefaultConfig.Ethash.DatasetsOnDisk,
 		}, nil)
+	} else {
+		Fatalf("Invalid pow mode flag value: %s", ctx.GlobalString(PowModeFlag.Name))
 	}
 	if gcmode := ctx.GlobalString(GCModeFlag.Name); gcmode != "full" && gcmode != "archive" {
 		Fatalf("--%s must be either 'full' or 'archive'", GCModeFlag.Name)
