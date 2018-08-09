@@ -454,7 +454,7 @@ func accumulateRewards(config *params.ChainConfig, state *state.StateDB, header 
 		r.Sub(r, header.Number)
 		r.Mul(r, blockReward)
 		r.Div(r, big8)
-		// TODO pending Token Economu research, if we want to reduce rewards of uncle blocks, the calculations for 'r' needs to be updated
+		// TODO pending Token Economy research, if we want to reduce rewards of uncle blocks, the calculations for 'r' needs to be updated
 		state.AddBalance(uncle.Coinbase, r)
 
 		r.Div(blockReward, big32)
