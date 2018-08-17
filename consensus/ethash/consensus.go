@@ -309,57 +309,94 @@ func CalcDifficulty(config *params.ChainConfig, time uint64, parent *types.Heade
 
 // Some weird constants to avoid constant memory allocs for them.
 var (
-	expDiffPeriod = big.NewInt(100000)
 	big1          = big.NewInt(1)
-	big2          = big.NewInt(2)
+	big3          = big.NewInt(3)
+	big4          = big.NewInt(4)
 	big9          = big.NewInt(9)
-	big10         = big.NewInt(10)
 	bigMinus99    = big.NewInt(-99)
-	big2999999    = big.NewInt(2999999)
 )
 
 // calcDifficultyByzantium is the difficulty adjustment algorithm. It returns
 // the difficulty that a new block should have when created at time given the
 // parent block's time and difficulty. The calculation uses the Byzantium rules.
 func calcDifficultyByzantium(time uint64, parent *types.Header) *big.Int {
-	// https://github.com/ethereum/EIPs/issues/100.
-	// algorithm:
-	// diff = (parent_diff +
-	//         (parent_diff / 2048 * max((2 if len(parent.uncles) else 1) - ((timestamp - parent.timestamp) // 9), -99))
-	//        ) + 2^(periodCount - 2)
+	// The goal of this difficulty calculation is to stabilize the
+	// average block time even as hash power is added or removed from
+	// the network. Let T be the time between the new block and
+	// previous block. If T is short enough, we assume this indicates
+	// hashing power was added, so we increase the difficulty to make
+	// blocks take longer. If T is already close to our desired
+	// average block time, we leave the difficulty unchanged. If T is
+	// too long, then hashing power might have been removed, so we
+	// decrease the difficulty to get back to the desired average
+	// block time.
+	//
+	// Ethereum targets a ~14 second block time, while Marconi targets
+	// a ~32 second block time. Here's how the difficulty changes for
+	// Marconi:
+	//
+	// If block time is:    then difficulty change is:
+	//   0 to  8 sec          ~0.15% increase
+	//   9 to 17 sec          ~0.10% increase
+	//  18 to 26 sec          ~0.05% increase
+	//  27 to 35 sec          no change
+	//  36 to 44 sec          ~0.05% decrease
+	//  45 to 53 sec          ~0.10% decrease
+	//      ...                     ...
+	//    >= 918 sec          ~5.00% decrease
+	//
+	// Except in the case of uncles. When an uncle is present in the
+	// parent block, we shift the above buckets by 1 position so that
+	// it's more likely that the difficulty will increase. See
+	// https://github.com/ethereum/EIPs/issues/100 for why the formula
+	// takes uncles into account.
+	//
+	// If we ignore uncles and the cap on decrease amount, the
+	// simplified mathematical formula is:
+	//
+	// difficulty = parent_difficulty + (3 - T/9) * parent_difficulty / 2048
+	//
+	// The full formula is:
+	//
+	// difficulty = parent_difficulty +
+	//   max(-99, (4 if uncles else 3) - T/9) * parent_difficulty / 2048
 
 	bigTime := new(big.Int).SetUint64(time)
 	bigParentTime := new(big.Int).Set(parent.Time)
 
-	// holds intermediate values to make the algo easier to read & audit
+	// Holders for intermediate values.
 	x := new(big.Int)
 	y := new(big.Int)
 
-	// (2 if len(parent_uncles) else 1) - (block_timestamp - parent_timestamp) // 9
+	// T/9
 	x.Sub(bigTime, bigParentTime)
 	x.Div(x, big9)
+	// (4 if uncles else 3) - T/9
 	if parent.UncleHash == types.EmptyUncleHash {
-		x.Sub(big1, x)
+		x.Sub(big3, x)
 	} else {
-		x.Sub(big2, x)
+		x.Sub(big4, x)
 	}
-	// max((2 if len(parent_uncles) else 1) - (block_timestamp - parent_timestamp) // 9, -99)
+	// max(-99, (4 if uncles else 3) - T/9)
 	if x.Cmp(bigMinus99) < 0 {
 		x.Set(bigMinus99)
 	}
-	// parent_diff + (parent_diff / 2048 * max((2 if len(parent.uncles) else 1) - ((timestamp - parent.timestamp) // 9), -99))
+	// parent_difficulty + max(-99, (4 if uncles else 3) - T/9) * parent_difficulty / 2048
 	y.Div(parent.Difficulty, params.DifficultyBoundDivisor)
 	x.Mul(y, x)
 	x.Add(parent.Difficulty, x)
 
-	// minimum difficulty can ever be
+	// Minimum the difficulty can ever be.
 	if x.Cmp(params.MinimumDifficulty) < 0 {
 		x.Set(params.MinimumDifficulty)
 	}
 
-	// TODO determine if we need to have a ice-age logic which jacks up the difficulty after a certain number of blocks.
-	// Ice-age is used in Ethereum to encourage users to moving to new hard forks. Adding the logic is simple, however
-	// it might be more preferable to incentivize upgrades in other ways.
+	// TODO: determine if we need to have ice age logic which
+	// exponentially jacks up the difficulty after a certain number of
+	// blocks. Ice age is used in Ethereum to encourage users to
+	// moving to new hard forks. Adding the logic is simple, however
+	// it might be more preferable to incentivize upgrades in other
+	// ways.
 
 	return x
 }
