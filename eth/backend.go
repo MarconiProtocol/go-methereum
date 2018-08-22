@@ -228,7 +228,7 @@ func CreateConsensusEngine(ctx *node.ServiceContext, chainConfig *params.ChainCo
 		return ethash.NewShared()
 	case ethash.ModeDoubleSha:
 		log.Warn("Ethash used in double sha mode")
-		engine := ethash.NewDoubleSha()
+		engine := ethash.NewDoubleSha(notify)
 		engine.SetThreads(-1) // Begin with the miner in idle mode (no work being done).
 		return engine
 	default:

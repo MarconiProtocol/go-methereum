@@ -53,7 +53,9 @@ func TestTestMode(t *testing.T) {
 func TestDoubleShaMode(t *testing.T) {
 	head := &types.Header{Number: big.NewInt(1), Difficulty: big.NewInt(100)}
 
-	ethash := NewDoubleSha()
+	ethash := NewDoubleSha(nil)
+	defer ethash.Close()
+
 	// Override the randomness used for nonce generation to have a
 	// constant seed, that way this test is deterministic.
 	ethash.rand = rand.New(rand.NewSource(0))

@@ -1334,7 +1334,7 @@ func MakeChain(ctx *cli.Context, stack *node.Node) (chain *core.BlockChain, chai
 	} else if ctx.GlobalBool(FakePoWFlag.Name) {
 		engine = ethash.NewFaker()
 	} else if ctx.GlobalBool(DoubleShaPoWFlag.Name) {
-		engine = ethash.NewDoubleSha()
+		engine = ethash.NewDoubleSha(nil)
 	} else {
 		engine = ethash.New(ethash.Config{
 			CacheDir:       stack.ResolvePath(eth.DefaultConfig.Ethash.CacheDir),
