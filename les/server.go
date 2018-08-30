@@ -25,6 +25,7 @@ import (
 
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core"
+	"github.com/ethereum/go-ethereum/core/rawdb"
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/eth"
 	"github.com/ethereum/go-ethereum/ethdb"
@@ -37,21 +38,19 @@ import (
 )
 
 type LesServer struct {
-	config          *eth.Config
-	protocolManager *ProtocolManager
-	fcManager       *flowcontrol.ClientManager // nil if our node is client only
-	fcCostStats     *requestCostStats
-	defParams       *flowcontrol.ServerParams
-	lesTopics       []discv5.Topic
-	privateKey      *ecdsa.PrivateKey
-	quitSync        chan struct{}
+	lesCommons
 
-	chtIndexer, bloomTrieIndexer *core.ChainIndexer
+	fcManager   *flowcontrol.ClientManager // nil if our node is client only
+	fcCostStats *requestCostStats
+	defParams   *flowcontrol.ServerParams
+	lesTopics   []discv5.Topic
+	privateKey  *ecdsa.PrivateKey
+	quitSync    chan struct{}
 }
 
 func NewLesServer(eth *eth.Ethereum, config *eth.Config) (*LesServer, error) {
 	quitSync := make(chan struct{})
-	pm, err := NewProtocolManager(eth.BlockChain().Config(), false, ServerProtocolVersions, config.NetworkId, eth.EventMux(), eth.Engine(), newPeerSet(), eth.BlockChain(), eth.TxPool(), eth.ChainDb(), nil, nil, quitSync, new(sync.WaitGroup))
+	pm, err := NewProtocolManager(eth.BlockChain().Config(), false, config.NetworkId, eth.EventMux(), eth.Engine(), newPeerSet(), eth.BlockChain(), eth.TxPool(), eth.ChainDb(), nil, nil, nil, quitSync, new(sync.WaitGroup))
 	if err != nil {
 		return nil, err
 	}
@@ -62,13 +61,17 @@ func NewLesServer(eth *eth.Ethereum, config *eth.Config) (*LesServer, error) {
 	}
 
 	srv := &LesServer{
-		config:           config,
-		protocolManager:  pm,
-		quitSync:         quitSync,
-		lesTopics:        lesTopics,
-		chtIndexer:       light.NewChtIndexer(eth.ChainDb(), false),
-		bloomTrieIndexer: light.NewBloomTrieIndexer(eth.ChainDb(), false),
+		lesCommons: lesCommons{
+			config:           config,
+			chainDb:          eth.ChainDb(),
+			chtIndexer:       light.NewChtIndexer(eth.ChainDb(), false, nil),
+			bloomTrieIndexer: light.NewBloomTrieIndexer(eth.ChainDb(), false, nil),
+			protocolManager:  pm,
+		},
+		quitSync:  quitSync,
+		lesTopics: lesTopics,
 	}
+
 	logger := log.New()
 
 	chtV1SectionCount, _, _ := srv.chtIndexer.Sections() // indexer still uses LES/1 4k section size for backwards server compatibility
@@ -103,7 +106,7 @@ func NewLesServer(eth *eth.Ethereum, config *eth.Config) (*LesServer, error) {
 }
 
 func (s *LesServer) Protocols() []p2p.Protocol {
-	return s.protocolManager.SubProtocols
+	return s.makeProtocols(ServerProtocolVersions)
 }
 
 // Start starts the LES server
@@ -329,11 +332,11 @@ func (pm *ProtocolManager) blockLoop() {
 					header := ev.Block.Header()
 					hash := header.Hash()
 					number := header.Number.Uint64()
-					td := core.GetTd(pm.chainDb, hash, number)
+					td := rawdb.ReadTd(pm.chainDb, hash, number)
 					if td != nil && td.Cmp(lastBroadcastTd) > 0 {
 						var reorg uint64
 						if lastHead != nil {
-							reorg = lastHead.Number.Uint64() - core.FindCommonAncestor(pm.chainDb, header, lastHead).Number.Uint64()
+							reorg = lastHead.Number.Uint64() - rawdb.FindCommonAncestor(pm.chainDb, header, lastHead).Number.Uint64()
 						}
 						lastHead = header
 						lastBroadcastTd = td
