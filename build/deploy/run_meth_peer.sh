@@ -6,7 +6,7 @@ usage() {
 }
 
 if [ -z $1 ]; then 
-  usage()
+  usage
 fi
 
 ENODE_URL=$1
