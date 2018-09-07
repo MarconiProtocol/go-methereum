@@ -1,21 +1,32 @@
 #!/bin/bash
 
-usage() {
-  echo "usage: $0 enode_url"
-  echo " enode_url | full enode url: enode://12345...@xxx.xxx.xxx.xxx"
+source config.sh
+
+warnBootnode() {
+  echo "Misconfigured config.sh, please check bootnode settings"
 }
 
-if [ -z $1 ]; then
-  usage
+warnMiner() {
+  echo "Misconfigured config.sh, please check miner settings"
+}
+
+if [ -z $BOOTNODE_ENODE_HASH ] || [ -z $BOOTNODE_IP ] || [ -z $BOOTNODE_PORT ]; then
+  warnBootnode
 fi
 
-ENODE_URL=$1
+if [ -z $MINER_PORT ] || [ -z $MINER_DATADIR ] || [ -z $MINER_ETHERBASE ]; then
+  warnMiner
+fi
 
-./geth --datadir ~/.ethereum-30100 \
-  --port 30100 \
+
+./geth --datadir $MINER_DATADIR \
+  --port $MINER_PORT \
   --rpc \
-  --rpcport 10100 \
+  --rpcport $MINER_RPC_PORT \
+  --rpcapi="db,eth,net,web3,personal" \
   --networkid 161027 \
   --mine --minerthreads 1 \
-  --bootnodes $ENODE_URL:30301 \
-  --etherbase 0x21928b6a4a3b768202e3704c957fa1ba8a0c6331 \
+  --bootnodes enode://$BOOTNODE_ENODE_HASH@$BOOTNODE_IP:$BOOTNODE_PORT \
+  --etherbase $MINER_ETHERBASE \
+  console
+
