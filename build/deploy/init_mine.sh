@@ -12,4 +12,4 @@ fi
 
 
 ./geth --datadir $MINER_DATADIR init genesis.json
-
+./geth --datadir $MINER_DATADIR account new --password <(echo "neji")
