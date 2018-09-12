@@ -27,6 +27,5 @@ fi
   --networkid 161027 \
   --mine --minerthreads 1 \
   --bootnodes enode://$BOOTNODE_ENODE_HASH@$BOOTNODE_IP:$BOOTNODE_PORT \
-  --etherbase $MINER_ETHERBASE \
-  console
+  --etherbase $MINER_ETHERBASE 
 
