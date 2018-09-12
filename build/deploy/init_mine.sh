@@ -11,5 +11,8 @@ if [ -z $MINER_DATADIR ]; then
 fi
 
 
-./geth --datadir $MINER_DATADIR init genesis.json
-./geth --datadir $MINER_DATADIR account new --password <(echo "neji")
+./geth --datadir $MINER_DATADIR account new --password <(echo "neji") > /tmp/account.js
+ACCOUNT=`cat /tmp/account.js | cut -d "{" -f2 | cut -d "}" -f1`
+cp genesis.json /tmp/newgenesis.json
+sed -i "s/abc8a1591aa743ecfb4c0556aa91105e9edd1718/${ACCOUNT}/" /tmp/newgenesis.json
+./geth --datadir $MINER_DATADIR init /tmp/newgenesis.json
