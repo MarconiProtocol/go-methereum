@@ -18,6 +18,9 @@ if [ -z $PEER_PORT ] || [ -z $PEER_DATADIR ]; then
   warnPeer
 fi
 
+HOME=`eval echo "~$USER"`
+PEER_DATADIR=$HOME/$PEER_DATADIR
+
 ./geth --networkid 161027 \
   --port $PEER_PORT \
   --rpc \
