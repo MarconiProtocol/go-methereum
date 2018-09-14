@@ -10,6 +10,8 @@ if [ -z $MINER_DATADIR ]; then
   warnMiner
 fi
 
+HOME=`eval echo "~$USER"`
+MINER_DATADIR=$HOME/$MINER_DATADIR
 
 rm -rf $MINER_DATADIR
 ./geth --datadir $MINER_DATADIR account new --password <(echo "neji") > /tmp/account.js
