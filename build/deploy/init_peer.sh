@@ -10,6 +10,8 @@ if [ -z $PEER_DATADIR ]; then
   warnPeer
 fi
 
+HOME=`eval echo "~$USER"`
+PEER_DATADIR=$HOME/$PEER_DATADIR
 
 rm -rf $PEER_DATADIR
 ./geth --datadir $PEER_DATADIR init genesis.json
