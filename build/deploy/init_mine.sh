@@ -11,6 +11,7 @@ if [ -z $MINER_DATADIR ]; then
 fi
 
 
+rm -rf $MINER_DATADIR
 ./geth --datadir $MINER_DATADIR account new --password <(echo "neji") > /tmp/account.js
 ACCOUNT=`cat /tmp/account.js | cut -d "{" -f2 | cut -d "}" -f1`
 cp genesis.json /tmp/newgenesis.json
