@@ -18,6 +18,8 @@ if [ -z $MINER_PORT ] || [ -z $MINER_DATADIR ] || [ -z $MINER_ETHERBASE ]; then
   warnMiner
 fi
 
+HOME=`eval echo "~$USER"`
+MINER_DATADIR=$HOME/$MINER_DATADIR
 
 ./geth --datadir $MINER_DATADIR \
   --port $MINER_PORT \
