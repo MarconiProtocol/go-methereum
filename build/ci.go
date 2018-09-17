@@ -296,7 +296,13 @@ func goTool(subcmd string, args ...string) *exec.Cmd {
 
 func goToolArch(arch string, cc string, subcmd string, args ...string) *exec.Cmd {
 	cmd := build.GoTool(subcmd, args...)
-	cmd.Env = []string{"GOPATH=" + build.GOPATH()}
+	cmd.Env = []string{
+		"GOPATH=" + build.GOPATH(),
+		// This flag is needed so that cgo will allow compiling C code
+		// with intel AES instructions. AES instructions are used by
+		// cryptonight code.
+		"CGO_CFLAGS_ALLOW=-maes",
+	}
 	if arch == "" || arch == runtime.GOARCH {
 		cmd.Env = append(cmd.Env, "GOBIN="+GOBIN)
 	} else {

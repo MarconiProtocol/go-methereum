@@ -123,7 +123,7 @@ var (
 		utils.EthStatsURLFlag,
 		utils.MetricsEnabledFlag,
 		utils.FakePoWFlag,
-		utils.DoubleShaPoWFlag,
+		utils.PowModeFlag,
 		utils.NoCompactionFlag,
 		utils.GpoBlocksFlag,
 		utils.GpoPercentileFlag,

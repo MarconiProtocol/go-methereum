@@ -28,6 +28,7 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/math"
 	"github.com/ethereum/go-ethereum/consensus"
+	"github.com/ethereum/go-ethereum/consensus/cryptonight"
 	"github.com/ethereum/go-ethereum/consensus/misc"
 	"github.com/ethereum/go-ethereum/core/state"
 	"github.com/ethereum/go-ethereum/core/types"
@@ -432,6 +433,9 @@ func (ethash *Ethash) verifySeal(chain consensus.ChainReader, header *types.Head
 	var result []byte
 	if ethash.config.PowMode == ModeDoubleSha {
 		digest, result = doubleSha256(header.HashNoNonce().Bytes(), header.Nonce.Uint64())
+	} else if ethash.config.PowMode == ModeCryptonight {
+		digest, result = cryptonight.HashVariant1ForEthereumHeader(
+			header.HashNoNonce().Bytes(), header.Nonce.Uint64())
 	} else {
 		number := header.Number.Uint64()
 

@@ -209,7 +209,7 @@ var AppHelpFlagGroups = []flagGroup{
 		Name: "LOGGING AND DEBUGGING",
 		Flags: append([]cli.Flag{
 			utils.FakePoWFlag,
-			utils.DoubleShaPoWFlag,
+			utils.PowModeFlag,
 			utils.NoCompactionFlag,
 		}, debug.Flags...),
 	},

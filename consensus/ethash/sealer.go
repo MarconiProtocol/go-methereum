@@ -31,6 +31,7 @@ import (
 
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/consensus"
+	"github.com/ethereum/go-ethereum/consensus/cryptonight"
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/log"
 )
@@ -116,7 +117,7 @@ func (ethash *Ethash) mine(block *types.Block, id int, seed uint64, pow_mode Mod
 		number  = header.Number.Uint64()
 		dataset *dataset = nil
 	)
-	if pow_mode != ModeDoubleSha {
+	if pow_mode != ModeDoubleSha && pow_mode != ModeCryptonight {
 		dataset = ethash.dataset(number, false)
 	}
 	// Start generating random nonces until we abort or find a good one
@@ -147,6 +148,8 @@ search:
 			var result []byte
 			if pow_mode == ModeDoubleSha {
 				digest, result = doubleSha256(hash, nonce)
+			} else if pow_mode == ModeCryptonight {
+				digest, result = cryptonight.HashVariant1ForEthereumHeader(hash, nonce)				
 			} else {
 				digest, result = hashimotoFull(dataset.dataset, hash, nonce)
 			}
@@ -170,7 +173,7 @@ search:
 	}
 	// Datasets are unmapped in a finalizer. Ensure that the dataset stays live
 	// during sealing so it's not unmapped while being read.
-	if pow_mode != ModeDoubleSha {
+	if pow_mode != ModeDoubleSha && pow_mode != ModeCryptonight {
 		runtime.KeepAlive(dataset)
 	}
 }
