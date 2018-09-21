@@ -39,6 +39,7 @@ func HashVariant1(input []byte) []byte {
 // block header hash and 8 byte nonce, then returns 32 byte digest and
 // 32 byte result.
 func HashVariant1ForEthereumHeader(block_header_hash []byte, nonce uint64) ([]byte, []byte) {
+	/*
 	// Note: we need to use at least 43 bytes of hash material, so we
 	// repeat the 8 bytes of nonce.
 	header_concat_nonce := make([]byte, 48)
@@ -46,6 +47,31 @@ func HashVariant1ForEthereumHeader(block_header_hash []byte, nonce uint64) ([]by
 	binary.LittleEndian.PutUint64(header_concat_nonce[32:], nonce)
 	binary.LittleEndian.PutUint64(header_concat_nonce[40:], nonce)
 	result := HashVariant1(header_concat_nonce)
+    */
+	blob := make([]byte, 76)
+	for i := 0; i < len(blob); i++ {
+		// Initialize to 0x77 for all bytes.
+		blob[i] = 119
+	}
+	var blen int = 0
+	// major version and minor version
+	blob[blen] = 7;
+	blen++
+	blob[blen] = 0;
+	blen++
+	// 5 byte timestamp
+	for i := 0; i < 5; i++ {
+		// Initialize to 0x77 for all bytes.
+		blob[blen] = 0
+		blen++
+	}
+	copy(blob[blen:], block_header_hash)
+	blen += 32
+	var actual_nonce uint32 = uint32(nonce & 0x00000000ffffffff)
+	binary.LittleEndian.PutUint32(blob[blen:], actual_nonce)
+	
+	result := HashVariant1(blob)
+	
 	// The digest is always equal to the result, since unlike
 	// hashimoto, we don't have separate full and light versions of
 	// cryptonight hashing.

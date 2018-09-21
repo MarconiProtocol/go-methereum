@@ -170,14 +170,21 @@ search:
 			if pow_mode == ModeDoubleSha {
 				digest, result = doubleSha256(hash, nonce)
 			} else if pow_mode == ModeCryptonight {
-				digest, result = cryptonight.HashVariant1ForEthereumHeader(hash, nonce)				
+				digest, result = cryptonight.HashVariant1ForEthereumHeader(hash, nonce & 0x00000000ffffffff)
 			} else {
 				digest, result = hashimotoFull(dataset.dataset, hash, nonce)
+			}
+			for i := 0; i < len(result)/2; i++ {
+				result[i], result[len(result)-i-1] = result[len(result)-i-1], result[i]
 			}
 			if new(big.Int).SetBytes(result).Cmp(target) <= 0 {
 				// Correct nonce found, create a new header with it
 				header = types.CopyHeader(header)
-				header.Nonce = types.EncodeNonce(nonce)
+				var mask uint64 = 0xffffffffffffffff
+				if pow_mode == ModeCryptonight {
+					mask = 0x00000000ffffffff
+				}
+				header.Nonce = types.EncodeNonce(nonce & mask)
 				header.MixDigest = common.BytesToHash(digest)
 
 				// Seal and return a block (if still needed)
