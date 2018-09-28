@@ -17,7 +17,10 @@
 package core
 
 import (
+	"errors"
+
 	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/ethereum/go-ethereum/consensus"
 	"github.com/ethereum/go-ethereum/consensus/misc"
 	"github.com/ethereum/go-ethereum/core/state"
@@ -81,6 +84,27 @@ func (p *StateProcessor) Process(block *types.Block, statedb *state.StateDB, cfg
 	return receipts, allLogs, *usedGas, nil
 }
 
+// Only these addresses are allowed to deploy smart contracts. This
+// prevents the chain from getting bloated due to random stuff getting
+// deployed.
+var whitelisted_addresses = map[string]bool {
+	"0x2e8a8501f3e154f659b0456bf1e6c1cf00ba62de": true,
+	"0x3c2b849944ae0342c8eba00ce9c2a68467ec50fa": true,
+	"0xe3bc12a8473e79ef4e35d9366296492a71c602f6": true,
+	"0xfc9b0b2b0530da7a89f80a78c498056434f8277c": true,
+	"0x608358a83efa5cc3ff34a01ab8c047867af9cc0b": true,
+	"0x9c9ac4e84651b836ad3f8dde5ae4716054a241dc": true,
+	"0x7469eae31a2f0a8cb952a1d78c68627791f0213c": true,
+	"0xf1185b7ca3a0a7978a6c17171a15fbcc96af27cb": true,
+	"0xd337147677f56e93f3da8f3e863c098a8410a444": true,
+	"0x5bb80f07ea71f9a28b5c0bc3b55af5ffcb351d8c": true,
+	"0x01946a2ef4e546cb6d6493dd3e072b600535f8ef": true,
+	"0x1044b55848f65deb0f653273683cf13e4e4445e6": true,
+	"0x65be5dceef958f147cd8d1e3fd94c3b5b03ea304": true,
+	"0xe56fb56d8a91bf792e2f9951f25bdc2488a0fd9d": true,
+	"0x2be20ac5ce8c57ade93fdf3ee34e2ca6165dd551": true,
+}
+
 // ApplyTransaction attempts to apply a transaction to the given state database
 // and uses the input parameters for its environment. It returns the receipt
 // for the transaction, gas used and an error if the transaction failed,
@@ -90,6 +114,15 @@ func ApplyTransaction(config *params.ChainConfig, bc ChainContext, author *commo
 	if err != nil {
 		return nil, 0, err
 	}
+
+	// if the transaction wants to create a contract, and the address whitelist is enabled...
+	if msg.To() == nil && config.ContractsRequireWhitelistedAccount {
+		// only allow it if the sender address is whitelisted.
+		if whitelisted_addresses[hexutil.Encode(msg.From().Bytes())] == false {
+			return nil, 0, errors.New("Sender address isn't whitelisted")
+		}
+	}
+
 	// Create a new context to be used in the EVM environment
 	context := NewEVMContext(msg, header, bc, author)
 	// Create a new environment which holds all relevant information
