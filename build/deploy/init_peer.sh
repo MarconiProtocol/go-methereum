@@ -15,4 +15,3 @@ PEER_DATADIR=$HOME/$PEER_DATADIR
 
 rm -rf $PEER_DATADIR
 ./geth --datadir $PEER_DATADIR init genesis.json
-./geth --datadir $PEER_DATADIR account new --password <(echo "neji")
