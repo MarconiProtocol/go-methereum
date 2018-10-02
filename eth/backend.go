@@ -234,12 +234,12 @@ func CreateConsensusEngine(ctx *node.ServiceContext, chainConfig *params.ChainCo
 		return ethash.NewShared()
 	case ethash.ModeDoubleSha:
 		log.Warn("Ethash used in double sha mode")
-		engine := ethash.NewDoubleSha(notify)
+		engine := ethash.NewDoubleSha(notify, noverify)
 		engine.SetThreads(-1) // Begin with the miner in idle mode (no work being done).
 		return engine
 	case ethash.ModeCryptonight:
 		log.Warn("Ethash used in cryptonight mode")
-		engine := ethash.NewCryptonight(notify)
+		engine := ethash.NewCryptonight(notify, noverify)
 		engine.SetThreads(-1) // Begin with the miner in idle mode (no work being done).
 		return engine
 	default:

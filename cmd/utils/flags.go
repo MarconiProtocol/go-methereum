@@ -1368,9 +1368,9 @@ func MakeChain(ctx *cli.Context, stack *node.Node) (chain *core.BlockChain, chai
 	} else if ctx.GlobalBool(FakePoWFlag.Name) {
 		engine = ethash.NewFaker()
 	} else if ctx.GlobalString(PowModeFlag.Name) == doubleshaPowMode {
-		engine = ethash.NewDoubleSha(nil)
+		engine = ethash.NewDoubleSha(nil, false)
 	} else if ctx.GlobalString(PowModeFlag.Name) == cryptonightPowMode {
-		engine = ethash.NewCryptonight(nil)
+		engine = ethash.NewCryptonight(nil, false)
 	} else if ctx.GlobalString(PowModeFlag.Name) == ethashPowMode {
 		engine = ethash.New(ethash.Config{
 			CacheDir:       stack.ResolvePath(eth.DefaultConfig.Ethash.CacheDir),

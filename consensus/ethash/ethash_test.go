@@ -59,13 +59,14 @@ func TestTestMode(t *testing.T) {
 func TestDoubleShaMode(t *testing.T) {
 	head := &types.Header{Number: big.NewInt(1), Difficulty: big.NewInt(100)}
 
-	ethash := NewDoubleSha(nil)
+	ethash := NewDoubleSha(nil, false)
 	defer ethash.Close()
 
 	// Override the randomness used for nonce generation to have a
 	// constant seed, that way this test is deterministic.
 	ethash.rand = rand.New(rand.NewSource(0))
-	block, err := ethash.Seal(nil, types.NewBlockWithHeader(head), nil)
+	block := types.NewBlockWithHeader(head)
+	err := ethash.Seal(nil, block, nil, nil)
 	if err != nil {
 		t.Fatalf("failed to seal block: %v", err)
 	}

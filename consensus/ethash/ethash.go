@@ -502,44 +502,42 @@ func New(config Config, notify []string, noverify bool) *Ethash {
 // NewDoubleSha creates a new double sha PoW scheme and starts a
 // background thread for remote mining, also optionally notifying a
 // batch of remote services of new work packages.
-func NewDoubleSha(notify []string) *Ethash {
+func NewDoubleSha(notify []string, noverify bool) *Ethash {
 	ethash := &Ethash{
 		config: Config{
 			PowMode: ModeDoubleSha,
 		},
 		update:   make(chan struct{}),
 		hashrate: metrics.NewMeter(),
-		workCh:       make(chan *types.Block),
-		resultCh:     make(chan *types.Block),
+		workCh:       make(chan *sealTask),
 		fetchWorkCh:  make(chan *sealWork),
 		submitWorkCh: make(chan *mineResult),
 		fetchRateCh:  make(chan chan uint64),
 		submitRateCh: make(chan *hashrate),
 		exitCh:       make(chan chan error),
 	}
-	go ethash.remote(notify)
+	go ethash.remote(notify, noverify)
 	return ethash
 }
 
 // NewCryptonight creates a new cryptonight PoW scheme and starts a
 // background thread for remote mining, also optionally notifying a
 // batch of remote services of new work packages.
-func NewCryptonight(notify []string) *Ethash {
+func NewCryptonight(notify []string, noverify bool) *Ethash {
 	ethash := &Ethash{
 		config: Config{
 			PowMode: ModeCryptonight,
 		},
 		update:   make(chan struct{}),
 		hashrate: metrics.NewMeter(),
-		workCh:       make(chan *types.Block),
-		resultCh:     make(chan *types.Block),
+		workCh:       make(chan *sealTask),
 		fetchWorkCh:  make(chan *sealWork),
 		submitWorkCh: make(chan *mineResult),
 		fetchRateCh:  make(chan chan uint64),
 		submitRateCh: make(chan *hashrate),
 		exitCh:       make(chan chan error),
 	}
-	go ethash.remote(notify)
+	go ethash.remote(notify, noverify)
 	return ethash
 }
 

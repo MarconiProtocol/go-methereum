@@ -434,10 +434,10 @@ func (ethash *Ethash) verifySeal(chain consensus.ChainReader, header *types.Head
 	var digest []byte
 	var result []byte
 	if ethash.config.PowMode == ModeDoubleSha {
-		digest, result = doubleSha256(header.HashNoNonce().Bytes(), header.Nonce.Uint64())
+		digest, result = doubleSha256(ethash.SealHash(header).Bytes(), header.Nonce.Uint64())
 	} else if ethash.config.PowMode == ModeCryptonight {
 		digest, result = cryptonight.HashVariant1ForEthereumHeader(
-			header.HashNoNonce().Bytes(), header.Nonce.Uint64())
+			ethash.SealHash(header).Bytes(), header.Nonce.Uint64())
 	} else {
 		number := header.Number.Uint64()
 
