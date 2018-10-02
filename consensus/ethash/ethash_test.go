@@ -65,13 +65,20 @@ func TestDoubleShaMode(t *testing.T) {
 	// Override the randomness used for nonce generation to have a
 	// constant seed, that way this test is deterministic.
 	ethash.rand = rand.New(rand.NewSource(0))
-	block := types.NewBlockWithHeader(head)
-	err := ethash.Seal(nil, block, nil, nil)
+	results := make(chan *types.Block)
+	err := ethash.Seal(nil, types.NewBlockWithHeader(head), results, nil)
 	if err != nil {
 		t.Fatalf("failed to seal block: %v", err)
 	}
-	head.Nonce = types.EncodeNonce(block.Nonce())
-	head.MixDigest = block.MixDigest()
+	var block *types.Block = nil
+	select {
+	case block = <-results:
+		head.Nonce = types.EncodeNonce(block.Nonce())
+		head.MixDigest = block.MixDigest()
+	case <-time.NewTimer(time.Second).C:
+		t.Fatalf("sealing result timeout")
+	}
+
 	if err := ethash.VerifySeal(nil, head); err != nil {
 		t.Fatalf("unexpected verification error: %v", err)
 	}
