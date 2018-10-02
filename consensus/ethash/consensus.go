@@ -32,8 +32,10 @@ import (
 	"github.com/ethereum/go-ethereum/consensus/misc"
 	"github.com/ethereum/go-ethereum/core/state"
 	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/ethereum/go-ethereum/crypto/sha3"
 	"github.com/ethereum/go-ethereum/log"
+	"github.com/ethereum/go-ethereum/params"
+	"github.com/ethereum/go-ethereum/rlp"
 )
 
 // Ethash proof-of-work protocol constants.
@@ -432,10 +434,10 @@ func (ethash *Ethash) verifySeal(chain consensus.ChainReader, header *types.Head
 	var digest []byte
 	var result []byte
 	if ethash.config.PowMode == ModeDoubleSha {
-		digest, result = doubleSha256(header.HashNoNonce().Bytes(), header.Nonce.Uint64())
+		digest, result = doubleSha256(ethash.SealHash(header).Bytes(), header.Nonce.Uint64())
 	} else if ethash.config.PowMode == ModeCryptonight {
 		digest, result = cryptonight.HashVariant1ForEthereumHeader(
-			header.HashNoNonce().Bytes(), header.Nonce.Uint64())
+			ethash.SealHash(header).Bytes(), header.Nonce.Uint64())
 	} else {
 		number := header.Number.Uint64()
 
@@ -443,7 +445,7 @@ func (ethash *Ethash) verifySeal(chain consensus.ChainReader, header *types.Head
 		if fulldag {
 			dataset := ethash.dataset(number, true)
 			if dataset.generated() {
-				digest, result = hashimotoFull(dataset.dataset, header.HashNoNonce().Bytes(), header.Nonce.Uint64())
+				digest, result = hashimotoFull(dataset.dataset, ethash.SealHash(header).Bytes(), header.Nonce.Uint64())
 
 				// Datasets are unmapped in a finalizer. Ensure that the dataset stays alive
 				// until after the call to hashimotoFull so it's not unmapped while being used.
@@ -456,12 +458,11 @@ func (ethash *Ethash) verifySeal(chain consensus.ChainReader, header *types.Head
 		// If slow-but-light PoW verification was requested (or DAG not yet ready), use an ethash cache
 		if !fulldag {
 			cache := ethash.cache(number)
-
 			size := datasetSize(number)
 			if ethash.config.PowMode == ModeTest {
 				size = 32 * 1024
 			}
-			digest, result = hashimotoLight(size, cache.cache, header.HashNoNonce().Bytes(), header.Nonce.Uint64())
+			digest, result = hashimotoLight(size, cache.cache, ethash.SealHash(header).Bytes(), header.Nonce.Uint64())
 
 			// Caches are unmapped in a finalizer. Ensure that the cache stays alive
 			// until after the call to hashimotoLight so it's not unmapped while being used.
@@ -499,6 +500,29 @@ func (ethash *Ethash) Finalize(chain consensus.ChainReader, header *types.Header
 
 	// Header seems complete, assemble into a block and return
 	return types.NewBlock(header, txs, uncles, receipts), nil
+}
+
+// SealHash returns the hash of a block prior to it being sealed.
+func (ethash *Ethash) SealHash(header *types.Header) (hash common.Hash) {
+	hasher := sha3.NewKeccak256()
+
+	rlp.Encode(hasher, []interface{}{
+		header.ParentHash,
+		header.UncleHash,
+		header.Coinbase,
+		header.Root,
+		header.TxHash,
+		header.ReceiptHash,
+		header.Bloom,
+		header.Difficulty,
+		header.Number,
+		header.GasLimit,
+		header.GasUsed,
+		header.Time,
+		header.Extra,
+	})
+	hasher.Sum(hash[:0])
+	return hash
 }
 
 // Some weird constants to avoid constant memory allocs for them.
