@@ -28,6 +28,7 @@ MINER_DATADIR=$HOME/$MINER_DATADIR
   --rpcapi="db,eth,net,web3,personal" \
   --networkid 161027 \
   --mine --minerthreads 1 \
+  --powmode doublesha \
   --bootnodes enode://$BOOTNODE_ENODE_HASH@$BOOTNODE_IP:$BOOTNODE_PORT \
   --etherbase $MINER_ETHERBASE 
 
