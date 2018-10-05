@@ -20,8 +20,8 @@ import (
 	"math/big"
 
 	ethereum "github.com/ethereum/go-ethereum"
-	"github.com/ethereum/go-ethereum/accounts"
-	"github.com/ethereum/go-ethereum/core/types"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/accounts"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/core/types"
 )
 
 // keystoreWallet implements the accounts.Wallet interface for the original

@@ -20,8 +20,8 @@ import (
 	"encoding/binary"
 	"errors"
 
-	"github.com/ethereum/go-ethereum/crypto/sha3"
-	"github.com/ethereum/go-ethereum/swarm/storage/encryption"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto/sha3"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage/encryption"
 )
 
 type RefEncryption struct {

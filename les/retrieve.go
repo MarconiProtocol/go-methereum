@@ -26,8 +26,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common/mclock"
-	"github.com/ethereum/go-ethereum/light"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/common/mclock"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/light"
 )
 
 var (

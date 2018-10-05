@@ -18,7 +18,7 @@ package mru
 import (
 	"testing"
 
-	"github.com/ethereum/go-ethereum/common/hexutil"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/common/hexutil"
 )
 
 func compareByteSliceToExpectedHex(t *testing.T, variableName string, actualValue []byte, expectedHex string) {
