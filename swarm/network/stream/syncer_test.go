@@ -28,17 +28,17 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/node"
-	"github.com/ethereum/go-ethereum/p2p"
-	"github.com/ethereum/go-ethereum/p2p/discover"
-	"github.com/ethereum/go-ethereum/p2p/simulations/adapters"
-	"github.com/ethereum/go-ethereum/swarm/log"
-	"github.com/ethereum/go-ethereum/swarm/network"
-	"github.com/ethereum/go-ethereum/swarm/network/simulation"
-	"github.com/ethereum/go-ethereum/swarm/state"
-	"github.com/ethereum/go-ethereum/swarm/storage"
-	mockdb "github.com/ethereum/go-ethereum/swarm/storage/mock/db"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/node"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/discover"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/simulations/adapters"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/log"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/network"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/network/simulation"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/state"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage"
+	mockdb "gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage/mock/db"
 )
 
 const dataChunkCount = 200

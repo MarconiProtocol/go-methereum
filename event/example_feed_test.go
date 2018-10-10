@@ -19,7 +19,7 @@ package event_test
 import (
 	"fmt"
 
-	"github.com/ethereum/go-ethereum/event"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/event"
 )
 
 func ExampleFeed_acknowledgedEvents() {

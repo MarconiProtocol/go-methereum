@@ -26,9 +26,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum/rpc"
-	"github.com/ethereum/go-ethereum/swarm"
-	"github.com/ethereum/go-ethereum/swarm/api"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/rpc"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/api"
 
 	"github.com/docker/docker/pkg/reexec"
 )

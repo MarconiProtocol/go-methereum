@@ -25,17 +25,17 @@ import (
 	"time"
 
 	mapset "github.com/deckarep/golang-set"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/math"
-	"github.com/ethereum/go-ethereum/consensus"
-	"github.com/ethereum/go-ethereum/consensus/cryptonight"
-	"github.com/ethereum/go-ethereum/consensus/misc"
-	"github.com/ethereum/go-ethereum/core/state"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/crypto/sha3"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/params"
-	"github.com/ethereum/go-ethereum/rlp"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/common/math"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/consensus"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/consensus/cryptonight"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/consensus/misc"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/core/state"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/core/types"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto/sha3"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/params"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/rlp"
 )
 
 // Ethash proof-of-work protocol constants.
@@ -351,7 +351,7 @@ func calcDifficultyByzantium(time uint64, parent *types.Header) *big.Int {
 	// Except in the case of uncles. When an uncle is present in the
 	// parent block, we shift the above buckets by 1 position so that
 	// it's more likely that the difficulty will increase. See
-	// https://github.com/ethereum/EIPs/issues/100 for why the formula
+	// https://gitlab.neji.vm.tc/marconi/EIPs/issues/100 for why the formula
 	// takes uncles into account.
 	//
 	// If we ignore uncles and the cap on decrease amount, the

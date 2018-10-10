@@ -20,7 +20,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ethereum/go-ethereum/swarm/api"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/api"
 )
 
 const (

@@ -29,9 +29,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ethereum/go-ethereum/accounts"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/crypto"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/accounts"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto"
 	"github.com/pborman/uuid"
 )
 
@@ -57,42 +57,42 @@ type keyStore interface {
 	JoinPath(filename string) string
 }
 
-type plainKeyJSON struct {
+type PlainKeyJSON struct {
 	Address    string `json:"address"`
 	PrivateKey string `json:"privatekey"`
 	Id         string `json:"id"`
 	Version    int    `json:"version"`
 }
 
-type encryptedKeyJSONV3 struct {
+type EncryptedKeyJSONV3 struct {
 	Address string     `json:"address"`
-	Crypto  cryptoJSON `json:"crypto"`
+	Crypto  CryptoJSON `json:"crypto"`
 	Id      string     `json:"id"`
 	Version int        `json:"version"`
 }
 
-type encryptedKeyJSONV1 struct {
+type EncryptedKeyJSONV1 struct {
 	Address string     `json:"address"`
-	Crypto  cryptoJSON `json:"crypto"`
+	Crypto  CryptoJSON `json:"crypto"`
 	Id      string     `json:"id"`
 	Version string     `json:"version"`
 }
 
-type cryptoJSON struct {
+type CryptoJSON struct {
 	Cipher       string                 `json:"cipher"`
 	CipherText   string                 `json:"ciphertext"`
-	CipherParams cipherparamsJSON       `json:"cipherparams"`
+	CipherParams CipherparamsJSON       `json:"cipherparams"`
 	KDF          string                 `json:"kdf"`
 	KDFParams    map[string]interface{} `json:"kdfparams"`
 	MAC          string                 `json:"mac"`
 }
 
-type cipherparamsJSON struct {
+type CipherparamsJSON struct {
 	IV string `json:"iv"`
 }
 
 func (k *Key) MarshalJSON() (j []byte, err error) {
-	jStruct := plainKeyJSON{
+	jStruct := PlainKeyJSON{
 		hex.EncodeToString(k.Address[:]),
 		hex.EncodeToString(crypto.FromECDSA(k.PrivateKey)),
 		k.Id.String(),
@@ -103,7 +103,7 @@ func (k *Key) MarshalJSON() (j []byte, err error) {
 }
 
 func (k *Key) UnmarshalJSON(j []byte) (err error) {
-	keyJSON := new(plainKeyJSON)
+	keyJSON := new(PlainKeyJSON)
 	err = json.Unmarshal(j, &keyJSON)
 	if err != nil {
 		return err
@@ -127,7 +127,7 @@ func (k *Key) UnmarshalJSON(j []byte) (err error) {
 	return nil
 }
 
-func newKeyFromECDSA(privateKeyECDSA *ecdsa.PrivateKey) *Key {
+func NewKeyFromECDSA(privateKeyECDSA *ecdsa.PrivateKey) *Key {
 	id := uuid.NewRandom()
 	key := &Key{
 		Id:         id,
@@ -151,7 +151,7 @@ func NewKeyForDirectICAP(rand io.Reader) *Key {
 	if err != nil {
 		panic("key generation: ecdsa.GenerateKey failed: " + err.Error())
 	}
-	key := newKeyFromECDSA(privateKeyECDSA)
+	key := NewKeyFromECDSA(privateKeyECDSA)
 	if !strings.HasPrefix(key.Address.Hex(), "0x00") {
 		return NewKeyForDirectICAP(rand)
 	}
@@ -163,7 +163,7 @@ func newKey(rand io.Reader) (*Key, error) {
 	if err != nil {
 		return nil, err
 	}
-	return newKeyFromECDSA(privateKeyECDSA), nil
+	return NewKeyFromECDSA(privateKeyECDSA), nil
 }
 
 func storeNewKey(ks keyStore, rand io.Reader, auth string) (*Key, accounts.Account, error) {
