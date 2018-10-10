@@ -95,7 +95,7 @@ func TestDoubleShaMode(t *testing.T) {
 }
 
 // This test checks that cache lru logic doesn't crash under load.
-// It reproduces https://github.com/ethereum/go-ethereum/issues/14943
+// It reproduces https://gitlab.neji.vm.tc/marconi/go-ethereum/issues/14943
 func TestCacheFileEvict(t *testing.T) {
 	tmpdir, err := ioutil.TempDir("", "ethash-test")
 	if err != nil {

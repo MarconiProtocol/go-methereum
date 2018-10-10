@@ -19,7 +19,7 @@ package shhclient
 import (
 	"context"
 
-	"github.com/ethereum/go-ethereum"
+	"gitlab.neji.vm.tc/marconi/go-ethereum"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/common/hexutil"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/rpc"
 	whisper "gitlab.neji.vm.tc/marconi/go-ethereum/whisper/whisperv6"

@@ -25,7 +25,7 @@ import (
 	"testing"
 	"time"
 
-	ethereum "github.com/ethereum/go-ethereum"
+	ethereum "gitlab.neji.vm.tc/marconi/go-ethereum"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/consensus/ethash"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/core"

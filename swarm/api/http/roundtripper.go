@@ -25,7 +25,7 @@ import (
 
 /*
 http roundtripper to register for bzz url scheme
-see https://github.com/ethereum/go-ethereum/issues/2040
+see https://gitlab.neji.vm.tc/marconi/go-ethereum/issues/2040
 Usage:
 
 import (

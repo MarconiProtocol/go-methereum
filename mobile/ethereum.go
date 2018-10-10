@@ -21,7 +21,7 @@ package geth
 import (
 	"errors"
 
-	ethereum "github.com/ethereum/go-ethereum"
+	ethereum "gitlab.neji.vm.tc/marconi/go-ethereum"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
 )
 

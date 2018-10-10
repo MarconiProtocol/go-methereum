@@ -24,7 +24,7 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/ethereum/go-ethereum"
+	"gitlab.neji.vm.tc/marconi/go-ethereum"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/common/hexutil"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/core/types"

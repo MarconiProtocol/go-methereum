@@ -351,7 +351,7 @@ func calcDifficultyByzantium(time uint64, parent *types.Header) *big.Int {
 	// Except in the case of uncles. When an uncle is present in the
 	// parent block, we shift the above buckets by 1 position so that
 	// it's more likely that the difficulty will increase. See
-	// https://github.com/ethereum/EIPs/issues/100 for why the formula
+	// https://gitlab.neji.vm.tc/marconi/EIPs/issues/100 for why the formula
 	// takes uncles into account.
 	//
 	// If we ignore uncles and the cap on decrease amount, the

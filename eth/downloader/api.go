@@ -20,7 +20,7 @@ import (
 	"context"
 	"sync"
 
-	ethereum "github.com/ethereum/go-ethereum"
+	ethereum "gitlab.neji.vm.tc/marconi/go-ethereum"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/event"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/rpc"
 )

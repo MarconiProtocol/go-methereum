@@ -25,7 +25,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	ethereum "github.com/ethereum/go-ethereum"
+	ethereum "gitlab.neji.vm.tc/marconi/go-ethereum"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/core/rawdb"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/core/types"
