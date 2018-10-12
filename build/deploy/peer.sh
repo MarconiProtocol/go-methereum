@@ -27,5 +27,6 @@ PEER_DATADIR=$HOME/$PEER_DATADIR
   --rpcapi="db,eth,net,web3,personal" \
   --rpcport $PEER_RPC_PORT \
   --datadir $PEER_DATADIR \
+  --powmode doublesha \
   --bootnodes enode://$BOOTNODE_ENODE_HASH@$BOOTNODE_IP:$BOOTNODE_PORT
 
