@@ -1,27 +1,22 @@
 #!/bin/bash
 
+ABSOLUTE_MINERDIR=${1}
+
+if [ -z ${ABSOLUTE_MINERDIR} ]; then
+  echo "Missing path to mining data directory"
+fi
+
 source config.sh
 
-warnBootnode() {
-  echo "Misconfigured config.sh, please check bootnode settings"
-}
-
-warnMiner() {
-  echo "Misconfigured config.sh, please check miner settings"
-}
-
 if [ -z $BOOTNODE_ENODE_HASH ] || [ -z $BOOTNODE_IP ] || [ -z $BOOTNODE_PORT ]; then
-  warnBootnode
+  echo "Misconfigured config.sh, please check bootnode settings"
 fi
 
-if [ -z $MINER_PORT ] || [ -z $MINER_DATADIR ] || [ -z $MINER_ETHERBASE ]; then
-  warnMiner
+if [ -z $MINER_PORT ] || [ -z $MINER_ETHERBASE ]; then
+  echo "Misconfigured config.sh, please check miner settings"
 fi
 
-HOME=`eval echo "~$USER"`
-MINER_DATADIR=$HOME/$MINER_DATADIR
-
-./geth --datadir $MINER_DATADIR \
+./geth --datadir ${ABSOLUTE_MINERDIR} \
   --port $MINER_PORT \
   --rpc \
   --rpcport $MINER_RPC_PORT \
@@ -31,4 +26,3 @@ MINER_DATADIR=$HOME/$MINER_DATADIR
   --powmode doublesha \
   --bootnodes enode://$BOOTNODE_ENODE_HASH@$BOOTNODE_IP:$BOOTNODE_PORT \
   --etherbase $MINER_ETHERBASE 
-
