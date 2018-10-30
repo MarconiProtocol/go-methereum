@@ -474,6 +474,14 @@ func (ethash *Ethash) verifySeal(chain consensus.ChainReader, header *types.Head
 		return errInvalidMixDigest
 	}
 	target := new(big.Int).Div(two256, header.Difficulty)
+	if ethash.config.PowMode == ModeCryptonight {
+		// Interpret hash result as little endian. We do this after
+		// checking 'digest' against MixDigest above, since 'result'
+		// and 'digest' point at the same memory.
+		for i := 0; i < len(result)/2; i++ {
+			result[i], result[len(result)-i-1] = result[len(result)-i-1], result[i]
+		}
+	}
 	if new(big.Int).SetBytes(result).Cmp(target) > 0 {
 		return errInvalidPoW
 	}

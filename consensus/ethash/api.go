@@ -38,7 +38,7 @@ type API struct {
 //   result[1] - 32 bytes hex encoded seed hash used for DAG
 //   result[2] - 32 bytes hex encoded boundary condition ("target"), 2^256/difficulty
 func (api *API) GetWork() ([3]string, error) {
-	if api.ethash.config.PowMode != ModeNormal && api.ethash.config.PowMode != ModeTest {
+	if api.ethash.config.PowMode != ModeNormal && api.ethash.config.PowMode != ModeCryptonight && api.ethash.config.PowMode != ModeTest {
 		return [3]string{}, errors.New("not supported")
 	}
 
@@ -65,7 +65,7 @@ func (api *API) GetWork() ([3]string, error) {
 // It returns an indication if the work was accepted.
 // Note either an invalid solution, a stale work a non-existent work will return false.
 func (api *API) SubmitWork(nonce types.BlockNonce, hash, digest common.Hash) bool {
-	if api.ethash.config.PowMode != ModeNormal && api.ethash.config.PowMode != ModeTest {
+	if api.ethash.config.PowMode != ModeNormal && api.ethash.config.PowMode != ModeCryptonight && api.ethash.config.PowMode != ModeTest {
 		return false
 	}
 

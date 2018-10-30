@@ -54,18 +54,25 @@ func TestHashVariant1(t *testing.T) {
 	if !bytes.Equal(actual_hash, expected_hash) {
 		t.Error("Unexpected result: ", hex.EncodeToString(actual_hash), " versus ", hex.EncodeToString(expected_hash))
 	}
+	// Holy shit it works. Endianness almost tricked me.
+	input = hexutil.MustDecode("0x07000000000000a25dd004a5561f04de75b908d671ffa39960352d03d0682d28ce0890d29b9c96fd1e0000777777777777777777777777777777777777777777777777777777777777777777")
+	expected_hash = hexutil.MustDecode("0xcbe504327063949398a053ae97c057f7ced7075b5cc9186c5377e48433190100")
+	actual_hash = HashVariant1(input)
+	if !bytes.Equal(actual_hash, expected_hash) {
+		t.Error("Unexpected result: ", hex.EncodeToString(actual_hash), " versus ", hex.EncodeToString(expected_hash))
+	}
 }
 
 func TestHashVariant1ForEthereum(t *testing.T) {
-	block_header_bytes := []byte("deadbeefdeadbeefdeadbeefdeadbeef")
-	var nonce uint64 = 123
+	var block_header_bytes []byte = hexutil.MustDecode("0xb34f93a7c65392053cbbf073e9ad3bc7a7c0c3a45bfa0795f954b53686849db8")
+	var nonce uint64 = 0xc526c0a1000008dc
 	var digest []byte
 	var result []byte
 	digest, result = HashVariant1ForEthereumHeader(block_header_bytes, nonce)
 	if !bytes.Equal(digest, result) {
 		t.Error("Digest should match result: ", hex.EncodeToString(digest), " versus ", string(result))
 	}
-	expected_hash := hexutil.MustDecode("0x3c71949afc7c6e042d81f25c97f6da25b6ff6abcb039e170610adf94c409922d")
+	expected_hash := hexutil.MustDecode("0x834d72ab9e78b9a60808b9a49866c6a452826f11eb4a8d3ac4b49c0faf740100")
 	if !bytes.Equal(result, expected_hash) {
 		t.Error("Unexpected result: ", hex.EncodeToString(result), " versus ", hex.EncodeToString(expected_hash))
 	}
