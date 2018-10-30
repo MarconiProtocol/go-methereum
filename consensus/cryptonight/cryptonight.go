@@ -39,15 +39,11 @@ func HashVariant1(input []byte) []byte {
 // block header hash and 8 byte nonce, then returns 32 byte digest and
 // 32 byte result.
 func HashVariant1ForEthereumHeader(block_header_hash []byte, nonce uint64) ([]byte, []byte) {
-	/*
-	// Note: we need to use at least 43 bytes of hash material, so we
-	// repeat the 8 bytes of nonce.
-	header_concat_nonce := make([]byte, 48)
-	copy(header_concat_nonce, block_header_hash)
-	binary.LittleEndian.PutUint64(header_concat_nonce[32:], nonce)
-	binary.LittleEndian.PutUint64(header_concat_nonce[40:], nonce)
-	result := HashVariant1(header_concat_nonce)
-    */
+	// Note: this blob format intentionally looks hacky. We're trying
+	// to match the length and some of the byte offsets that monero
+	// uses, e.g. its major/minor versions and nonce, so that existing
+	// monero-like mining software implementations (both cpu and gpu)
+	// remain compatible with fewer changes.
 	blob := make([]byte, 76)
 	for i := 0; i < len(blob); i++ {
 		// Initialize to 0x77 for all bytes.
@@ -61,14 +57,13 @@ func HashVariant1ForEthereumHeader(block_header_hash []byte, nonce uint64) ([]by
 	blen++
 	// 5 byte timestamp
 	for i := 0; i < 5; i++ {
-		// Initialize to 0x77 for all bytes.
+		// Initialize to zeroes for timestamp.
 		blob[blen] = 0
 		blen++
 	}
 	copy(blob[blen:], block_header_hash)
 	blen += 32
-	var actual_nonce uint32 = uint32(nonce & 0x00000000ffffffff)
-	binary.LittleEndian.PutUint32(blob[blen:], actual_nonce)
+	binary.LittleEndian.PutUint64(blob[blen:], nonce)
 	
 	result := HashVariant1(blob)
 	

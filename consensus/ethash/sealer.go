@@ -170,32 +170,26 @@ search:
 			if pow_mode == ModeDoubleSha {
 				digest, result = doubleSha256(hash, nonce)
 			} else if pow_mode == ModeCryptonight {
-				digest, result = cryptonight.HashVariant1ForEthereumHeader(hash, nonce & 0x00000000ffffffff)
+				digest, result = cryptonight.HashVariant1ForEthereumHeader(hash, nonce)
+				// It turns out that 'digest' and 'result' point at
+				// the same memory. So allocate new memory for storing
+				// little endian bytes of 'result' (this little endian
+				// interpretation is specific to cryptonight
+				// mode). The 'digest' stays as-is, to be written into
+				// block header.
+				var little_endian_result []byte = make([]byte, len(result))
+				for i := 0; i < len(result); i++ {
+					little_endian_result[i] = result[len(result)-i-1]
+				}
+				result = little_endian_result
 			} else {
 				digest, result = hashimotoFull(dataset.dataset, hash, nonce)
-			}
-
-			// First make a copy of digest, since it turns out that
-			// 'digest' and 'result' point at the same memory. This
-			// way when we reverse the 'result' bytes for
-			// little-endian, we still have the original unreversed
-			// bytes as the digest.
-			var digest_copy []byte
-			digest_copy = make([]byte, 32)
-			copy(digest_copy, digest)
-
-			for i := 0; i < len(result)/2; i++ {
-				result[i], result[len(result)-i-1] = result[len(result)-i-1], result[i]
 			}
 			if new(big.Int).SetBytes(result).Cmp(target) <= 0 {
 				// Correct nonce found, create a new header with it
 				header = types.CopyHeader(header)
-				var mask uint64 = 0xffffffffffffffff
-				if pow_mode == ModeCryptonight {
-					mask = 0x00000000ffffffff
-				}
-				header.Nonce = types.EncodeNonce(nonce & mask)
-				header.MixDigest = common.BytesToHash(digest_copy)
+				header.Nonce = types.EncodeNonce(nonce)
+				header.MixDigest = common.BytesToHash(digest)
 
 				// Seal and return a block (if still needed)
 				select {

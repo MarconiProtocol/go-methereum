@@ -18,7 +18,6 @@ package ethash
 
 import (
 	"errors"
-	"fmt"
 
 	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/common/hexutil"
@@ -70,16 +69,6 @@ func (api *API) SubmitWork(nonce types.BlockNonce, hash, digest common.Hash) boo
 		return false
 	}
 
-	fmt.Println("HAI SubmitWork candidate:")
-	fmt.Println("nonce:")
-	fmt.Println(nonce)
-	fmt.Println("nonce uint64:")
-	fmt.Println(nonce.Uint64())
-	fmt.Println("header_hash:")
-	fmt.Println(hash)
-	fmt.Println("digest:")
-	fmt.Println(digest)
-	
 	var errc = make(chan error, 1)
 
 	select {
