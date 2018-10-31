@@ -19,5 +19,4 @@ ABSOLUTE_PEERDIR="/opt/marconid/etc/marconi/meth/datadir/ethereum-30304"
   --rpcapi="db,eth,net,web3,personal" \
   --rpcport $PEER_RPC_PORT \
   --datadir ${ABSOLUTE_PEERDIR} \
-  --powmode doublesha \
   --bootnodes enode://$BOOTNODE_ENODE_HASH@$BOOTNODE_IP:$BOOTNODE_PORT
