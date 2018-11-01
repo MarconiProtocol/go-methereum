@@ -392,7 +392,7 @@ const (
 	ModeTest
 	ModeFake
 	ModeFullFake
-	ModeDoubleSha
+	ModeQuickTest
 	ModeCryptonight
 )
 
@@ -499,13 +499,13 @@ func New(config Config, notify []string, noverify bool) *Ethash {
 	return ethash
 }
 
-// NewDoubleSha creates a new double sha PoW scheme and starts a
+// NewQuickTest creates a new simple and fast PoW scheme and starts a
 // background thread for remote mining, also optionally notifying a
 // batch of remote services of new work packages.
-func NewDoubleSha(notify []string, noverify bool) *Ethash {
+func NewQuickTest(notify []string, noverify bool) *Ethash {
 	ethash := &Ethash{
 		config: Config{
-			PowMode: ModeDoubleSha,
+			PowMode: ModeQuickTest,
 		},
 		update:   make(chan struct{}),
 		hashrate: metrics.NewMeter(),

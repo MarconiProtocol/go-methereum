@@ -404,11 +404,11 @@ var (
 		Usage: "Disables proof-of-work verification",
 	}
 	ethashPowMode string = "ethash"
-	doubleshaPowMode string = "doublesha"
+	quickTestPowMode string = "quick_test"
 	cryptonightPowMode string = "cryptonight"
 	PowModeFlag = cli.StringFlag{
 		Name:  "powmode",
-		Usage: "Which proof-of-work hash function to use for both mining and verification. Can be one of 'ethash', 'doublesha', or 'cryptonight'.",
+		Usage: "Which proof-of-work hash function to use for both mining and verification. Can be one of 'ethash', 'quick_test', or 'cryptonight'.",
 		Value: "cryptonight",
 	}
 	NoCompactionFlag = cli.BoolFlag{
@@ -1059,8 +1059,8 @@ func setEthash(ctx *cli.Context, cfg *eth.Config) {
 	if ctx.GlobalIsSet(EthashDatasetsOnDiskFlag.Name) {
 		cfg.Ethash.DatasetsOnDisk = ctx.GlobalInt(EthashDatasetsOnDiskFlag.Name)
 	}
-	if ctx.GlobalString(PowModeFlag.Name) == doubleshaPowMode {
-		cfg.Ethash.PowMode = ethash.ModeDoubleSha
+	if ctx.GlobalString(PowModeFlag.Name) == quickTestPowMode {
+		cfg.Ethash.PowMode = ethash.ModeQuickTest
 	} else if ctx.GlobalString(PowModeFlag.Name) == cryptonightPowMode {
 		cfg.Ethash.PowMode = ethash.ModeCryptonight
 	}
@@ -1367,8 +1367,8 @@ func MakeChain(ctx *cli.Context, stack *node.Node) (chain *core.BlockChain, chai
 		engine = clique.New(config.Clique, chainDb)
 	} else if ctx.GlobalBool(FakePoWFlag.Name) {
 		engine = ethash.NewFaker()
-	} else if ctx.GlobalString(PowModeFlag.Name) == doubleshaPowMode {
-		engine = ethash.NewDoubleSha(nil, false)
+	} else if ctx.GlobalString(PowModeFlag.Name) == quickTestPowMode {
+		engine = ethash.NewQuickTest(nil, false)
 	} else if ctx.GlobalString(PowModeFlag.Name) == cryptonightPowMode {
 		engine = ethash.NewCryptonight(nil, false)
 	} else if ctx.GlobalString(PowModeFlag.Name) == ethashPowMode {

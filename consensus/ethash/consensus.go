@@ -433,8 +433,8 @@ func (ethash *Ethash) verifySeal(chain consensus.ChainReader, header *types.Head
 	// Recompute the digest and PoW value and verify against the header
 	var digest []byte
 	var result []byte
-	if ethash.config.PowMode == ModeDoubleSha {
-		digest, result = doubleSha256(ethash.SealHash(header).Bytes(), header.Nonce.Uint64())
+	if ethash.config.PowMode == ModeQuickTest {
+		digest, result = quickHash(ethash.SealHash(header).Bytes(), header.Nonce.Uint64())
 	} else if ethash.config.PowMode == ModeCryptonight {
 		digest, result = cryptonight.HashVariant1ForEthereumHeader(
 			ethash.SealHash(header).Bytes(), header.Nonce.Uint64())

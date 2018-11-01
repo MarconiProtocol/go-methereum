@@ -138,7 +138,7 @@ func (ethash *Ethash) mine(block *types.Block, id int, seed uint64, pow_mode Mod
 		number  = header.Number.Uint64()
 		dataset *dataset = nil
 	)
-	if pow_mode != ModeDoubleSha && pow_mode != ModeCryptonight {
+	if pow_mode != ModeQuickTest && pow_mode != ModeCryptonight {
 		dataset = ethash.dataset(number, false)
 	}
 	// Start generating random nonces until we abort or find a good one
@@ -167,8 +167,8 @@ search:
 			// Compute the PoW value of this nonce
 			var digest []byte
 			var result []byte
-			if pow_mode == ModeDoubleSha {
-				digest, result = doubleSha256(hash, nonce)
+			if pow_mode == ModeQuickTest {
+				digest, result = quickHash(hash, nonce)
 			} else if pow_mode == ModeCryptonight {
 				digest, result = cryptonight.HashVariant1ForEthereumHeader(hash, nonce)
 				// It turns out that 'digest' and 'result' point at
@@ -205,7 +205,7 @@ search:
 	}
 	// Datasets are unmapped in a finalizer. Ensure that the dataset stays live
 	// during sealing so it's not unmapped while being read.
-	if pow_mode != ModeDoubleSha && pow_mode != ModeCryptonight {
+	if pow_mode != ModeQuickTest && pow_mode != ModeCryptonight {
 		runtime.KeepAlive(dataset)
 	}
 }

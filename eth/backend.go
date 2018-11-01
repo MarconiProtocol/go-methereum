@@ -224,25 +224,26 @@ func CreateConsensusEngine(ctx *node.ServiceContext, chainConfig *params.ChainCo
 	// Otherwise assume proof-of-work
 	switch config.PowMode {
 	case ethash.ModeFake:
-		log.Warn("Ethash used in fake mode")
+		log.Warn("Doing proof of work in fake mode")
 		return ethash.NewFaker()
 	case ethash.ModeTest:
-		log.Warn("Ethash used in test mode")
+		log.Warn("Doing proof of work in test mode")
 		return ethash.NewTester(nil, noverify)
 	case ethash.ModeShared:
-		log.Warn("Ethash used in shared mode")
+		log.Warn("Doing proof of work in shared mode")
 		return ethash.NewShared()
-	case ethash.ModeDoubleSha:
-		log.Warn("Ethash used in double sha mode")
-		engine := ethash.NewDoubleSha(notify, noverify)
+	case ethash.ModeQuickTest:
+		log.Warn("Doing proof of work in quick test mode")
+		engine := ethash.NewQuickTest(notify, noverify)
 		engine.SetThreads(-1) // Begin with the miner in idle mode (no work being done).
 		return engine
 	case ethash.ModeCryptonight:
-		log.Warn("Ethash used in cryptonight mode")
+		log.Info("Doing proof of work in cryptonight mode")
 		engine := ethash.NewCryptonight(notify, noverify)
 		engine.SetThreads(-1) // Begin with the miner in idle mode (no work being done).
 		return engine
 	default:
+		log.Warn("Doing proof of work in ethash mode")
 		engine := ethash.New(ethash.Config{
 			CacheDir:       ctx.ResolvePath(config.CacheDir),
 			CachesInMem:    config.CachesInMem,
