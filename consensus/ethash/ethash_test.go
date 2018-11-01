@@ -55,11 +55,11 @@ func TestTestMode(t *testing.T) {
 }
 
 // Tests that block sealing and seal verification works correctly in
-// double sha mode.
-func TestDoubleShaMode(t *testing.T) {
+// quick test mode.
+func TestQuickTestMode(t *testing.T) {
 	head := &types.Header{Number: big.NewInt(1), Difficulty: big.NewInt(100)}
 
-	ethash := NewDoubleSha(nil, false)
+	ethash := NewQuickTest(nil, false)
 	defer ethash.Close()
 
 	// Override the randomness used for nonce generation to have a
