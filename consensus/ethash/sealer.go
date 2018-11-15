@@ -170,7 +170,7 @@ search:
 			if pow_mode == ModeQuickTest {
 				digest, result = quickHash(hash, nonce)
 			} else if pow_mode == ModeCryptonight {
-				digest, result = cryptonight.HashVariant1ForEthereumHeader(hash, nonce)
+				digest, result = cryptonight.HashVariant2ForEthereumHeader(hash, nonce)
 				// It turns out that 'digest' and 'result' point at
 				// the same memory. So allocate new memory for storing
 				// little endian bytes of 'result' (this little endian

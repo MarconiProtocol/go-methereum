@@ -94,6 +94,51 @@ func TestQuickTestMode(t *testing.T) {
 	}
 }
 
+// Tests that block sealing and seal verification works correctly in
+// cryptonight mode.
+func TestCryptonightMode(t *testing.T) {
+  // Note if the difficulty is too high, since cryptonight gets a much
+  // lower hash rate than other algorithms, on slower machines the
+  // test may time out without finding a valid nonce. If that happens,
+  // you can decrease the difficulty or increase the NewTimer's
+  // timeout below.
+	head := &types.Header{Number: big.NewInt(1), Difficulty: big.NewInt(100)}
+
+	ethash := NewCryptonight(nil, false)
+	defer ethash.Close()
+
+	// Override the randomness used for nonce generation to have a
+	// constant seed, that way this test is deterministic.
+	ethash.rand = rand.New(rand.NewSource(0))
+	results := make(chan *types.Block)
+	err := ethash.Seal(nil, types.NewBlockWithHeader(head), results, nil)
+	if err != nil {
+		t.Fatalf("failed to seal block: %v", err)
+	}
+	var block *types.Block = nil
+	select {
+	case block = <-results:
+		head.Nonce = types.EncodeNonce(block.Nonce())
+		head.MixDigest = block.MixDigest()
+	case <-time.NewTimer(time.Second * 30).C:
+		t.Fatalf("sealing result timeout")
+	}
+
+	if err := ethash.VerifySeal(nil, head); err != nil {
+		t.Fatalf("unexpected verification error: %v", err)
+	}
+	// If we change the nonce, verification should now fail.
+	head.Nonce = types.EncodeNonce(block.Nonce() + 1)
+	if err := ethash.VerifySeal(nil, head); err != errInvalidMixDigest {
+		t.Fatalf("expected invalid mix digest but got: %v", err)
+	}
+	// As a sanity check, changing the nonce back should succeed again.
+	head.Nonce = types.EncodeNonce(block.Nonce())
+	if err := ethash.VerifySeal(nil, head); err != nil {
+		t.Fatalf("unexpected verification error: %v", err)
+	}
+}
+
 // This test checks that cache lru logic doesn't crash under load.
 // It reproduces https://gitlab.neji.vm.tc/marconi/go-ethereum/issues/14943
 func TestCacheFileEvict(t *testing.T) {
