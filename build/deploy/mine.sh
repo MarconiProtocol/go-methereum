@@ -24,4 +24,7 @@ fi
   --networkid 161027 \
   --mine --minerthreads 1 \
   --bootnodes enode://$BOOTNODE_ENODE_HASH@$BOOTNODE_IP:$BOOTNODE_PORT \
-  --etherbase $MINER_ETHERBASE 
+  --etherbase $MINER_ETHERBASE \
+  --unlock $MINER_ETHERBASE \
+  --password "unlock.txt" \
+  --rpcaddr "0.0.0.0" 
