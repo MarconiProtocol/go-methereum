@@ -11,7 +11,7 @@ if [ -z $PEER_PORT ]; then
 fi
 
 # TODO: accept this as param, passed by mcli
-ABSOLUTE_PEERDIR="/opt/marconid/etc/meth/datadir/ethereum-30304"
+ABSOLUTE_PEERDIR="/opt/marconid/etc/meth/datadir/"
 
 ./geth --networkid 161027 \
   --port $PEER_PORT \
