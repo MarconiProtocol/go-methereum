@@ -33,7 +33,9 @@ var MainnetBootnodes = []string{
 // TestnetBootnodes are the enode URLs of the P2P bootstrap nodes running on the
 // Faraday test network.
 var TestnetBootnodes = []string{
-	"enode://30b7ab30a01c124a6cceca36863ece12c4f5fa68e3ba9b0b51407ccc002eeed3b3102d20a88f1c1d3c3154e2449317b8ef95090e77b312d5cc39354f86d5d606@52.176.7.10:30303",	// update to correct hash and ip
+	"enode://3e112c527fc6e672808de5129d6d493b77191706d59dda984496c34b49109ae09ff1f35398aa6f31e44cb3ab65ec91443e94ab7151d1bed618933acae34069a1@54.39.180.40:30301",
+	"enode://4e4a8f23ade0c45bd79fdebb19ecbb22c6eb68855682cf150b3601ace1a3db201cfbe40e202bb15139f82498485b1fa647c01962905d9bfe5fea6ba7e258576c@3.16.133.54:30301",
+	"enode://2ae6112bdcc30543111188c40eecc7c0ca7d056304c3cb8db314565571917db4331aa1a438f6b92ce1c6294038fed630ae2becc4c7f773bb7c1dec980a712c17@13.52.93.231:30301",
 }
 
 // DiscoveryV5Bootnodes are the enode URLs of the P2P bootstrap nodes for the
