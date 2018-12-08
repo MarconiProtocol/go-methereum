@@ -60,7 +60,6 @@ import (
 	"gopkg.in/urfave/cli.v1"
 	"sort"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/rlp"
-	"encoding/json"
 )
 
 var (
