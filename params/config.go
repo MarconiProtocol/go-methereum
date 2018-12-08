@@ -19,7 +19,7 @@ package params
 import (
 	"fmt"
 	"math/big"
-
+	
 	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
 )
 
@@ -48,7 +48,7 @@ var (
 
 	// TestnetChainConfig contains the chain parameters to run a node on the Ropsten test network.
 	TestnetChainConfig = &ChainConfig{
-		ChainID:             big.NewInt(3),
+		ChainID:             big.NewInt(179109),
 		HomesteadBlock:      big.NewInt(0),
 		DAOForkBlock:        nil,
 		DAOForkSupport:      true,
