@@ -21,9 +21,9 @@ fi
   --rpc \
   --rpcport $MINER_RPC_PORT \
   --rpcapi="db,eth,net,web3,personal" \
-  --networkid 179109 \
+  --networkid 161027 \
   --mine --minerthreads 1 \
-  --testnet \
+  --bootnodes enode://$BOOTNODE_ENODE_HASH@$BOOTNODE_IP:$BOOTNODE_PORT \
   --etherbase $MINER_ETHERBASE \
   --unlock $MINER_ETHERBASE \
   --password "unlock.txt" \

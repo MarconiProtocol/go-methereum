@@ -13,10 +13,10 @@ fi
 # TODO: accept this as param, passed by mcli
 ABSOLUTE_PEERDIR="/opt/marconid/etc/meth/datadir/"
 
-./geth --networkid 179109 \
+./geth --networkid 161027 \
   --port $PEER_PORT \
   --rpc \
   --rpcapi="db,eth,net,web3,personal" \
   --rpcport $PEER_RPC_PORT \
   --datadir ${ABSOLUTE_PEERDIR} \
-  --testnet
+  --bootnodes enode://$BOOTNODE_ENODE_HASH@$BOOTNODE_IP:$BOOTNODE_PORT
