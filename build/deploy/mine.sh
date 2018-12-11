@@ -25,6 +25,4 @@ fi
   --mine --minerthreads 1 \
   --testnet \
   --etherbase $MINER_ETHERBASE \
-  --unlock $MINER_ETHERBASE \
-  --password "unlock.txt" \
   --rpcaddr "0.0.0.0" 
