@@ -21,7 +21,6 @@ fi
   --rpc \
   --rpcport $MINER_RPC_PORT \
   --rpcapi="db,eth,net,web3,personal" \
-  --networkid 179109 \
   --mine --minerthreads 1 \
   --testnet \
   --etherbase $MINER_ETHERBASE \
