@@ -23,5 +23,6 @@ fi
   --rpcapi="db,eth,net,web3,personal" \
   --mine --minerthreads 1 \
   --testnet \
+  --networkid 179109 \
   --etherbase $MINER_ETHERBASE \
   --rpcaddr "0.0.0.0" 
