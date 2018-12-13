@@ -22,7 +22,6 @@ fi
   --rpcport $MINER_RPC_PORT \
   --rpcapi="db,eth,net,web3,personal" \
   --mine --minerthreads 1 \
-  --bootnodes enode://3e112c527fc6e672808de5129d6d493b77191706d59dda984496c34b49109ae09ff1f35398aa6f31e44cb3ab65ec91443e94ab7151d1bed618933acae34069a1@54.39.180.40:30301 \
   --testnet \
   --networkid 179109 \
   --etherbase $MINER_ETHERBASE \
