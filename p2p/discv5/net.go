@@ -827,10 +827,17 @@ type nodeEvent uint
 //go:generate stringer -type=nodeEvent
 
 const (
-
 	// Packet type events.
 	// These correspond to packet types in the UDP protocol.
-	pingPacket = iota + 1
+	unsupported1 = iota + 1
+	unsupported2
+	unsupported3
+	unsupported4
+	unsupported5
+	unsupported6
+	unsupported7
+	unsupported8
+	pingPacket
 	pongPacket
 	findnodePacket
 	neighborsPacket
