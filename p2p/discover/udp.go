@@ -60,10 +60,10 @@ const (
 	unsupported2 = 2
 	unsupported3 = 3
 	unsupported4 = 4
-	pingPacket = 2000
-	pongPacket = 2010
-	findnodePacket = 2020
-	neighborsPacket = 2030
+	pingPacket = 200
+	pongPacket = 205
+	findnodePacket = 210
+	neighborsPacket = 215
 )
 
 // RPC request structures
