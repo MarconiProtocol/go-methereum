@@ -6,7 +6,7 @@ if [ -z ${ABSOLUTE_MINERDIR} ]; then
   echo "Missing path to mining data directory"
 fi
 
-source config.sh
+source ../etc/meth/config.sh
 
 if [ -z $BOOTNODE_ENODE_HASH ] || [ -z $BOOTNODE_IP ] || [ -z $BOOTNODE_PORT ]; then
   echo "Misconfigured config.sh, please check bootnode settings"

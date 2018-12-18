@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source config.sh
+source ../etc/meth/config.sh
 
 warnPeer() {
   echo "Misconfigured config.sh, please check peer settings"
@@ -14,4 +14,4 @@ HOME=`eval echo "~$USER"`
 PEER_DATADIR=$HOME/$PEER_DATADIR
 
 rm -rf $PEER_DATADIR
-./geth --datadir $PEER_DATADIR init genesis.json
+./geth --datadir $PEER_DATADIR init ../etc/meth/genesis.json
