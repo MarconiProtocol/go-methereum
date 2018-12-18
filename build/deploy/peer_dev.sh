@@ -13,7 +13,7 @@ fi
 # TODO: accept this as param, passed by mcli
 ABSOLUTE_PEERDIR="/opt/marconi/etc/meth/datadir/"
 
-./geth --networkid 161027 \
+./gmeth --networkid 161027 \
   --port $PEER_PORT \
   --rpc \
   --rpcapi="db,eth,net,web3,personal" \

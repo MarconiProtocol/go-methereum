@@ -14,4 +14,4 @@ HOME=`eval echo "~$USER"`
 PEER_DATADIR=$HOME/$PEER_DATADIR
 
 rm -rf $PEER_DATADIR
-./geth --datadir $PEER_DATADIR init ../etc/meth/genesis.json
+./gmeth --datadir $PEER_DATADIR init ../etc/meth/genesis.json

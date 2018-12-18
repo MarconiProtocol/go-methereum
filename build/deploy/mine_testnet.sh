@@ -16,7 +16,7 @@ if [ -z $MINER_PORT ] || [ -z $MINER_ETHERBASE ]; then
   echo "Misconfigured config.sh, please check miner settings"
 fi
 
-./geth --datadir ${ABSOLUTE_MINERDIR} \
+./gmeth --datadir ${ABSOLUTE_MINERDIR} \
   --port $MINER_PORT \
   --rpc \
   --rpcport $MINER_RPC_PORT \
