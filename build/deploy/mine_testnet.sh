@@ -25,4 +25,6 @@ fi
   --testnet \
   --networkid 179109 \
   --etherbase $MINER_ETHERBASE \
+  --unlock $MINER_ETHERBASE \
+  --password "../etc/meth/unlock.txt" \
   --rpcaddr "0.0.0.0" 
