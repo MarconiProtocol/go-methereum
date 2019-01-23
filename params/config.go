@@ -44,6 +44,7 @@ var (
 		ByzantiumBlock:      big.NewInt(4370000),
 		ConstantinopleBlock: nil,
 		Ethash:              new(EthashConfig),
+		ContractsRequireWhitelistedAccount: true,
 	}
 
 	// TestnetChainConfig contains the chain parameters to run a node on the Faraday test network.
