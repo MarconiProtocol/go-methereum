@@ -837,14 +837,14 @@ const (
 	unsupported6 = 6
 	unsupported7 = 7
 	unsupported8 = 8
-	pingPacket = 200
-	pongPacket = 205
-	findnodePacket = 210
-	neighborsPacket = 215
-	findnodeHashPacket = 220
-	topicRegisterPacket = 225
-	topicQueryPacket = 230
-	topicNodesPacket = 235
+	pingPacket = 40
+	pongPacket = 44
+	findnodePacket = 48
+	neighborsPacket = 52
+	findnodeHashPacket = 56
+	topicRegisterPacket = 60
+	topicQueryPacket = 64
+	topicNodesPacket = 68
 
 	// Non-packet events.
 	// Event values in this category are allocated outside

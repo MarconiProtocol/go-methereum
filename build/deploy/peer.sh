@@ -14,10 +14,9 @@ fi
 ABSOLUTE_PEERDIR="/opt/marconi/etc/meth/datadir/"
 
 ./gmeth \
-  --networkid 179109 \
+  --networkid 161027 \
   --port $PEER_PORT \
   --rpc \
   --rpcapi="db,eth,net,web3,personal" \
   --rpcport $PEER_RPC_PORT \
   --datadir ${ABSOLUTE_PEERDIR} \
-  --testnet
