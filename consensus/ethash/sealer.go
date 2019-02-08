@@ -31,9 +31,9 @@ import (
 
 	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/consensus"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/consensus/cryptonight"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/core/types"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
+	"gitlab.neji.vm.tc/marconi/marconi-cryptonight"
 )
 
 const (
@@ -171,17 +171,6 @@ search:
 				digest, result = quickHash(hash, nonce)
 			} else if pow_mode == ModeCryptonight {
 				digest, result = cryptonight.HashVariant2ForEthereumHeader(hash, nonce)
-				// It turns out that 'digest' and 'result' point at
-				// the same memory. So allocate new memory for storing
-				// little endian bytes of 'result' (this little endian
-				// interpretation is specific to cryptonight
-				// mode). The 'digest' stays as-is, to be written into
-				// block header.
-				var little_endian_result []byte = make([]byte, len(result))
-				for i := 0; i < len(result); i++ {
-					little_endian_result[i] = result[len(result)-i-1]
-				}
-				result = little_endian_result
 			} else {
 				digest, result = hashimotoFull(dataset.dataset, hash, nonce)
 			}
