@@ -28,7 +28,6 @@ import (
 	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/common/math"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/consensus"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/consensus/cryptonight"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/consensus/misc"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/core/state"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/core/types"
@@ -36,6 +35,7 @@ import (
 	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/params"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/rlp"
+	"gitlab.neji.vm.tc/marconi/marconi-cryptonight"
 )
 
 // Ethash proof-of-work protocol constants.
@@ -474,14 +474,6 @@ func (ethash *Ethash) verifySeal(chain consensus.ChainReader, header *types.Head
 		return errInvalidMixDigest
 	}
 	target := new(big.Int).Div(two256, header.Difficulty)
-	if ethash.config.PowMode == ModeCryptonight {
-		// Interpret hash result as little endian. We do this after
-		// checking 'digest' against MixDigest above, since 'result'
-		// and 'digest' point at the same memory.
-		for i := 0; i < len(result)/2; i++ {
-			result[i], result[len(result)-i-1] = result[len(result)-i-1], result[i]
-		}
-	}
 	if new(big.Int).SetBytes(result).Cmp(target) > 0 {
 		return errInvalidPoW
 	}
