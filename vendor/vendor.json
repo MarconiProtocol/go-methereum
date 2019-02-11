@@ -616,6 +616,12 @@
 			"revisionTime": "2018-06-15T20:27:29Z"
 		},
 		{
+			"checksumSHA1": "V9I+d3k6Vf0LPKeXPz2S0F+quLk=",
+			"path": "gitlab.neji.vm.tc/marconi/marconi-cryptonight",
+			"revision": "32d0856d28128acefc8b124442eeb7ac134aca90",
+			"revisionTime": "2019-02-08T23:40:25Z"
+		},
+		{
 			"checksumSHA1": "TT1rac6kpQp2vz24m5yDGUNQ/QQ=",
 			"path": "golang.org/x/crypto/cast5",
 			"revision": "6a293f2d4b14b8e6d3f0539e383f6d0d30fce3fd",
@@ -928,5 +934,5 @@
 			"revisionTime": "2017-08-11T01:42:03Z"
 		}
 	],
-	"rootPath": "github.com/ethereum/go-ethereum"
+	"rootPath": "gitlab.neji.vm.tc/marconi/go-ethereum"
 }
