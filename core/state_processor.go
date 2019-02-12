@@ -103,6 +103,7 @@ var whitelisted_addresses = map[string]bool {
 	"0x65be5dceef958f147cd8d1e3fd94c3b5b03ea304": true,
 	"0xe56fb56d8a91bf792e2f9951f25bdc2488a0fd9d": true,
 	"0x2be20ac5ce8c57ade93fdf3ee34e2ca6165dd551": true,
+	"0xe531f03514e215ddef02fb2930d3e69c634f4c40": true,			// TEMP ADDRESS
 }
 
 // ApplyTransaction attempts to apply a transaction to the given state database
