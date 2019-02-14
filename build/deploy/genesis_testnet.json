@@ -13,8 +13,8 @@
 	"nonce": "0x42",
 	"timestamp": "0x0",
 	"extraData": "0x00",
-	"gasLimit": "0x5b8d80",
-	"difficulty": "0x9c4",
+	"gasLimit": "0x7A1200",
+	"difficulty": "0x4650",
 	"mixHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
 	"coinbase": "0x0000000000000000000000000000000000000000",
 	"alloc": {
