@@ -315,8 +315,8 @@ func DefaultTestnetGenesisBlock() *Genesis {
 		Config:     params.TestnetChainConfig,
 		Nonce:      66,
 		ExtraData:  hexutil.MustDecode("0x00"),
-		GasLimit:   6000000,
-		Difficulty: big.NewInt(2500),
+		GasLimit:   8000000,
+		Difficulty: big.NewInt(18000),
 		Alloc:      decodePrealloc(testnetAllocData),
 	}
 }
