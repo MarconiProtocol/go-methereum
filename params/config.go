@@ -134,10 +134,10 @@ type ChainConfig struct {
 	EIP158Block *big.Int `json:"eip158Block,omitempty"` // EIP158 HF block
 
 	ByzantiumBlock      *big.Int `json:"byzantiumBlock,omitempty"`      // Byzantium switch block (nil = no fork, 0 = already on byzantium)
-	Reward20Block       *big.Int `json:"reward20Block,omitempty"`       // Reward20Block switch block (nil = no fork, 0 = already on Reward20Block)
-	Reward10Block       *big.Int `json:"reward10Block,omitempty"`       // Reward10Block switch block (nil = no fork, 0 = already on Reward10Block)
-	Reward5Block        *big.Int `json:"reward5Block,omitempty"`        // Reward5Block switch block (nil = no fork, 0 = already on Reward5Block)
-	RewardNormalBlock   *big.Int `json:"rewardNormalBlock,omitempty"`   // RewardNormalBlock switch block (nil = no fork, 0 = already on RewardNormalBlock)
+	Reward20Block       *big.Int `json:"reward20Block,omitempty"`       // Reward20 switch block (nil = no fork, 0 = already on Reward20)
+	Reward10Block       *big.Int `json:"reward10Block,omitempty"`       // Reward10 switch block (nil = no fork, 0 = already on Reward10)
+	Reward5Block        *big.Int `json:"reward5Block,omitempty"`        // Reward5 switch block (nil = no fork, 0 = already on Reward5)
+	RewardNormalBlock   *big.Int `json:"rewardNormalBlock,omitempty"`   // RewardNormal switch block (nil = no fork, 0 = already on RewardNormal)
 	ConstantinopleBlock *big.Int `json:"constantinopleBlock,omitempty"` // Constantinople switch block (nil = no fork, 0 = already activated)
 
 	// Various consensus engines
