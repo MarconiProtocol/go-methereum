@@ -42,6 +42,10 @@ var (
 		EIP155Block:         big.NewInt(0),
 		EIP158Block:         big.NewInt(0),
 		ByzantiumBlock:      big.NewInt(0),
+		MIP1Block:           big.NewInt(262800),
+		MIP2Block:           big.NewInt(788400),
+		MIP3Block:           big.NewInt(1839600),
+		MIP4Block:           big.NewInt(2365200),
 		ConstantinopleBlock: nil,
 		Ethash:              new(EthashConfig),
 		ContractsRequireWhitelistedAccount: true,
@@ -58,6 +62,10 @@ var (
 		EIP155Block:         big.NewInt(0),
 		EIP158Block:         big.NewInt(0),
 		ByzantiumBlock:      big.NewInt(0),
+		MIP1Block:           big.NewInt(262800),
+		MIP2Block:           big.NewInt(788400),
+		MIP3Block:           big.NewInt(1839600),
+		MIP4Block:           big.NewInt(2365200),
 		ConstantinopleBlock: nil,
 		Ethash:              new(EthashConfig),
 	}
@@ -73,6 +81,10 @@ var (
 		EIP155Block:         big.NewInt(3),
 		EIP158Block:         big.NewInt(3),
 		ByzantiumBlock:      big.NewInt(1035301),
+		MIP1Block:           big.NewInt(262800),
+		MIP2Block:           big.NewInt(788400),
+		MIP3Block:           big.NewInt(1839600),
+		MIP4Block:           big.NewInt(2365200),
 		ConstantinopleBlock: nil,
 		Clique: &CliqueConfig{
 			Period: 15,
@@ -85,16 +97,19 @@ var (
 	//
 	// This configuration is intentionally not using keyed fields to force anyone
 	// adding flags to the config to also have to set these fields.
-	AllEthashProtocolChanges = &ChainConfig{big.NewInt(1337), big.NewInt(0), nil, false, big.NewInt(0), common.Hash{}, big.NewInt(0), big.NewInt(0), big.NewInt(0), nil, new(EthashConfig), nil, false}
+	AllEthashProtocolChanges = &ChainConfig{big.NewInt(1337), big.NewInt(0), nil, false, big.NewInt(0), common.Hash{}, big.NewInt(0), big.NewInt(0),
+		big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), nil, new(EthashConfig), nil, false}
 
 	// AllCliqueProtocolChanges contains every protocol change (EIPs) introduced
 	// and accepted by the Ethereum core developers into the Clique consensus.
 	//
 	// This configuration is intentionally not using keyed fields to force anyone
 	// adding flags to the config to also have to set these fields.
-	AllCliqueProtocolChanges = &ChainConfig{big.NewInt(1337), big.NewInt(0), nil, false, big.NewInt(0), common.Hash{}, big.NewInt(0), big.NewInt(0), big.NewInt(0), nil, nil, &CliqueConfig{Period: 0, Epoch: 30000}, false}
+	AllCliqueProtocolChanges = &ChainConfig{big.NewInt(1337), big.NewInt(0), nil, false, big.NewInt(0), common.Hash{}, big.NewInt(0), big.NewInt(0),
+		big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), nil, nil, &CliqueConfig{Period: 0, Epoch: 30000}, false}
 
-	TestChainConfig = &ChainConfig{big.NewInt(1), big.NewInt(0), nil, false, big.NewInt(0), common.Hash{}, big.NewInt(0), big.NewInt(0), big.NewInt(0), nil, new(EthashConfig), nil, false}
+	TestChainConfig = &ChainConfig{big.NewInt(1), big.NewInt(0), nil, false, big.NewInt(0), common.Hash{}, big.NewInt(0), big.NewInt(0),
+		big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), nil, new(EthashConfig), nil, false}
 	TestRules       = TestChainConfig.Rules(new(big.Int))
 )
 
@@ -119,6 +134,10 @@ type ChainConfig struct {
 	EIP158Block *big.Int `json:"eip158Block,omitempty"` // EIP158 HF block
 
 	ByzantiumBlock      *big.Int `json:"byzantiumBlock,omitempty"`      // Byzantium switch block (nil = no fork, 0 = already on byzantium)
+	MIP1Block           *big.Int `json:"mip1Block,omitempty"`           // MIP1 switch block (nil = no fork, 0 = already on MIP1)
+	MIP2Block           *big.Int `json:"mip2Block,omitempty"`           // MIP2 switch block (nil = no fork, 0 = already on MIP2)
+	MIP3Block           *big.Int `json:"mip3Block,omitempty"`           // MIP3 switch block (nil = no fork, 0 = already on MIP3)
+	MIP4Block           *big.Int `json:"mip4Block,omitempty"`           // MIP4 switch block (nil = no fork, 0 = already on MIP4)
 	ConstantinopleBlock *big.Int `json:"constantinopleBlock,omitempty"` // Constantinople switch block (nil = no fork, 0 = already activated)
 
 	// Various consensus engines
@@ -201,6 +220,26 @@ func (c *ChainConfig) IsEIP158(num *big.Int) bool {
 // IsByzantium returns whether num is either equal to the Byzantium fork block or greater.
 func (c *ChainConfig) IsByzantium(num *big.Int) bool {
 	return isForked(c.ByzantiumBlock, num)
+}
+
+// IsMIP1 returns whether num is either equal to the MIP1Block fork block or greater.
+func (c *ChainConfig) IsMIP1(num *big.Int) bool {
+	return isForked(c.MIP1Block, num)
+}
+
+// IsMIP2 returns whether num is either equal to the MIP2Block fork block or greater.
+func (c *ChainConfig) IsMIP2(num *big.Int) bool {
+	return isForked(c.MIP2Block, num)
+}
+
+// IsMIP3 returns whether num is either equal to the MIP3Block fork block or greater.
+func (c *ChainConfig) IsMIP3(num *big.Int) bool {
+	return isForked(c.MIP3Block, num)
+}
+
+// IsMIP4 returns whether num is either equal to the MIP4Block fork block or greater.
+func (c *ChainConfig) IsMIP4(num *big.Int) bool {
+	return isForked(c.MIP4Block, num)
 }
 
 // IsConstantinople returns whether num is either equal to the Constantinople fork block or greater.
