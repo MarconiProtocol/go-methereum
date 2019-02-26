@@ -40,15 +40,15 @@ import (
 
 // Ethash proof-of-work protocol constants.
 var (
-	ByzantiumBlockReward    *big.Int = big.NewInt(1e+18)  // Block reward in wei for successfully mining a block upward from Byzantium
+	SoftLaunchBlockReward *big.Int = big.NewInt(1e+18)                                // Block reward in wei for successfully mining a block upward from Byzantium
 	// Note: big.NewInt(int64) overflows for higher digits, use SetString for 20 and 10 block rewards
 	MIP1BlockReward, _              = new(big.Int).SetString("20000000000000000000", 10) // Block reward in wei for successfully mining a block upward from MIP1Block
 	MIP2BlockReward, _              = new(big.Int).SetString("10000000000000000000", 10) // Block reward in wei for successfully mining a block upward from MIP2Block
-	MIP3BlockReward        *big.Int = big.NewInt(5e+18)   // Block reward in wei for successfully mining a block upward from MIP3Block
-	MIP4BlockReward        *big.Int = big.NewInt(3e+18)   // Block reward in wei for successfully mining a block upward from MIP4Block
-	maxUncles                       = 2                      // Maximum number of uncles allowed in a single block
-	allowedFutureBlockTime          = 15 * time.Second       // Max time from current time allowed for blocks, before they're considered future blocks
-	BlockInterval                   = 240                    // Number of blocks before block reward is re-evaluated
+	MIP3BlockReward        *big.Int = big.NewInt(5e+18)                               // Block reward in wei for successfully mining a block upward from MIP3Block
+	DefaultBlockReward     *big.Int = big.NewInt(3e+18)                               // Block reward in wei for successfully mining a block upward from MIP4Block, the default block reward
+	maxUncles                       = 2                                                  // Maximum number of uncles allowed in a single block
+	allowedFutureBlockTime          = 15 * time.Second                                   // Max time from current time allowed for blocks, before they're considered future blocks
+	BlockInterval                   = 240                                                // Number of blocks before block reward is re-evaluated
 )
 
 // Various error messages to mark blocks invalid. These should be private to
@@ -541,9 +541,9 @@ var (
 // included uncles. The coinbase of each uncle block is also rewarded.
 func accumulateRewards(config *params.ChainConfig, state *state.StateDB, header *types.Header, uncles []*types.Header) {
 	// Select the correct block reward based on chain progression
-	blockReward := ByzantiumBlockReward
+	blockReward := SoftLaunchBlockReward
 	if config.IsMIP4(header.Number) {
-		blockReward = MIP4BlockReward
+		blockReward = DefaultBlockReward
 	} else if config.IsMIP3(header.Number) {
 		blockReward = MIP3BlockReward
 	} else if config.IsMIP2(header.Number) {
