@@ -42,10 +42,10 @@ var (
 		EIP155Block:         big.NewInt(0),
 		EIP158Block:         big.NewInt(0),
 		ByzantiumBlock:      big.NewInt(0),
-		Reward20Block:       big.NewInt(262800),
-		Reward10Block:       big.NewInt(788400),
-		Reward5Block:        big.NewInt(1839600),
-		RewardNormalBlock:   big.NewInt(2365200),
+		MIP1Block:           big.NewInt(262800),
+		MIP2Block:           big.NewInt(788400),
+		MIP3Block:           big.NewInt(1839600),
+		MIP4Block:           big.NewInt(2365200),
 		ConstantinopleBlock: nil,
 		Ethash:              new(EthashConfig),
 		ContractsRequireWhitelistedAccount: true,
@@ -62,10 +62,10 @@ var (
 		EIP155Block:         big.NewInt(0),
 		EIP158Block:         big.NewInt(0),
 		ByzantiumBlock:      big.NewInt(0),
-		Reward20Block:       big.NewInt(262800),
-		Reward10Block:       big.NewInt(788400),
-		Reward5Block:        big.NewInt(1839600),
-		RewardNormalBlock:   big.NewInt(2365200),
+		MIP1Block:           big.NewInt(262800),
+		MIP2Block:           big.NewInt(788400),
+		MIP3Block:           big.NewInt(1839600),
+		MIP4Block:           big.NewInt(2365200),
 		ConstantinopleBlock: nil,
 		Ethash:              new(EthashConfig),
 	}
@@ -81,10 +81,10 @@ var (
 		EIP155Block:         big.NewInt(3),
 		EIP158Block:         big.NewInt(3),
 		ByzantiumBlock:      big.NewInt(1035301),
-		Reward20Block:       big.NewInt(262800),
-		Reward10Block:       big.NewInt(788400),
-		Reward5Block:        big.NewInt(1839600),
-		RewardNormalBlock:   big.NewInt(2365200),
+		MIP1Block:           big.NewInt(262800),
+		MIP2Block:           big.NewInt(788400),
+		MIP3Block:           big.NewInt(1839600),
+		MIP4Block:           big.NewInt(2365200),
 		ConstantinopleBlock: nil,
 		Clique: &CliqueConfig{
 			Period: 15,
@@ -134,10 +134,10 @@ type ChainConfig struct {
 	EIP158Block *big.Int `json:"eip158Block,omitempty"` // EIP158 HF block
 
 	ByzantiumBlock      *big.Int `json:"byzantiumBlock,omitempty"`      // Byzantium switch block (nil = no fork, 0 = already on byzantium)
-	Reward20Block       *big.Int `json:"reward20Block,omitempty"`       // Reward20 switch block (nil = no fork, 0 = already on Reward20)
-	Reward10Block       *big.Int `json:"reward10Block,omitempty"`       // Reward10 switch block (nil = no fork, 0 = already on Reward10)
-	Reward5Block        *big.Int `json:"reward5Block,omitempty"`        // Reward5 switch block (nil = no fork, 0 = already on Reward5)
-	RewardNormalBlock   *big.Int `json:"rewardNormalBlock,omitempty"`   // RewardNormal switch block (nil = no fork, 0 = already on RewardNormal)
+	MIP1Block           *big.Int `json:"mip1Block,omitempty"`           // MIP1 switch block (nil = no fork, 0 = already on MIP1)
+	MIP2Block           *big.Int `json:"mip2Block,omitempty"`           // MIP2 switch block (nil = no fork, 0 = already on MIP2)
+	MIP3Block           *big.Int `json:"mip3Block,omitempty"`           // MIP3 switch block (nil = no fork, 0 = already on MIP3)
+	MIP4Block           *big.Int `json:"mip4Block,omitempty"`           // MIP4 switch block (nil = no fork, 0 = already on MIP4)
 	ConstantinopleBlock *big.Int `json:"constantinopleBlock,omitempty"` // Constantinople switch block (nil = no fork, 0 = already activated)
 
 	// Various consensus engines
@@ -222,24 +222,24 @@ func (c *ChainConfig) IsByzantium(num *big.Int) bool {
 	return isForked(c.ByzantiumBlock, num)
 }
 
-// IsReward20Block returns whether num is either equal to the Reward20Block fork block or greater.
-func (c *ChainConfig) IsReward20Block(num *big.Int) bool {
-	return isForked(c.Reward20Block, num)
+// IsMIP1 returns whether num is either equal to the MIP1Block fork block or greater.
+func (c *ChainConfig) IsMIP1(num *big.Int) bool {
+	return isForked(c.MIP1Block, num)
 }
 
-// IsReward10Block returns whether num is either equal to the Reward10Block fork block or greater.
-func (c *ChainConfig) IsReward10Block(num *big.Int) bool {
-	return isForked(c.Reward10Block, num)
+// IsMIP2 returns whether num is either equal to the MIP2Block fork block or greater.
+func (c *ChainConfig) IsMIP2(num *big.Int) bool {
+	return isForked(c.MIP2Block, num)
 }
 
-// IsReward5Block returns whether num is either equal to the Reward5Block fork block or greater.
-func (c *ChainConfig) IsReward5Block(num *big.Int) bool {
-	return isForked(c.Reward5Block, num)
+// IsMIP3 returns whether num is either equal to the MIP3Block fork block or greater.
+func (c *ChainConfig) IsMIP3(num *big.Int) bool {
+	return isForked(c.MIP3Block, num)
 }
 
-// IsRewardNormalBlock returns whether num is either equal to the RewardNormalBlock fork block or greater.
-func (c *ChainConfig) IsRewardNormalBlock(num *big.Int) bool {
-	return isForked(c.RewardNormalBlock, num)
+// IsMIP4 returns whether num is either equal to the MIP4Block fork block or greater.
+func (c *ChainConfig) IsMIP4(num *big.Int) bool {
+	return isForked(c.MIP4Block, num)
 }
 
 // IsConstantinople returns whether num is either equal to the Constantinople fork block or greater.

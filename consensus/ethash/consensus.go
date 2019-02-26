@@ -42,10 +42,10 @@ import (
 var (
 	ByzantiumBlockReward    *big.Int = big.NewInt(1e+18)  // Block reward in wei for successfully mining a block upward from Byzantium
 	// Note: big.NewInt(int64) overflows for higher digits, use SetString for 20 and 10 block rewards
-	Reward20BlockReward, _ = new(big.Int).SetString("20000000000000000000", 10) // Block reward in wei for successfully mining a block upward from Reward20Block
-	Reward10BlockReward, _ = new(big.Int).SetString("10000000000000000000", 10) // Block reward in wei for successfully mining a block upward from Reward10Block
-	Reward5BlockReward      *big.Int = big.NewInt(5e+18)  // Block reward in wei for successfully mining a block upward from Reward5Block
-	RewardNormalBlockReward *big.Int = big.NewInt(3e+18)  // Block reward in wei for successfully mining a block upward from RewardNormalBlock
+	MIP1BlockReward, _              = new(big.Int).SetString("20000000000000000000", 10) // Block reward in wei for successfully mining a block upward from MIP1Block
+	MIP2BlockReward, _              = new(big.Int).SetString("10000000000000000000", 10) // Block reward in wei for successfully mining a block upward from MIP2Block
+	MIP3BlockReward        *big.Int = big.NewInt(5e+18)   // Block reward in wei for successfully mining a block upward from MIP3Block
+	MIP4BlockReward        *big.Int = big.NewInt(3e+18)   // Block reward in wei for successfully mining a block upward from MIP4Block
 	maxUncles                       = 2                      // Maximum number of uncles allowed in a single block
 	allowedFutureBlockTime          = 15 * time.Second       // Max time from current time allowed for blocks, before they're considered future blocks
 	BlockInterval                   = 240                    // Number of blocks before block reward is re-evaluated
@@ -542,14 +542,14 @@ var (
 func accumulateRewards(config *params.ChainConfig, state *state.StateDB, header *types.Header, uncles []*types.Header) {
 	// Select the correct block reward based on chain progression
 	blockReward := ByzantiumBlockReward
-	if config.IsRewardNormalBlock(header.Number) {
-		blockReward = RewardNormalBlockReward
-	} else if config.IsReward5Block(header.Number) {
-		blockReward = Reward5BlockReward
-	} else if config.IsReward10Block(header.Number) {
-		blockReward = Reward10BlockReward
-	} else if config.IsReward20Block(header.Number) {
-		blockReward = Reward20BlockReward
+	if config.IsMIP4(header.Number) {
+		blockReward = MIP4BlockReward
+	} else if config.IsMIP3(header.Number) {
+		blockReward = MIP3BlockReward
+	} else if config.IsMIP2(header.Number) {
+		blockReward = MIP2BlockReward
+	} else if config.IsMIP1(header.Number) {
+		blockReward = MIP1BlockReward
 	}
 
 	// Accumulate the rewards for the miner and any included uncles
