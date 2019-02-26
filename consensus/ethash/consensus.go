@@ -542,14 +542,14 @@ var (
 func accumulateRewards(config *params.ChainConfig, state *state.StateDB, header *types.Header, uncles []*types.Header) {
 	// Select the correct block reward based on chain progression
 	blockReward := ByzantiumBlockReward
-	if config.IsReward20Block(header.Number) {
-		blockReward = Reward20BlockReward
-	} else if config.IsReward10Block(header.Number) {
-		blockReward = Reward10BlockReward
+	if config.IsRewardNormalBlock(header.Number) {
+		blockReward = RewardNormalBlockReward
 	} else if config.IsReward5Block(header.Number) {
 		blockReward = Reward5BlockReward
-	} else if config.IsRewardNormalBlock(header.Number) {
-		blockReward = RewardNormalBlockReward
+	} else if config.IsReward10Block(header.Number) {
+		blockReward = Reward10BlockReward
+	} else if config.IsReward20Block(header.Number) {
+		blockReward = Reward20BlockReward
 	}
 
 	// Accumulate the rewards for the miner and any included uncles
