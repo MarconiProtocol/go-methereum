@@ -27,4 +27,4 @@ fi
   --unlock $MINER_ETHERBASE \
   --password "../etc/meth/unlock.txt" \
   --rpcaddr "0.0.0.0" \
-  --syncmode=full 
+  --syncmode "full"
