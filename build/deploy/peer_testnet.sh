@@ -21,4 +21,4 @@ ABSOLUTE_PEERDIR="/opt/marconi/etc/meth/datadir/"
   --rpcport $PEER_RPC_PORT \
   --datadir ${ABSOLUTE_PEERDIR} \
   --testnet \
-  --syncmode=full
+  --syncmode "full"
