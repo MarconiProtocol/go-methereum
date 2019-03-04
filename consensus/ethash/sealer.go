@@ -33,6 +33,7 @@ import (
 	"gitlab.neji.vm.tc/marconi/go-ethereum/consensus"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/core/types"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/params"
 	"gitlab.neji.vm.tc/marconi/marconi-cryptonight"
 )
 
@@ -44,6 +45,7 @@ const (
 var (
 	errNoMiningWork      = errors.New("no mining work available yet")
 	errInvalidSealResult = errors.New("invalid or stale proof-of-work solution")
+	errExtraDataTooLong  = errors.New("extra data provided is too long")
 )
 
 // Seal implements consensus.Engine, attempting to find a nonce that satisfies
@@ -208,6 +210,7 @@ func (ethash *Ethash) remote(notify []string, noverify bool) {
 		results      chan<- *types.Block
 		currentBlock *types.Block
 		currentWork  [3]string
+		currentWorks map[string][3]string
 
 		notifyTransport = &http.Transport{}
 		notifyClient    = &http.Client{
@@ -242,6 +245,15 @@ func (ethash *Ethash) remote(notify []string, noverify bool) {
 			}(notifyReqs[i], url)
 		}
 	}
+	calculateWork := func(block *types.Block, work *[3]string) {
+		hash := ethash.SealHash(block.Header())
+
+		work[0] = hash.Hex()
+		work[1] = common.BytesToHash(SeedHash(block.NumberU64())).Hex()
+		work[2] = common.BytesToHash(new(big.Int).Div(two256, block.Difficulty()).Bytes()).Hex()
+
+		works[hash] = block
+	}
 	// makeWork creates a work package for external miner.
 	//
 	// The work package consists of 3 strings:
@@ -249,15 +261,11 @@ func (ethash *Ethash) remote(notify []string, noverify bool) {
 	//   result[1], 32 bytes hex encoded seed hash used for DAG
 	//   result[2], 32 bytes hex encoded boundary condition ("target"), 2^256/difficulty
 	makeWork := func(block *types.Block) {
-		hash := ethash.SealHash(block.Header())
-
-		currentWork[0] = hash.Hex()
-		currentWork[1] = common.BytesToHash(SeedHash(block.NumberU64())).Hex()
-		currentWork[2] = common.BytesToHash(new(big.Int).Div(two256, block.Difficulty()).Bytes()).Hex()
+		calculateWork(block, &currentWork)
+		currentWorks = make(map[string][3]string)
 
 		// Trace the seal work fetched by remote sealer.
 		currentBlock = block
-		works[hash] = block
 	}
 	// submitWork verifies the submitted pow solution, returning
 	// whether the solution was accepted or not (not can be both a bad pow as well as
@@ -330,6 +338,28 @@ func (ethash *Ethash) remote(notify []string, noverify bool) {
 			// Return current mining work to remote miner.
 			if currentBlock == nil {
 				work.errc <- errNoMiningWork
+				continue
+			}
+
+			if work.appendedExtraData != nil {
+				if _, present := currentWorks[*work.appendedExtraData]; !present {
+					newHeader := currentBlock.Header() // returns a copy
+					newHeader.Extra = append(newHeader.Extra, *work.appendedExtraData...)
+
+					if uint64(len(newHeader.Extra)) > params.MaximumExtraDataSize {
+						work.errc <- errExtraDataTooLong
+						continue
+					}
+
+					// WithSeal is erronously named; it just copies a block but changes the header
+					newBlock := currentBlock.WithSeal(newHeader)
+
+					newWork := [3]string{}
+					calculateWork(newBlock, &newWork)
+
+					currentWorks[*work.appendedExtraData] = newWork
+				}
+				work.res <- currentWorks[*work.appendedExtraData]
 			} else {
 				work.res <- currentWork
 			}

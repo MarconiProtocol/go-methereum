@@ -31,13 +31,7 @@ type API struct {
 	ethash *Ethash // Make sure the mode of ethash is normal.
 }
 
-// GetWork returns a work package for external miner.
-//
-// The work package consists of 3 strings:
-//   result[0] - 32 bytes hex encoded current block header pow-hash
-//   result[1] - 32 bytes hex encoded seed hash used for DAG
-//   result[2] - 32 bytes hex encoded boundary condition ("target"), 2^256/difficulty
-func (api *API) GetWork() ([3]string, error) {
+func (api *API) getWorkWithOptionalExtraData(appendedExtraData *string) ([3]string, error) {
 	if api.ethash.config.PowMode != ModeNormal && api.ethash.config.PowMode != ModeCryptonight && api.ethash.config.PowMode != ModeTest {
 		return [3]string{}, errors.New("not supported")
 	}
@@ -48,7 +42,7 @@ func (api *API) GetWork() ([3]string, error) {
 	)
 
 	select {
-	case api.ethash.fetchWorkCh <- &sealWork{errc: errc, res: workCh}:
+	case api.ethash.fetchWorkCh <- &sealWork{errc: errc, res: workCh, appendedExtraData: appendedExtraData}:
 	case <-api.ethash.exitCh:
 		return [3]string{}, errEthashStopped
 	}
@@ -59,6 +53,27 @@ func (api *API) GetWork() ([3]string, error) {
 	case err := <-errc:
 		return [3]string{}, err
 	}
+}
+
+// GetWork returns a work package for external miner.
+//
+// The work package consists of 3 strings:
+//   result[0] - 32 bytes hex encoded current block header pow-hash
+//   result[1] - 32 bytes hex encoded seed hash used for DAG
+//   result[2] - 32 bytes hex encoded boundary condition ("target"), 2^256/difficulty
+func (api *API) GetWork() ([3]string, error) {
+	return api.getWorkWithOptionalExtraData(nil)
+}
+
+// GetWorkWithAppendedExtraData accepts additional extradata to be appended to the
+// current extradata and returns a work package for external miner.
+//
+// The work package consists of 3 strings:
+//   result[0] - 32 bytes hex encoded current block header pow-hash
+//   result[1] - 32 bytes hex encoded seed hash used for DAG
+//   result[2] - 32 bytes hex encoded boundary condition ("target"), 2^256/difficulty
+func (api *API) GetWorkWithAppendedExtraData(appendedExtraData string) ([3]string, error) {
+	return api.getWorkWithOptionalExtraData(&appendedExtraData)
 }
 
 // SubmitWork can be used by external miner to submit their POW solution.
