@@ -209,8 +209,7 @@ func (ethash *Ethash) remote(notify []string, noverify bool) {
 
 		results      chan<- *types.Block
 		currentBlock *types.Block
-		currentWork  [3]string
-		currentWorks map[string][3]string
+		currentWork  map[string][3]string
 
 		notifyTransport = &http.Transport{}
 		notifyClient    = &http.Client{
@@ -222,7 +221,7 @@ func (ethash *Ethash) remote(notify []string, noverify bool) {
 	// notifyWork notifies all the specified mining endpoints of the availability of
 	// new work to be processed.
 	notifyWork := func() {
-		work := currentWork
+		work := currentWork[""]
 		blob, _ := json.Marshal(work)
 
 		for i, url := range notify {
@@ -245,12 +244,14 @@ func (ethash *Ethash) remote(notify []string, noverify bool) {
 			}(notifyReqs[i], url)
 		}
 	}
-	calculateWork := func(block *types.Block, work *[3]string) {
+	calculateAndStoreWork := func(block *types.Block) {
 		hash := ethash.SealHash(block.Header())
 
-		work[0] = hash.Hex()
-		work[1] = common.BytesToHash(SeedHash(block.NumberU64())).Hex()
-		work[2] = common.BytesToHash(new(big.Int).Div(two256, block.Difficulty()).Bytes()).Hex()
+		currentWork[string(block.Extra())] = [3]string{
+			hash.Hex(),
+			common.BytesToHash(SeedHash(block.NumberU64())).Hex(),
+			common.BytesToHash(new(big.Int).Div(two256, block.Difficulty()).Bytes()).Hex(),
+		}
 
 		works[hash] = block
 	}
@@ -261,8 +262,8 @@ func (ethash *Ethash) remote(notify []string, noverify bool) {
 	//   result[1], 32 bytes hex encoded seed hash used for DAG
 	//   result[2], 32 bytes hex encoded boundary condition ("target"), 2^256/difficulty
 	makeWork := func(block *types.Block) {
-		calculateWork(block, &currentWork)
-		currentWorks = make(map[string][3]string)
+		currentWork = make(map[string][3]string)
+		calculateAndStoreWork(block)
 
 		// Trace the seal work fetched by remote sealer.
 		currentBlock = block
@@ -341,28 +342,21 @@ func (ethash *Ethash) remote(notify []string, noverify bool) {
 				continue
 			}
 
-			if work.appendedExtraData != nil {
-				if _, present := currentWorks[*work.appendedExtraData]; !present {
-					newHeader := currentBlock.Header() // returns a copy
-					newHeader.Extra = append(newHeader.Extra, *work.appendedExtraData...)
+			if _, present := currentWork[work.appendedExtraData]; !present {
+				newHeader := currentBlock.Header() // returns a copy
+				newHeader.Extra = append(newHeader.Extra, work.appendedExtraData...)
 
-					if uint64(len(newHeader.Extra)) > params.MaximumExtraDataSize {
-						work.errc <- errExtraDataTooLong
-						continue
-					}
-
-					// WithSeal is erronously named; it just copies a block but changes the header
-					newBlock := currentBlock.WithSeal(newHeader)
-
-					newWork := [3]string{}
-					calculateWork(newBlock, &newWork)
-
-					currentWorks[*work.appendedExtraData] = newWork
+				if uint64(len(newHeader.Extra)) > params.MaximumExtraDataSize {
+					work.errc <- errExtraDataTooLong
+					continue
 				}
-				work.res <- currentWorks[*work.appendedExtraData]
-			} else {
-				work.res <- currentWork
+
+				// WithSeal is erronously named; it just copies a block but changes the header
+				newBlock := currentBlock.WithSeal(newHeader)
+
+				calculateAndStoreWork(newBlock)
 			}
+			work.res <- currentWork[work.appendedExtraData]
 
 		case result := <-ethash.submitWorkCh:
 			// Verify submitted PoW solution based on maintained mining blocks.
