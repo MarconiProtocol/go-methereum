@@ -24,7 +24,7 @@ import (
 	"testing"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/network"
+	"github.com/ethereum/go-ethereum/swarm/network"
 )
 
 var (

@@ -21,9 +21,9 @@ import (
 	"fmt"
 	"io/ioutil"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/accounts/keystore"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/cmd/utils"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto"
+	"github.com/ethereum/go-ethereum/accounts/keystore"
+	"github.com/ethereum/go-ethereum/cmd/utils"
+	"github.com/ethereum/go-ethereum/crypto"
 	"gopkg.in/urfave/cli.v1"
 )
 

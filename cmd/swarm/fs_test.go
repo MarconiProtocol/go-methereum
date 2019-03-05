@@ -28,7 +28,7 @@ import (
 	"testing"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
+	"github.com/ethereum/go-ethereum/log"
 	colorable "github.com/mattn/go-colorable"
 )
 

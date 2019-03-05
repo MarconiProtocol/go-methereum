@@ -25,9 +25,9 @@ import (
 	"time"
 	"unsafe"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/chunk"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/log"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage"
+	"github.com/ethereum/go-ethereum/swarm/chunk"
+	"github.com/ethereum/go-ethereum/swarm/log"
+	"github.com/ethereum/go-ethereum/swarm/storage"
 )
 
 type Handler struct {

@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"sync"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/metrics"
+	"github.com/ethereum/go-ethereum/metrics"
 )
 
 type exp struct {

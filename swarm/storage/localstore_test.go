@@ -21,7 +21,7 @@ import (
 	"os"
 	"testing"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/chunk"
+	"github.com/ethereum/go-ethereum/swarm/chunk"
 )
 
 var (

@@ -20,7 +20,7 @@ import (
 	"context"
 	"path"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage"
+	"github.com/ethereum/go-ethereum/swarm/storage"
 )
 
 type Response struct {

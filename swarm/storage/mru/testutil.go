@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"path/filepath"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage"
+	"github.com/ethereum/go-ethereum/swarm/storage"
 )
 
 const (

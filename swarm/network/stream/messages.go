@@ -23,11 +23,11 @@ import (
 	"sync"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/metrics"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/log"
-	bv "gitlab.neji.vm.tc/marconi/go-ethereum/swarm/network/bitvector"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/spancontext"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage"
+	"github.com/ethereum/go-ethereum/metrics"
+	"github.com/ethereum/go-ethereum/swarm/log"
+	bv "github.com/ethereum/go-ethereum/swarm/network/bitvector"
+	"github.com/ethereum/go-ethereum/swarm/spancontext"
+	"github.com/ethereum/go-ethereum/swarm/storage"
 	opentracing "github.com/opentracing/opentracing-go"
 )
 

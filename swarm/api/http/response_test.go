@@ -25,7 +25,7 @@ import (
 
 	"golang.org/x/net/html"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/testutil"
+	"github.com/ethereum/go-ethereum/swarm/testutil"
 )
 
 func TestError(t *testing.T) {

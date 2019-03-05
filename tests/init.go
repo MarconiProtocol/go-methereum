@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"math/big"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/params"
+	"github.com/ethereum/go-ethereum/params"
 )
 
 // Forks table defines supported forks and their chain config.

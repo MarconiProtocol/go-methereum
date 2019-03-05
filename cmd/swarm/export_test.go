@@ -27,7 +27,7 @@ import (
 	"strings"
 	"testing"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm"
+	"github.com/ethereum/go-ethereum/swarm"
 )
 
 // TestCLISwarmExportImport perform the following test:

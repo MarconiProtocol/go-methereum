@@ -40,7 +40,7 @@ import (
 	"math/big"
 	"testing"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto"
+	"github.com/ethereum/go-ethereum/crypto"
 )
 
 var dumpEnc bool

@@ -19,9 +19,9 @@ package rpc
 import (
 	"testing"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/rpc"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage/mock/mem"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage/mock/test"
+	"github.com/ethereum/go-ethereum/rpc"
+	"github.com/ethereum/go-ethereum/swarm/storage/mock/mem"
+	"github.com/ethereum/go-ethereum/swarm/storage/mock/test"
 )
 
 // TestDBStore is running test for a GlobalStore

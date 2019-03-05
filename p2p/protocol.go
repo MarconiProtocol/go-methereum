@@ -19,7 +19,7 @@ package p2p
 import (
 	"fmt"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/discover"
+	"github.com/ethereum/go-ethereum/p2p/discover"
 )
 
 // Protocol represents a P2P subprotocol implementation.

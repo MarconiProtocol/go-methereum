@@ -21,9 +21,9 @@ import (
 	"context"
 	"sync"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/internal/ethapi"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/rpc"
+	"github.com/ethereum/go-ethereum/internal/ethapi"
+	"github.com/ethereum/go-ethereum/log"
+	"github.com/ethereum/go-ethereum/rpc"
 )
 
 type StdIOUI struct {

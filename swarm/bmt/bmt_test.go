@@ -28,7 +28,7 @@ import (
 	"testing"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto/sha3"
+	"github.com/ethereum/go-ethereum/crypto/sha3"
 )
 
 // the actual data length generated (could be longer than max datalength of the BMT)

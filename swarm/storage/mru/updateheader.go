@@ -17,7 +17,7 @@
 package mru
 
 import (
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage"
+	"github.com/ethereum/go-ethereum/swarm/storage"
 )
 
 // updateHeader models the non-payload components of a Resource Update

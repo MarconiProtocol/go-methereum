@@ -19,7 +19,7 @@ import (
 	"context"
 	"sync"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/log"
+	"github.com/ethereum/go-ethereum/swarm/log"
 )
 
 // PutChunks adds chunks  to localstore

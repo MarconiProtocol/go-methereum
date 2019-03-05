@@ -19,7 +19,7 @@ package vm
 import (
 	"math/big"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/params"
+	"github.com/ethereum/go-ethereum/params"
 )
 
 // Gas costs

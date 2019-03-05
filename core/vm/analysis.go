@@ -19,7 +19,7 @@ package vm
 import (
 	"math/big"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/common"
 )
 
 // destinations stores one map per contract (keyed by hash of code).

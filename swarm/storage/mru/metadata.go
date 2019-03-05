@@ -20,8 +20,8 @@ import (
 	"encoding/binary"
 	"hash"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/swarm/storage"
 )
 
 // ResourceMetadata encapsulates the immutable information about a mutable resource :)

@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"math/big"
 	
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/common"
 )
 
 // Genesis hashes to enforce below configs on.

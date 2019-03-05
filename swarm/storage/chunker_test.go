@@ -26,7 +26,7 @@ import (
 	"io"
 	"testing"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto/sha3"
+	"github.com/ethereum/go-ethereum/crypto/sha3"
 )
 
 /*

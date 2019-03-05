@@ -25,8 +25,8 @@ import (
 	"sync"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/chunk"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/log"
+	"github.com/ethereum/go-ethereum/swarm/chunk"
+	"github.com/ethereum/go-ethereum/swarm/log"
 )
 
 /*

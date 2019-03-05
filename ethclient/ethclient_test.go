@@ -16,7 +16,7 @@
 
 package ethclient
 
-import "gitlab.neji.vm.tc/marconi/go-ethereum"
+import "github.com/ethereum/go-ethereum"
 
 // Verify that Client implements the ethereum interfaces.
 var (

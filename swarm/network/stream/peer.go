@@ -22,14 +22,14 @@ import (
 	"sync"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/metrics"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/protocols"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/log"
-	pq "gitlab.neji.vm.tc/marconi/go-ethereum/swarm/network/priorityqueue"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/network/stream/intervals"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/spancontext"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/state"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage"
+	"github.com/ethereum/go-ethereum/metrics"
+	"github.com/ethereum/go-ethereum/p2p/protocols"
+	"github.com/ethereum/go-ethereum/swarm/log"
+	pq "github.com/ethereum/go-ethereum/swarm/network/priorityqueue"
+	"github.com/ethereum/go-ethereum/swarm/network/stream/intervals"
+	"github.com/ethereum/go-ethereum/swarm/spancontext"
+	"github.com/ethereum/go-ethereum/swarm/state"
+	"github.com/ethereum/go-ethereum/swarm/storage"
 	opentracing "github.com/opentracing/opentracing-go"
 )
 
