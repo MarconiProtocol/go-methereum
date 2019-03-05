@@ -23,7 +23,7 @@
 package shed
 
 import (
-	"github.com/ethereum/go-ethereum/metrics"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/metrics"
 	"github.com/syndtr/goleveldb/leveldb"
 	"github.com/syndtr/goleveldb/leveldb/iterator"
 	"github.com/syndtr/goleveldb/leveldb/opt"

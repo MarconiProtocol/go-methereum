@@ -42,7 +42,7 @@ import (
 	"fmt"
 	"hash"
 
-	ethcrypto "github.com/ethereum/go-ethereum/crypto"
+	ethcrypto "gitlab.neji.vm.tc/marconi/go-ethereum/crypto"
 )
 
 var (

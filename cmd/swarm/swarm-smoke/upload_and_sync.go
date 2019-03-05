@@ -32,7 +32,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ethereum/go-ethereum/log"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
 	colorable "github.com/mattn/go-colorable"
 	"github.com/pborman/uuid"
 

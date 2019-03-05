@@ -30,9 +30,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum/log"
-	swarmapi "github.com/ethereum/go-ethereum/swarm/api/client"
-	"github.com/ethereum/go-ethereum/swarm/testutil"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
+	swarmapi "gitlab.neji.vm.tc/marconi/go-ethereum/swarm/api/client"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/testutil"
 	"github.com/mattn/go-colorable"
 )
 

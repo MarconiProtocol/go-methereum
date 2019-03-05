@@ -25,17 +25,17 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ethereum/go-ethereum/metrics"
-	"github.com/ethereum/go-ethereum/p2p"
-	"github.com/ethereum/go-ethereum/p2p/enode"
-	"github.com/ethereum/go-ethereum/p2p/protocols"
-	"github.com/ethereum/go-ethereum/rpc"
-	"github.com/ethereum/go-ethereum/swarm/log"
-	"github.com/ethereum/go-ethereum/swarm/network"
-	"github.com/ethereum/go-ethereum/swarm/network/stream/intervals"
-	"github.com/ethereum/go-ethereum/swarm/pot"
-	"github.com/ethereum/go-ethereum/swarm/state"
-	"github.com/ethereum/go-ethereum/swarm/storage"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/metrics"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/enode"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/protocols"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/rpc"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/log"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/network"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/network/stream/intervals"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/pot"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/state"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage"
 )
 
 const (

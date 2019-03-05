@@ -24,9 +24,9 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/swarm/api"
-	swarm "github.com/ethereum/go-ethereum/swarm/api/client"
-	swarmhttp "github.com/ethereum/go-ethereum/swarm/api/http"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/api"
+	swarm "gitlab.neji.vm.tc/marconi/go-ethereum/swarm/api/client"
+	swarmhttp "gitlab.neji.vm.tc/marconi/go-ethereum/swarm/api/http"
 )
 
 // TestManifestChange tests manifest add, update and remove

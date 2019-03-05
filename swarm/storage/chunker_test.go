@@ -24,8 +24,8 @@ import (
 	"io"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/crypto/sha3"
-	"github.com/ethereum/go-ethereum/swarm/testutil"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto/sha3"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/testutil"
 )
 
 /*

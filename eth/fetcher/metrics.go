@@ -19,7 +19,7 @@
 package fetcher
 
 import (
-	"github.com/ethereum/go-ethereum/metrics"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/metrics"
 )
 
 var (

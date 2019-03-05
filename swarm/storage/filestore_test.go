@@ -24,7 +24,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/swarm/testutil"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/testutil"
 )
 
 const testDataSize = 0x0001000
