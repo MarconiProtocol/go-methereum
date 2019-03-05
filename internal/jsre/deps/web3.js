@@ -5431,9 +5431,9 @@ var methods = function () {
         params: 0
     });
 
-    var getWorkWithAppendedExtraData = new Method({
-        name: 'getWorkWithAppendedExtraData',
-        call: 'eth_getWorkWithAppendedExtraData',
+    var getWorkWithExtraData = new Method({
+        name: 'getWorkWithExtraData',
+        call: 'eth_getWorkWithExtraData',
         params: 1
     });
 
@@ -5462,7 +5462,7 @@ var methods = function () {
         compileSerpent,
         submitWork,
         getWork,
-        getWorkWithAppendedExtraData
+        getWorkWithExtraData
     ];
 };
 

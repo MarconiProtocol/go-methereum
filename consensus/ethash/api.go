@@ -38,17 +38,17 @@ type API struct {
 //   result[1] - 32 bytes hex encoded seed hash used for DAG
 //   result[2] - 32 bytes hex encoded boundary condition ("target"), 2^256/difficulty
 func (api *API) GetWork() ([3]string, error) {
-	return api.GetWorkWithAppendedExtraData("")
+	return api.GetWorkWithExtraData("")
 }
 
-// GetWorkWithAppendedExtraData accepts additional extradata to be appended to the
+// GetWorkWithExtraData accepts extradata which will be used instead of the
 // current extradata and returns a work package for external miner.
 //
 // The work package consists of 3 strings:
 //   result[0] - 32 bytes hex encoded current block header pow-hash
 //   result[1] - 32 bytes hex encoded seed hash used for DAG
 //   result[2] - 32 bytes hex encoded boundary condition ("target"), 2^256/difficulty
-func (api *API) GetWorkWithAppendedExtraData(appendedExtraData string) ([3]string, error) {
+func (api *API) GetWorkWithExtraData(extraData string) ([3]string, error) {
 	if api.ethash.config.PowMode != ModeNormal && api.ethash.config.PowMode != ModeCryptonight && api.ethash.config.PowMode != ModeTest {
 		return [3]string{}, errors.New("not supported")
 	}
@@ -59,7 +59,7 @@ func (api *API) GetWorkWithAppendedExtraData(appendedExtraData string) ([3]strin
 	)
 
 	select {
-	case api.ethash.fetchWorkCh <- &sealWork{errc: errc, res: workCh, appendedExtraData: appendedExtraData}:
+	case api.ethash.fetchWorkCh <- &sealWork{errc: errc, res: workCh, extraData: extraData}:
 	case <-api.ethash.exitCh:
 		return [3]string{}, errEthashStopped
 	}

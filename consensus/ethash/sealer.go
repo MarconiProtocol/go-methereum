@@ -21,6 +21,7 @@ import (
 	crand "crypto/rand"
 	"encoding/json"
 	"errors"
+	"fmt"
 	"math"
 	"math/big"
 	"math/rand"
@@ -45,7 +46,6 @@ const (
 var (
 	errNoMiningWork      = errors.New("no mining work available yet")
 	errInvalidSealResult = errors.New("invalid or stale proof-of-work solution")
-	errExtraDataTooLong  = errors.New("extra data provided is too long")
 )
 
 // Seal implements consensus.Engine, attempting to find a nonce that satisfies
@@ -342,12 +342,12 @@ func (ethash *Ethash) remote(notify []string, noverify bool) {
 				continue
 			}
 
-			if _, present := currentWork[work.appendedExtraData]; !present {
+			if _, present := currentWork[work.extraData]; !present {
 				newHeader := currentBlock.Header() // returns a copy
-				newHeader.Extra = append(newHeader.Extra, work.appendedExtraData...)
+				newHeader.Extra = []byte(work.extraData)
 
 				if uint64(len(newHeader.Extra)) > params.MaximumExtraDataSize {
-					work.errc <- errExtraDataTooLong
+					work.errc <- fmt.Errorf("extra data provided is too long (%d)", len(newHeader.Extra))
 					continue
 				}
 
@@ -356,7 +356,7 @@ func (ethash *Ethash) remote(notify []string, noverify bool) {
 
 				calculateAndStoreWork(newBlock)
 			}
-			work.res <- currentWork[work.appendedExtraData]
+			work.res <- currentWork[work.extraData]
 
 		case result := <-ethash.submitWorkCh:
 			// Verify submitted PoW solution based on maintained mining blocks.
