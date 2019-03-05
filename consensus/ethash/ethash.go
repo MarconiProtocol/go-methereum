@@ -434,7 +434,7 @@ type hashrate struct {
 // sealWork wraps a seal work package for remote sealer.
 type sealWork struct {
 	errc chan error
-	res  chan [3]string
+	res  chan [4]string
 }
 
 // Ethash is a consensus engine based on proof-of-work implementing the ethash
@@ -487,7 +487,7 @@ func New(config Config, notify []string, noverify bool) *Ethash {
 		caches:       newlru("cache", config.CachesInMem, newCache),
 		datasets:     newlru("dataset", config.DatasetsInMem, newDataset),
 		update:       make(chan struct{}),
-		hashrate:     metrics.NewMeter(),
+		hashrate:     metrics.NewMeterForced(),
 		workCh:       make(chan *sealTask),
 		fetchWorkCh:  make(chan *sealWork),
 		submitWorkCh: make(chan *mineResult),
@@ -549,7 +549,7 @@ func NewTester(notify []string, noverify bool) *Ethash {
 		caches:       newlru("cache", 1, newCache),
 		datasets:     newlru("dataset", 1, newDataset),
 		update:       make(chan struct{}),
-		hashrate:     metrics.NewMeter(),
+		hashrate:     metrics.NewMeterForced(),
 		workCh:       make(chan *sealTask),
 		fetchWorkCh:  make(chan *sealWork),
 		submitWorkCh: make(chan *mineResult),
