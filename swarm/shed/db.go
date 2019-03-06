@@ -29,8 +29,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ethereum/go-ethereum/metrics"
-	"github.com/ethereum/go-ethereum/swarm/log"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/metrics"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/log"
 	"github.com/syndtr/goleveldb/leveldb"
 	"github.com/syndtr/goleveldb/leveldb/iterator"
 	"github.com/syndtr/goleveldb/leveldb/opt"

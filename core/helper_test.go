@@ -19,9 +19,9 @@ package core
 import (
 	"container/list"
 
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/ethdb"
-	"github.com/ethereum/go-ethereum/event"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/core/types"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/ethdb"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/event"
 )
 
 // Implement our EthTest Manager

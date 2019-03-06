@@ -22,15 +22,15 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/consensus"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/core/state"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/eth/downloader"
-	"github.com/ethereum/go-ethereum/event"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/params"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/consensus"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/core"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/core/state"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/core/types"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/eth/downloader"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/event"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/params"
 )
 
 // Backend wraps all methods required for mining.

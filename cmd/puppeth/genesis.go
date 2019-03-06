@@ -23,12 +23,12 @@ import (
 	"math/big"
 	"strings"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	math2 "github.com/ethereum/go-ethereum/common/math"
-	"github.com/ethereum/go-ethereum/consensus/ethash"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/params"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/common/hexutil"
+	math2 "gitlab.neji.vm.tc/marconi/go-ethereum/common/math"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/consensus/ethash"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/core"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/params"
 )
 
 // alethGenesisSpec represents the genesis specification format used by the

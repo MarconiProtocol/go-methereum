@@ -26,9 +26,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/p2p/enr"
-	"github.com/ethereum/go-ethereum/p2p/netutil"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/enr"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/netutil"
 )
 
 const (

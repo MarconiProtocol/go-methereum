@@ -92,8 +92,8 @@ package localstore
 import (
 	"time"
 
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/swarm/shed"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/shed"
 	"github.com/syndtr/goleveldb/leveldb"
 )
 

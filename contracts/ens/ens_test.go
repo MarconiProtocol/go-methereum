@@ -20,12 +20,12 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/accounts/abi/bind"
-	"github.com/ethereum/go-ethereum/accounts/abi/bind/backends"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/contracts/ens/contract"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/crypto"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/accounts/abi/bind"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/accounts/abi/bind/backends"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/contracts/ens/contract"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/core"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto"
 )
 
 var (

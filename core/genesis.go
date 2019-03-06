@@ -25,16 +25,16 @@ import (
 	"math/big"
 	"strings"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/common/math"
-	"github.com/ethereum/go-ethereum/core/rawdb"
-	"github.com/ethereum/go-ethereum/core/state"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/ethdb"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/params"
-	"github.com/ethereum/go-ethereum/rlp"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/common/hexutil"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/common/math"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/core/rawdb"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/core/state"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/core/types"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/ethdb"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/params"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/rlp"
 )
 
 //go:generate gencodec -type Genesis -field-override genesisSpecMarshaling -out gen_genesis.go

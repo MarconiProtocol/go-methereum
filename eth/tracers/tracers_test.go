@@ -27,17 +27,17 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/common/math"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/core/vm"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/ethdb"
-	"github.com/ethereum/go-ethereum/params"
-	"github.com/ethereum/go-ethereum/rlp"
-	"github.com/ethereum/go-ethereum/tests"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/common/hexutil"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/common/math"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/core"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/core/types"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/core/vm"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/ethdb"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/params"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/rlp"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/tests"
 )
 
 // To generate a new callTracer test, copy paste the makeTest method below into

@@ -28,10 +28,10 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/bitutil"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/log"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/common/bitutil"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
 	"golang.org/x/crypto/sha3"
 )
 

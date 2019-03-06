@@ -28,17 +28,17 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/core/rawdb"
-	"github.com/ethereum/go-ethereum/core/state"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/internal/ethapi"
-	"github.com/ethereum/go-ethereum/params"
-	"github.com/ethereum/go-ethereum/rlp"
-	"github.com/ethereum/go-ethereum/rpc"
-	"github.com/ethereum/go-ethereum/trie"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/common/hexutil"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/core"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/core/rawdb"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/core/state"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/core/types"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/internal/ethapi"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/params"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/rlp"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/rpc"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/trie"
 )
 
 // PublicEthereumAPI provides an API to access Ethereum full node-related

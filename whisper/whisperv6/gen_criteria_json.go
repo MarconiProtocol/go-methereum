@@ -5,7 +5,7 @@ package whisperv6
 import (
 	"encoding/json"
 
-	"github.com/ethereum/go-ethereum/common/hexutil"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/common/hexutil"
 )
 
 var _ = (*criteriaOverride)(nil)

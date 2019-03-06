@@ -25,9 +25,9 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/swarm/storage"
-	"github.com/ethereum/go-ethereum/swarm/storage/mock"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage/mock"
 )
 
 // MockStore creates NodeStore instances from provided GlobalStorer,

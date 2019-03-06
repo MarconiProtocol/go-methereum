@@ -23,7 +23,7 @@ import (
 	"testing"
 	"time"
 
-	ch "github.com/ethereum/go-ethereum/swarm/chunk"
+	ch "gitlab.neji.vm.tc/marconi/go-ethereum/swarm/chunk"
 )
 
 var (
