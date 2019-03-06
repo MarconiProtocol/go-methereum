@@ -26,8 +26,8 @@ import (
 	"reflect"
 	"strings"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common/hexutil"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto/sha3"
+	"github.com/ethereum/go-ethereum/common/hexutil"
+	"github.com/ethereum/go-ethereum/crypto/sha3"
 )
 
 // Lengths of hashes and addresses in bytes.

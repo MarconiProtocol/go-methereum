@@ -21,7 +21,7 @@ import (
 	"math/big"
 	"testing"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/common"
 )
 
 // precompiledTest defines the input/output pairs for precompiled contract tests.

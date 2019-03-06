@@ -5,7 +5,7 @@ import (
 	"encoding/hex"
 	"testing"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common/hexutil"
+	"github.com/ethereum/go-ethereum/common/hexutil"
 )
 
 // Couple of helper functions to make tests below more readable.

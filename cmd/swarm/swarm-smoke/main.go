@@ -20,7 +20,7 @@ import (
 	"os"
 	"sort"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
+	"github.com/ethereum/go-ethereum/log"
 
 	cli "gopkg.in/urfave/cli.v1"
 )

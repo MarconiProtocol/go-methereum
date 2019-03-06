@@ -25,11 +25,11 @@ import (
 	"sync"
 	"time"
 
-	ethereum "gitlab.neji.vm.tc/marconi/go-ethereum"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/accounts"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/core/types"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
+	ethereum "github.com/ethereum/go-ethereum"
+	"github.com/ethereum/go-ethereum/accounts"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/ethereum/go-ethereum/log"
 	"github.com/karalabe/hid"
 )
 

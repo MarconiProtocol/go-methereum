@@ -24,8 +24,8 @@ import (
 	"testing"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common/mclock"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/ethdb"
+	"github.com/ethereum/go-ethereum/common/mclock"
+	"github.com/ethereum/go-ethereum/ethdb"
 )
 
 func TestFreeClientPoolL10C100(t *testing.T) {

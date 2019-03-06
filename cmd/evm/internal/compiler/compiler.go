@@ -20,7 +20,7 @@ import (
 	"errors"
 	"fmt"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/core/asm"
+	"github.com/ethereum/go-ethereum/core/asm"
 )
 
 func Compile(fn string, src []byte, debug bool) (string, error) {

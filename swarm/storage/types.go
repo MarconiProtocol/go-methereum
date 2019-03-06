@@ -26,10 +26,10 @@ import (
 	"hash"
 	"io"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto/sha3"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/bmt"
-	ch "gitlab.neji.vm.tc/marconi/go-ethereum/swarm/chunk"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/crypto/sha3"
+	"github.com/ethereum/go-ethereum/swarm/bmt"
+	ch "github.com/ethereum/go-ethereum/swarm/chunk"
 )
 
 const MaxPO = 16

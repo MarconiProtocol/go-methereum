@@ -19,9 +19,9 @@ package protocols
 import (
 	"testing"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/simulations/adapters"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/rlp"
+	"github.com/ethereum/go-ethereum/p2p"
+	"github.com/ethereum/go-ethereum/p2p/simulations/adapters"
+	"github.com/ethereum/go-ethereum/rlp"
 )
 
 //dummy Balance implementation

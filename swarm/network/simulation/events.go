@@ -20,8 +20,8 @@ import (
 	"context"
 	"sync"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/enode"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/simulations"
+	"github.com/ethereum/go-ethereum/p2p/enode"
+	"github.com/ethereum/go-ethereum/p2p/simulations"
 )
 
 // PeerEvent is the type of the channel returned by Simulation.PeerEvents.

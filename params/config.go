@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"math/big"
 	
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/common"
 )
 
 // Genesis hashes to enforce below configs on.
@@ -51,16 +51,21 @@ var (
 		ContractsRequireWhitelistedAccount: true,
 	}
 
-  // Commented out by Darryl. Pretty sure we don't want something like this, but need to think a bit.
-  //
 	// MainnetTrustedCheckpoint contains the light client trusted checkpoint for the main network.
-	//MainnetTrustedCheckpoint = &TrustedCheckpoint{
-	//	Name:         "mainnet",
-	//	SectionIndex: 206,
-	//	SectionHead:  common.HexToHash("0x9fa677c7c0580136f5a86d9b2fd29b112e531f0284396298b8809bcb6787b538"),
-	//	CHTRoot:      common.HexToHash("0x7f32dfb29e341b4c8c10ea2e06a812bcea470366f635b7a8b3d0856684cd76f4"),
-	//	BloomRoot:    common.HexToHash("0x0169e174f0a8172aec217556d8a25c7ba7ca52aacff170325230a75740ff1eaf"),
-	//}
+  //
+  // Note from Darryl: looks like this is only used for "light
+  // chains", so in theory shouldn't affect what we've been doing with
+  // full and fast sync. This is just a best guess though, it's
+  // possible I have no idea what I'm talking about. We should
+  // investigate further and might require some rejiggering e.g. if we
+  // want to support light sync.
+	MainnetTrustedCheckpoint = &TrustedCheckpoint{
+		Name:         "mainnet",
+		SectionIndex: 206,
+		SectionHead:  common.HexToHash("0x9fa677c7c0580136f5a86d9b2fd29b112e531f0284396298b8809bcb6787b538"),
+		CHTRoot:      common.HexToHash("0x7f32dfb29e341b4c8c10ea2e06a812bcea470366f635b7a8b3d0856684cd76f4"),
+		BloomRoot:    common.HexToHash("0x0169e174f0a8172aec217556d8a25c7ba7ca52aacff170325230a75740ff1eaf"),
+	}
 
 	// TestnetChainConfig contains the chain parameters to run a node on the Faraday test network.
 	TestnetChainConfig = &ChainConfig{
@@ -127,9 +132,7 @@ var (
 	// This configuration is intentionally not using keyed fields to force anyone
 	// adding flags to the config to also have to set these fields.
 	AllEthashProtocolChanges = &ChainConfig{big.NewInt(1337), big.NewInt(0), nil, false, big.NewInt(0), common.Hash{}, big.NewInt(0), big.NewInt(0),
-		big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), nil, new(EthashConfig), nil, false}
-	//AllEthashProtocolChanges = &ChainConfig{big.NewInt(1337), big.NewInt(0), nil, false, big.NewInt(0), common.Hash{}, big.NewInt(0), big.NewInt(0),
-  //  big.NewInt(0), big.NewInt(0), nil, new(EthashConfig), nil}
+		big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), nil, nil, new(EthashConfig), nil, false}
 
 	// AllCliqueProtocolChanges contains every protocol change (EIPs) introduced
 	// and accepted by the Ethereum core developers into the Clique consensus.
@@ -137,12 +140,10 @@ var (
 	// This configuration is intentionally not using keyed fields to force anyone
 	// adding flags to the config to also have to set these fields.
 	AllCliqueProtocolChanges = &ChainConfig{big.NewInt(1337), big.NewInt(0), nil, false, big.NewInt(0), common.Hash{}, big.NewInt(0), big.NewInt(0),
-		big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), nil, nil, &CliqueConfig{Period: 0, Epoch: 30000}, false}
-	//AllCliqueProtocolChanges = &ChainConfig{big.NewInt(1337), big.NewInt(0), nil, false, big.NewInt(0), common.Hash{}, big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), nil, nil, &CliqueConfig{Period: 0, Epoch: 30000}}
+		big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), nil, nil, nil, &CliqueConfig{Period: 0, Epoch: 30000}, false}
   
 	TestChainConfig = &ChainConfig{big.NewInt(1), big.NewInt(0), nil, false, big.NewInt(0), common.Hash{}, big.NewInt(0), big.NewInt(0),
-		big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), nil, new(EthashConfig), nil, false}
-	//TestChainConfig = &ChainConfig{big.NewInt(1), big.NewInt(0), nil, false, big.NewInt(0), common.Hash{}, big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), nil, new(EthashConfig), nil}
+		big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), nil, nil, new(EthashConfig), nil, false}
 
 	TestRules       = TestChainConfig.Rules(new(big.Int))
 )

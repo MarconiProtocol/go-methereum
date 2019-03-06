@@ -34,8 +34,8 @@ import (
 	"strconv"
 	"strings"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/api"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage/feed"
+	"github.com/ethereum/go-ethereum/swarm/api"
+	"github.com/ethereum/go-ethereum/swarm/storage/feed"
 )
 
 var (

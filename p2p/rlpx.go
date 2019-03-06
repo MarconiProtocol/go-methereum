@@ -35,12 +35,12 @@ import (
 	"sync"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common/bitutil"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto/ecies"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto/secp256k1"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto/sha3"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/rlp"
+	"github.com/ethereum/go-ethereum/common/bitutil"
+	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/ethereum/go-ethereum/crypto/ecies"
+	"github.com/ethereum/go-ethereum/crypto/secp256k1"
+	"github.com/ethereum/go-ethereum/crypto/sha3"
+	"github.com/ethereum/go-ethereum/rlp"
 	"github.com/golang/snappy"
 )
 

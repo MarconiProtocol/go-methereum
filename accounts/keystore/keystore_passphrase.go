@@ -38,9 +38,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common/math"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/common/math"
+	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/pborman/uuid"
 	"golang.org/x/crypto/pbkdf2"
 	"golang.org/x/crypto/scrypt"
@@ -120,7 +120,7 @@ func (ks keyStorePassphrase) StoreKey(filename string, key *Key, auth string) er
 				"This indicates that the keystore is corrupted. \n" +
 				"The corrupted file is stored at \n%v\n" +
 				"Please file a ticket at:\n\n" +
-				"https://gitlab.neji.vm.tc/marconi/go-ethereum/issues." +
+				"https://github.com/ethereum/go-ethereum/issues." +
 				"The error was : %s"
 			return fmt.Errorf(msg, tmpName, err)
 		}
@@ -165,7 +165,7 @@ func EncryptDataV3(data, auth []byte, scryptN, scryptP int) (CryptoJSON, error) 
 	scryptParamsJSON["dklen"] = scryptDKLen
 	scryptParamsJSON["salt"] = hex.EncodeToString(salt)
 
-	cipherParamsJSON := cipherparamsJSON{
+	cipherParamsJSON := CipherparamsJSON{
 		IV: hex.EncodeToString(iv),
 	}
 
@@ -188,7 +188,7 @@ func EncryptKey(key *Key, auth string, scryptN, scryptP int) ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
-	encryptedKeyJSONV3 := encryptedKeyJSONV3{
+	encryptedKeyJSONV3 := EncryptedKeyJSONV3{
 		hex.EncodeToString(key.Address[:]),
 		cryptoStruct,
 		key.Id.String(),
@@ -270,7 +270,7 @@ func DecryptDataV3(cryptoJson CryptoJSON, auth string) ([]byte, error) {
 	return plainText, err
 }
 
-func decryptKeyV3(keyProtected *encryptedKeyJSONV3, auth string) (keyBytes []byte, keyId []byte, err error) {
+func decryptKeyV3(keyProtected *EncryptedKeyJSONV3, auth string) (keyBytes []byte, keyId []byte, err error) {
 	if keyProtected.Version != version {
 		return nil, nil, fmt.Errorf("Version not supported: %v", keyProtected.Version)
 	}

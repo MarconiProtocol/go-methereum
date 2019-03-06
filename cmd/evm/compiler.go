@@ -21,7 +21,7 @@ import (
 	"fmt"
 	"io/ioutil"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/cmd/evm/internal/compiler"
+	"github.com/ethereum/go-ethereum/cmd/evm/internal/compiler"
 
 	cli "gopkg.in/urfave/cli.v1"
 )

@@ -21,9 +21,9 @@ import (
 	"fmt"
 	"sync/atomic"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto/sha3"
-	ch "gitlab.neji.vm.tc/marconi/go-ethereum/swarm/chunk"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage/encryption"
+	"github.com/ethereum/go-ethereum/crypto/sha3"
+	ch "github.com/ethereum/go-ethereum/swarm/chunk"
+	"github.com/ethereum/go-ethereum/swarm/storage/encryption"
 )
 
 type hasherStore struct {

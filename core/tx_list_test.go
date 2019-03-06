@@ -20,8 +20,8 @@ import (
 	"math/rand"
 	"testing"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/core/types"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto"
+	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/ethereum/go-ethereum/crypto"
 )
 
 // Tests that transactions can be added to strict lists and list contents and

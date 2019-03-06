@@ -22,8 +22,8 @@ import (
 	"io/ioutil"
 	"strings"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/accounts/abi"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/accounts/abi"
+	"github.com/ethereum/go-ethereum/common"
 
 	"bytes"
 	"os"

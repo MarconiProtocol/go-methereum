@@ -23,10 +23,10 @@ import (
 	"errors"
 	"fmt"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/core/types"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/rlp"
-	whisper "gitlab.neji.vm.tc/marconi/go-ethereum/whisper/whisperv6"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/ethereum/go-ethereum/rlp"
+	whisper "github.com/ethereum/go-ethereum/whisper/whisperv6"
 )
 
 // A Nonce is a 64-bit hash which proves (combined with the mix-hash) that

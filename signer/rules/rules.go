@@ -22,12 +22,12 @@ import (
 	"os"
 	"strings"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/internal/ethapi"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/signer/core"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/signer/rules/deps"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/signer/storage"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/internal/ethapi"
+	"github.com/ethereum/go-ethereum/log"
+	"github.com/ethereum/go-ethereum/signer/core"
+	"github.com/ethereum/go-ethereum/signer/rules/deps"
+	"github.com/ethereum/go-ethereum/signer/storage"
 	"github.com/robertkrimen/otto"
 )
 

@@ -22,7 +22,7 @@ import (
 	"os"
 	"runtime"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
+	"github.com/ethereum/go-ethereum/log"
 )
 
 func init() {

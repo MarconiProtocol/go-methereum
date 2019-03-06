@@ -21,7 +21,7 @@ import (
 	"fmt"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
+	"github.com/ethereum/go-ethereum/log"
 )
 
 // deployExplorer creates a new block explorer based on some user input.

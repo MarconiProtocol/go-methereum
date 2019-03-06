@@ -20,8 +20,8 @@ import (
 	"bytes"
 	"testing"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/ethdb"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/ethdb"
 )
 
 // makeTestTrie create a sample test trie to test node-wise reconstruction.

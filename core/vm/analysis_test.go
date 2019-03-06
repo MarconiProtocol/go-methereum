@@ -19,7 +19,7 @@ package vm
 import (
 	"testing"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto"
+	"github.com/ethereum/go-ethereum/crypto"
 )
 
 func TestJumpDestAnalysis(t *testing.T) {

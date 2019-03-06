@@ -24,7 +24,7 @@ import (
 	"path/filepath"
 	"strconv"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
+	"github.com/ethereum/go-ethereum/log"
 )
 
 // nginxDockerfile is theis the Dockerfile required to build an nginx reverse-

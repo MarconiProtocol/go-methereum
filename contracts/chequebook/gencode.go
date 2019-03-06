@@ -25,11 +25,11 @@ import (
 	"io/ioutil"
 	"math/big"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/accounts/abi/bind"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/accounts/abi/bind/backends"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/contracts/chequebook/contract"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/core"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto"
+	"github.com/ethereum/go-ethereum/accounts/abi/bind"
+	"github.com/ethereum/go-ethereum/accounts/abi/bind/backends"
+	"github.com/ethereum/go-ethereum/contracts/chequebook/contract"
+	"github.com/ethereum/go-ethereum/core"
+	"github.com/ethereum/go-ethereum/crypto"
 )
 
 var (

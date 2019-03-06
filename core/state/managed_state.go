@@ -19,7 +19,7 @@ package state
 import (
 	"sync"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/common"
 )
 
 type account struct {
