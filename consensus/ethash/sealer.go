@@ -204,12 +204,17 @@ search:
 // remote is a standalone goroutine to handle remote mining related stuff.
 func (ethash *Ethash) remote(notify []string, noverify bool) {
 	var (
+		// a cache of current and past work, indexed by sealHash
 		works = make(map[common.Hash]*types.Block)
 		rates = make(map[common.Hash]hashrate)
 
+		// the channel accepts successfully sealed blocks
 		results      chan<- consensus.MiningResult
+		// this is the current unsealed block that attempting to find a PoW solution for
 		currentBlock *types.Block
+		// this is the work to be sent miner, based on geth's extraData
 		currentWork  [3]string
+		// this is the work to be sent miner, based on and indexed by a user-provided extraData
 		currentWorks map[string][3]string
 
 		notifyTransport = &http.Transport{}
