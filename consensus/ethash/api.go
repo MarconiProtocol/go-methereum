@@ -68,6 +68,10 @@ func (api *API) GetWork() ([3]string, error) {
 // GetWorkWithExtraData accepts extradata which will be used instead of the
 // current extradata and returns a work package for external miner.
 //
+// Please note that calling this endpoint will cause data to be generated and
+// stored. As a result, it is not advisable that this endpoint be publically
+// accessible because it presents the risk of a DoS attack.
+//
 // The work package consists of 3 strings:
 //   result[0] - 32 bytes hex encoded current block header pow-hash
 //   result[1] - 32 bytes hex encoded seed hash used for DAG
