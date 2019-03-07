@@ -27,6 +27,7 @@ import (
 
 	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/common/hexutil"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/consensus"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/core/types"
 )
 
@@ -37,13 +38,14 @@ func TestTestMode(t *testing.T) {
 	ethash := NewTester(nil, false)
 	defer ethash.Close()
 
-	results := make(chan *types.Block)
+	results := make(chan consensus.MiningResult)
 	err := ethash.Seal(nil, types.NewBlockWithHeader(header), results, nil)
 	if err != nil {
 		t.Fatalf("failed to seal block: %v", err)
 	}
 	select {
-	case block := <-results:
+	case result := <-results:
+		block := result.ResultBlock
 		header.Nonce = types.EncodeNonce(block.Nonce())
 		header.MixDigest = block.MixDigest()
 		if err := ethash.VerifySeal(nil, header); err != nil {
@@ -65,14 +67,15 @@ func TestQuickTestMode(t *testing.T) {
 	// Override the randomness used for nonce generation to have a
 	// constant seed, that way this test is deterministic.
 	ethash.rand = rand.New(rand.NewSource(0))
-	results := make(chan *types.Block)
+	results := make(chan consensus.MiningResult)
 	err := ethash.Seal(nil, types.NewBlockWithHeader(head), results, nil)
 	if err != nil {
 		t.Fatalf("failed to seal block: %v", err)
 	}
 	var block *types.Block = nil
 	select {
-	case block = <-results:
+	case result := <-results:
+		block = result.ResultBlock
 		head.Nonce = types.EncodeNonce(block.Nonce())
 		head.MixDigest = block.MixDigest()
 	case <-time.NewTimer(time.Second).C:
@@ -110,14 +113,15 @@ func TestCryptonightMode(t *testing.T) {
 	// Override the randomness used for nonce generation to have a
 	// constant seed, that way this test is deterministic.
 	ethash.rand = rand.New(rand.NewSource(0))
-	results := make(chan *types.Block)
+	results := make(chan consensus.MiningResult)
 	err := ethash.Seal(nil, types.NewBlockWithHeader(head), results, nil)
 	if err != nil {
 		t.Fatalf("failed to seal block: %v", err)
 	}
 	var block *types.Block = nil
 	select {
-	case block = <-results:
+	case result := <-results:
+		block = result.ResultBlock
 		head.Nonce = types.EncodeNonce(block.Nonce())
 		head.MixDigest = block.MixDigest()
 	case <-time.NewTimer(time.Second * 30).C:
@@ -188,7 +192,7 @@ func TestRemoteSealer(t *testing.T) {
 	sealhash := ethash.SealHash(header)
 
 	// Push new work.
-	results := make(chan *types.Block)
+	results := make(chan consensus.MiningResult)
 	ethash.Seal(nil, block, results, nil)
 
 	var (

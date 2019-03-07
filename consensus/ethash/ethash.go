@@ -410,7 +410,7 @@ type Config struct {
 // sealTask wraps a seal block with relative result channel for remote sealer thread.
 type sealTask struct {
 	block   *types.Block
-	results chan<- *types.Block
+	results chan<- consensus.MiningResult
 }
 
 // mineResult wraps the pow solution parameters for the specified block.
@@ -433,8 +433,9 @@ type hashrate struct {
 
 // sealWork wraps a seal work package for remote sealer.
 type sealWork struct {
-	errc chan error
-	res  chan [3]string
+	errc      chan error
+	res       chan [3]string
+	extraData *string
 }
 
 // Ethash is a consensus engine based on proof-of-work implementing the ethash

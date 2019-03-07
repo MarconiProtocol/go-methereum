@@ -27,6 +27,21 @@ import (
 	"gitlab.neji.vm.tc/marconi/go-ethereum/rpc"
 )
 
+// MiningResult contains the result of a successfully sealed block, which is a
+// block with a valid proof-of-work but which has not yet been broadcast to the
+// blockchain network.
+//
+// ResultBlock should contain the block that was sucessfully sealed.
+//
+// BaseBlock should contain the block that ResultBlock was based on if
+// ResultBlock was based on another block but had its content modified,
+// otherwise it should be nil. This will let the mining worker create a
+// duplicate task based on the task associated with BaseBlock.
+type MiningResult struct {
+	ResultBlock *types.Block
+	BaseBlock *types.Block
+}
+
 // ChainReader defines a small collection of methods needed to access the local
 // blockchain during header and/or uncle verification.
 type ChainReader interface {
@@ -91,7 +106,7 @@ type Engine interface {
 	//
 	// Note, the method returns immediately and will send the result async. More
 	// than one result may also be returned depending on the consensus algorothm.
-	Seal(chain ChainReader, block *types.Block, results chan<- *types.Block, stop <-chan struct{}) error
+	Seal(chain ChainReader, block *types.Block, results chan<- MiningResult, stop <-chan struct{}) error
 
 	// SealHash returns the hash of a block prior to it being sealed.
 	SealHash(header *types.Header) common.Hash
