@@ -26,13 +26,13 @@ import (
 	"time"
 
 	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/common/prque"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/core/state"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/core/types"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/event"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/metrics"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/params"
-	"gopkg.in/karalabe/cookiejar.v2/collections/prque"
 )
 
 const (
@@ -171,6 +171,26 @@ func (config *TxPoolConfig) sanitize() TxPoolConfig {
 	if conf.PriceBump < 1 {
 		log.Warn("Sanitizing invalid txpool price bump", "provided", conf.PriceBump, "updated", DefaultTxPoolConfig.PriceBump)
 		conf.PriceBump = DefaultTxPoolConfig.PriceBump
+	}
+	if conf.AccountSlots < 1 {
+		log.Warn("Sanitizing invalid txpool account slots", "provided", conf.AccountSlots, "updated", DefaultTxPoolConfig.AccountSlots)
+		conf.AccountSlots = DefaultTxPoolConfig.AccountSlots
+	}
+	if conf.GlobalSlots < 1 {
+		log.Warn("Sanitizing invalid txpool global slots", "provided", conf.GlobalSlots, "updated", DefaultTxPoolConfig.GlobalSlots)
+		conf.GlobalSlots = DefaultTxPoolConfig.GlobalSlots
+	}
+	if conf.AccountQueue < 1 {
+		log.Warn("Sanitizing invalid txpool account queue", "provided", conf.AccountQueue, "updated", DefaultTxPoolConfig.AccountQueue)
+		conf.AccountQueue = DefaultTxPoolConfig.AccountQueue
+	}
+	if conf.GlobalQueue < 1 {
+		log.Warn("Sanitizing invalid txpool global queue", "provided", conf.GlobalQueue, "updated", DefaultTxPoolConfig.GlobalQueue)
+		conf.GlobalQueue = DefaultTxPoolConfig.GlobalQueue
+	}
+	if conf.Lifetime < 1 {
+		log.Warn("Sanitizing invalid txpool lifetime", "provided", conf.Lifetime, "updated", DefaultTxPoolConfig.Lifetime)
+		conf.Lifetime = DefaultTxPoolConfig.Lifetime
 	}
 	return conf
 }
@@ -525,7 +545,7 @@ func (pool *TxPool) Content() (map[common.Address]types.Transactions, map[common
 	return pending, queued
 }
 
-// Pending retrieves all currently processable transactions, groupped by origin
+// Pending retrieves all currently processable transactions, grouped by origin
 // account and sorted by nonce. The returned transaction set is a copy and can be
 // freely modified by calling code.
 func (pool *TxPool) Pending() (map[common.Address]types.Transactions, error) {
@@ -547,7 +567,7 @@ func (pool *TxPool) Locals() []common.Address {
 	return pool.locals.flatten()
 }
 
-// local retrieves all currently known local transactions, groupped by origin
+// local retrieves all currently known local transactions, grouped by origin
 // account and sorted by nonce. The returned transaction set is a copy and can be
 // freely modified by calling code.
 func (pool *TxPool) local() map[common.Address]types.Transactions {
@@ -825,7 +845,7 @@ func (pool *TxPool) addTxs(txs []*types.Transaction, local bool) []error {
 // addTxsLocked attempts to queue a batch of transactions if they are valid,
 // whilst assuming the transaction pool lock is already held.
 func (pool *TxPool) addTxsLocked(txs []*types.Transaction, local bool) []error {
-	// Add the batch of transaction, tracking the accepted ones
+	// Add the batch of transactions, tracking the accepted ones
 	dirty := make(map[common.Address]struct{})
 	errs := make([]error, len(txs))
 
@@ -987,11 +1007,11 @@ func (pool *TxPool) promoteExecutables(accounts []common.Address) {
 	if pending > pool.config.GlobalSlots {
 		pendingBeforeCap := pending
 		// Assemble a spam order to penalize large transactors first
-		spammers := prque.New()
+		spammers := prque.New(nil)
 		for addr, list := range pool.pending {
 			// Only evict transactions from high rollers
 			if !pool.locals.contains(addr) && uint64(list.Len()) > pool.config.AccountSlots {
-				spammers.Push(addr, float32(list.Len()))
+				spammers.Push(addr, int64(list.Len()))
 			}
 		}
 		// Gradually drop transactions from offenders

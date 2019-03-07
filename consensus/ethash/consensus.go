@@ -31,10 +31,10 @@ import (
 	"gitlab.neji.vm.tc/marconi/go-ethereum/consensus/misc"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/core/state"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/core/types"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto/sha3"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/params"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/rlp"
+	"golang.org/x/crypto/sha3"
 	"gitlab.neji.vm.tc/marconi/marconi-cryptonight"
 )
 
@@ -509,7 +509,7 @@ func (ethash *Ethash) Finalize(chain consensus.ChainReader, header *types.Header
 
 // SealHash returns the hash of a block prior to it being sealed.
 func (ethash *Ethash) SealHash(header *types.Header) (hash common.Hash) {
-	hasher := sha3.NewKeccak256()
+	hasher := sha3.NewLegacyKeccak256()
 
 	rlp.Encode(hasher, []interface{}{
 		header.ParentHash,

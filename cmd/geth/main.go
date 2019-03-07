@@ -21,7 +21,6 @@ import (
 	"fmt"
 	"math"
 	"os"
-	"runtime"
 	godebug "runtime/debug"
 	"sort"
 	"strconv"
@@ -39,7 +38,7 @@ import (
 	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/metrics"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/node"
-	"gopkg.in/urfave/cli.v1"
+	cli "gopkg.in/urfave/cli.v1"
 )
 
 const (
@@ -88,8 +87,10 @@ var (
 		utils.LightServFlag,
 		utils.LightPeersFlag,
 		utils.LightKDFFlag,
+		utils.WhitelistFlag,
 		utils.CacheFlag,
 		utils.CacheDatabaseFlag,
+		utils.CacheTrieFlag,
 		utils.CacheGCFlag,
 		utils.TrieCacheGenFlag,
 		utils.ListenPortFlag,
@@ -120,8 +121,10 @@ var (
 		utils.DeveloperPeriodFlag,
 		utils.TestnetFlag,
 		utils.RinkebyFlag,
+		utils.GoerliFlag,
 		utils.VMEnableDebugFlag,
 		utils.NetworkIdFlag,
+		utils.ConstantinopleOverrideFlag,
 		utils.RPCCORSDomainFlag,
 		utils.RPCVirtualHostsFlag,
 		utils.EthStatsURLFlag,
@@ -131,6 +134,8 @@ var (
 		utils.NoCompactionFlag,
 		utils.GpoBlocksFlag,
 		utils.GpoPercentileFlag,
+		utils.EWASMInterpreterFlag,
+		utils.EVMInterpreterFlag,
 		configFileFlag,
 	}
 
@@ -152,6 +157,7 @@ var (
 		utils.WhisperEnabledFlag,
 		utils.WhisperMaxMessageSizeFlag,
 		utils.WhisperMinPOWFlag,
+		utils.WhisperRestrictConnectionBetweenLightClientsFlag,
 	}
 
 	metricsFlags = []cli.Flag{
@@ -160,7 +166,7 @@ var (
 		utils.MetricsInfluxDBDatabaseFlag,
 		utils.MetricsInfluxDBUsernameFlag,
 		utils.MetricsInfluxDBPasswordFlag,
-		utils.MetricsInfluxDBHostTagFlag,
+		utils.MetricsInfluxDBTagsFlag,
 	}
 )
 
@@ -207,8 +213,6 @@ func init() {
 	app.Flags = append(app.Flags, metricsFlags...)
 
 	app.Before = func(ctx *cli.Context) error {
-		runtime.GOMAXPROCS(runtime.NumCPU())
-
 		logdir := ""
 		if ctx.GlobalBool(utils.DashboardEnabledFlag.Name) {
 			logdir = (&node.Config{DataDir: utils.MakeDataDir(ctx)}).ResolvePath("logs")

@@ -31,6 +31,7 @@ import (
 	"time"
 
 	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/common/hexutil"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/consensus"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/core/types"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
@@ -213,9 +214,9 @@ func (ethash *Ethash) remote(notify []string, noverify bool) {
 		// this is the current unsealed block that attempting to find a PoW solution for
 		currentBlock *types.Block
 		// this is the work to be sent miner, based on geth's extraData
-		currentWork  [3]string
+		currentWork  [4]string
 		// this is the work to be sent miner, based on and indexed by a user-provided extraData
-		currentWorks map[string][3]string
+		currentWorks map[string][4]string
 
 		notifyTransport = &http.Transport{}
 		notifyClient    = &http.Client{
@@ -250,12 +251,13 @@ func (ethash *Ethash) remote(notify []string, noverify bool) {
 			}(notifyReqs[i], url)
 		}
 	}
-	calculateWork := func(block *types.Block, work *[3]string) {
+	calculateWork := func(block *types.Block, work *[4]string) {
 		hash := ethash.SealHash(block.Header())
 
 		work[0] = hash.Hex()
 		work[1] = common.BytesToHash(SeedHash(block.NumberU64())).Hex()
 		work[2] = common.BytesToHash(new(big.Int).Div(two256, block.Difficulty()).Bytes()).Hex()
+		work[3] = hexutil.EncodeBig(block.Number())
 
 		works[hash] = block
 	}
@@ -265,9 +267,10 @@ func (ethash *Ethash) remote(notify []string, noverify bool) {
 	//   result[0], 32 bytes hex encoded current block header pow-hash
 	//   result[1], 32 bytes hex encoded seed hash used for DAG
 	//   result[2], 32 bytes hex encoded boundary condition ("target"), 2^256/difficulty
+	//   result[3], hex encoded block number
 	makeWork := func(block *types.Block) {
 		calculateWork(block, &currentWork)
-		currentWorks = make(map[string][3]string)
+		currentWorks = make(map[string][4]string)
 
 		// Trace the seal work fetched by remote sealer.
 		currentBlock = block
@@ -359,7 +362,7 @@ func (ethash *Ethash) remote(notify []string, noverify bool) {
 					// WithSeal is erronously named; it just copies a block but changes the header
 					newBlock := currentBlock.WithSeal(newHeader)
 
-					newWork := [3]string{}
+					newWork := [4]string{}
 					calculateWork(newBlock, &newWork)
 
 					currentWorks[*work.extraData] = newWork

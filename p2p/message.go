@@ -26,7 +26,7 @@ import (
 	"time"
 
 	"gitlab.neji.vm.tc/marconi/go-ethereum/event"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/discover"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/enode"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/rlp"
 )
 
@@ -253,13 +253,13 @@ type msgEventer struct {
 	MsgReadWriter
 
 	feed     *event.Feed
-	peerID   discover.NodeID
+	peerID   enode.ID
 	Protocol string
 }
 
 // newMsgEventer returns a msgEventer which sends message events to the given
 // feed
-func newMsgEventer(rw MsgReadWriter, feed *event.Feed, peerID discover.NodeID, proto string) *msgEventer {
+func newMsgEventer(rw MsgReadWriter, feed *event.Feed, peerID enode.ID, proto string) *msgEventer {
 	return &msgEventer{
 		MsgReadWriter: rw,
 		feed:          feed,
