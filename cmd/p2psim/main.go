@@ -47,7 +47,7 @@ import (
 
 	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/discover"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/enode"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/simulations"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/simulations/adapters"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/rpc"
@@ -285,7 +285,7 @@ func createNode(ctx *cli.Context) error {
 		if err != nil {
 			return err
 		}
-		config.ID = discover.PubkeyID(&privKey.PublicKey)
+		config.ID = enode.PubkeyToIDV4(&privKey.PublicKey)
 		config.PrivateKey = privKey
 	}
 	if services := ctx.String("services"); services != "" {
