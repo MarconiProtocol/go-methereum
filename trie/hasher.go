@@ -21,8 +21,8 @@ import (
 	"sync"
 
 	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto/sha3"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/rlp"
+	"golang.org/x/crypto/sha3"
 )
 
 type hasher struct {
@@ -57,7 +57,7 @@ var hasherPool = sync.Pool{
 	New: func() interface{} {
 		return &hasher{
 			tmp: make(sliceBuffer, 0, 550), // cap is as large as a full fullNode.
-			sha: sha3.NewKeccak256().(keccakState),
+			sha: sha3.NewLegacyKeccak256().(keccakState),
 		}
 	},
 }

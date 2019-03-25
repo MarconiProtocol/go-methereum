@@ -31,7 +31,7 @@ import (
 
 	"gitlab.neji.vm.tc/marconi/go-ethereum/event"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/discover"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/enode"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/simulations/adapters"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/rpc"
 	"github.com/julienschmidt/httprouter"
@@ -709,8 +709,9 @@ func (s *Server) wrapHandler(handler http.HandlerFunc) httprouter.Handle {
 		ctx := context.Background()
 
 		if id := params.ByName("nodeid"); id != "" {
+			var nodeID enode.ID
 			var node *Node
-			if nodeID, err := discover.HexID(id); err == nil {
+			if nodeID.UnmarshalText([]byte(id)) == nil {
 				node = s.network.GetNode(nodeID)
 			} else {
 				node = s.network.GetNodeByName(id)
@@ -723,8 +724,9 @@ func (s *Server) wrapHandler(handler http.HandlerFunc) httprouter.Handle {
 		}
 
 		if id := params.ByName("peerid"); id != "" {
+			var peerID enode.ID
 			var peer *Node
-			if peerID, err := discover.HexID(id); err == nil {
+			if peerID.UnmarshalText([]byte(id)) == nil {
 				peer = s.network.GetNode(peerID)
 			} else {
 				peer = s.network.GetNodeByName(id)

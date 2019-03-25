@@ -28,7 +28,7 @@ import (
 	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/node"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/discover"
+	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/enode"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/simulations"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/simulations/adapters"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/rpc"
@@ -70,14 +70,6 @@ func main() {
 		log.Info("using exec adapter", "tmpdir", tmpdir)
 		adapter = adapters.NewExecAdapter(tmpdir)
 
-	case "docker":
-		log.Info("using docker adapter")
-		var err error
-		adapter, err = adapters.NewDockerAdapter()
-		if err != nil {
-			log.Crit("error creating docker adapter", "err", err)
-		}
-
 	default:
 		log.Crit(fmt.Sprintf("unknown node adapter %q", *adapterType))
 	}
@@ -96,12 +88,12 @@ func main() {
 // sends a ping to all its connected peers every 10s and receives a pong in
 // return
 type pingPongService struct {
-	id       discover.NodeID
+	id       enode.ID
 	log      log.Logger
 	received int64
 }
 
-func newPingPongService(id discover.NodeID) *pingPongService {
+func newPingPongService(id enode.ID) *pingPongService {
 	return &pingPongService{
 		id:  id,
 		log: log.New("node.id", id),

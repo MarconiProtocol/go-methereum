@@ -31,8 +31,8 @@ import (
 	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/common/bitutil"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto/sha3"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
+	"golang.org/x/crypto/sha3"
 )
 
 const (
@@ -124,7 +124,7 @@ func seedHash(block uint64) []byte {
 	if block < epochLength {
 		return seed
 	}
-	keccak256 := makeHasher(sha3.NewKeccak256())
+	keccak256 := makeHasher(sha3.NewLegacyKeccak256())
 	for i := 0; i < int(block/epochLength); i++ {
 		keccak256(seed, seed)
 	}
@@ -178,7 +178,7 @@ func generateCache(dest []uint32, epoch uint64, seed []byte) {
 		}
 	}()
 	// Create a hasher to reuse between invocations
-	keccak512 := makeHasher(sha3.NewKeccak512())
+	keccak512 := makeHasher(sha3.NewLegacyKeccak512())
 
 	// Sequentially produce the initial dataset
 	keccak512(cache, seed)
@@ -302,7 +302,7 @@ func generateDataset(dest []uint32, epoch uint64, cache []uint32) {
 			defer pend.Done()
 
 			// Create a hasher to reuse between invocations
-			keccak512 := makeHasher(sha3.NewKeccak512())
+			keccak512 := makeHasher(sha3.NewLegacyKeccak512())
 
 			// Calculate the data segment this thread should generate
 			batch := uint32((size + hashBytes*uint64(threads) - 1) / (hashBytes * uint64(threads)))
@@ -390,7 +390,7 @@ func hashimoto(hash []byte, nonce uint64, size uint64, lookup func(index uint32)
 // in-memory cache) in order to produce our final value for a particular header
 // hash and nonce.
 func hashimotoLight(size uint64, cache []uint32, hash []byte, nonce uint64) ([]byte, []byte) {
-	keccak512 := makeHasher(sha3.NewKeccak512())
+	keccak512 := makeHasher(sha3.NewLegacyKeccak512())
 
 	lookup := func(index uint32) []uint32 {
 		rawData := generateDatasetItem(cache, index, keccak512)
