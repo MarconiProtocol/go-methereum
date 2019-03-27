@@ -20,7 +20,7 @@ import (
 
 // Direct wrapper around cryptonight's cn_slow_hash. You should
 // probably not use this function, and instead use
-// HashVariant{1,2}ForEthereumHeader below.
+// HashVariant{1,2,4}ForEthereumHeader below.
 //
 // Takes input hash material with length at least 43 bytes, and
 // returns the 32 byte hash. The number 43 is due to an invariant in
@@ -28,12 +28,16 @@ import (
 // bytes, the C code will halt with a runtime error and a reasonably
 // descriptive message.
 //
-// Variant must be 1 or 2.
-func hashCryptonight(input []byte, variant int) []byte {
+// Variant must be 1, 2, or 4. If variant is less then 4, then set
+// block_height to zero. In public discourse, a lot of folks use
+// alternative names for the different versions of Cryptonight:
+// variant 1 is aka Cryptonight v7, variant 2 is aka Cryptonight v8,
+// and variant 4 is aka CryptonightR.
+func hashCryptonight(input []byte, variant int, block_height uint64) []byte {
 	result := make([]byte, 32)
 	input_ptr := unsafe.Pointer(&input[0])
 	output_ptr := unsafe.Pointer(&result[0])
-	C.cn_slow_hash(input_ptr, C.size_t(len(input)), (*C.char)(output_ptr), (C.int)(variant), 0 /*prehashed*/)
+	C.cn_slow_hash(input_ptr, C.size_t(len(input)), (*C.char)(output_ptr), (C.int)(variant), 0 /*prehashed*/, (C.uint64_t)(block_height))
 	return result
 }
 
@@ -53,7 +57,7 @@ func hashCryptonight(input []byte, variant int) []byte {
 // Ethereum codebase (which interprets everything as big endian) will
 // end up agreeing with non-Ethereum implementations without any
 // changes.
-func hashCryptonightForEthereumHeader(block_header_hash []byte, nonce uint64, variant int) ([]byte, []byte) {
+func hashCryptonightForEthereumHeader(block_header_hash []byte, nonce uint64, variant int, block_height uint64) ([]byte, []byte) {
 	// Note: this blob format intentionally looks hacky. We're trying
 	// to match the length and some of the byte offsets that monero
 	// uses, e.g. its major/minor versions and nonce, so that existing
@@ -65,14 +69,24 @@ func hashCryptonightForEthereumHeader(block_header_hash []byte, nonce uint64, va
 		blob[i] = 119
 	}
 	var blen int = 0
-	// major version
+	// Major version. It's not really necessary to set this (that is
+	// until main net goes live, at which point we'll need to keep it
+	// consistent), but just in case there's existing mining software
+	// out there which makes use of it, we keep the value in sync with
+	// Monero's major version (the major version which corresponds to a
+	// particular variant of Cryptonight). You can see a list of Monero
+	// major versions (hard forks) in Monero repository's
+	// src/cryptonote_core/blockchain.cpp file.
 	if variant == 1 {
 		blob[blen] = 7
-	} else {
+	} else if variant == 2 {
 		blob[blen] = 8
+	} else {
+		blob[blen] = 10
 	}
 	blen++
-	// and minor version
+	// And minor version. Pretty sure no one uses this anywhere so we
+	// don't bother setting it.
 	blob[blen] = 0
 	blen++
 	// 5 byte timestamp
@@ -84,7 +98,7 @@ func hashCryptonightForEthereumHeader(block_header_hash []byte, nonce uint64, va
 	copy(blob[blen:], block_header_hash)
 	blen += 32
 	binary.LittleEndian.PutUint64(blob[blen:], nonce)
-	digest := hashCryptonight(blob, variant)
+	digest := hashCryptonight(blob, variant, block_height)
 
 	// Interpret hash result as little endian.
 	result := make([]byte, len(digest))
@@ -95,13 +109,18 @@ func hashCryptonightForEthereumHeader(block_header_hash []byte, nonce uint64, va
 	return digest, result
 }
 
-// Similar to hashimoto, HashVariant{1,2}ForEthereumHeader accepts 32
-// byte block header hash and 8 byte nonce, then returns 32 byte
-// digest and 32 byte result.
+// Similar to hashimoto, HashVariant{1,2,4}ForEthereumHeader accepts
+// 32 byte block header hash and 8 byte nonce, then returns 32 byte
+// digest and 32 byte result. Variant 4 (aka CryptonightR) also needs
+// to know the block height.
 func HashVariant1ForEthereumHeader(block_header_hash []byte, nonce uint64) ([]byte, []byte) {
-	return hashCryptonightForEthereumHeader(block_header_hash, nonce, 1)
+	return hashCryptonightForEthereumHeader(block_header_hash, nonce, 1, 0 /*block_height*/)
 }
 
 func HashVariant2ForEthereumHeader(block_header_hash []byte, nonce uint64) ([]byte, []byte) {
-	return hashCryptonightForEthereumHeader(block_header_hash, nonce, 2)
+	return hashCryptonightForEthereumHeader(block_header_hash, nonce, 2, 0 /*block_height*/)
+}
+
+func HashVariant4ForEthereumHeader(block_header_hash []byte, nonce uint64, block_height uint64) ([]byte, []byte) {
+	return hashCryptonightForEthereumHeader(block_header_hash, nonce, 4, block_height)
 }

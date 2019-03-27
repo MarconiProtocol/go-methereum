@@ -629,10 +629,10 @@
 			"revisionTime": "2018-06-15T20:27:29Z"
 		},
 		{
-			"checksumSHA1": "V9I+d3k6Vf0LPKeXPz2S0F+quLk=",
+			"checksumSHA1": "This checksum doesn't matter for this repo. More info in the git commit message.",
 			"path": "gitlab.neji.vm.tc/marconi/marconi-cryptonight",
-			"revision": "32d0856d28128acefc8b124442eeb7ac134aca90",
-			"revisionTime": "2019-02-08T23:40:25Z"
+			"revision": "425b7cb21eefd4d1bd0ebdccbf2f58e94b5cc7c7",
+			"revisionTime": "2019-03-25T19:42:23Z"
 		},
 		{
 			"checksumSHA1": "TT1rac6kpQp2vz24m5yDGUNQ/QQ=",
