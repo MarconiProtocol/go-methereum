@@ -441,8 +441,8 @@ func (ethash *Ethash) verifySeal(chain consensus.ChainReader, header *types.Head
 	if ethash.config.PowMode == ModeQuickTest {
 		digest, result = quickHash(ethash.SealHash(header).Bytes(), header.Nonce.Uint64())
 	} else if ethash.config.PowMode == ModeCryptonight {
-		digest, result = cryptonight.HashVariant2ForEthereumHeader(
-			ethash.SealHash(header).Bytes(), header.Nonce.Uint64())
+		digest, result = cryptonight.HashVariant4ForEthereumHeader(
+			ethash.SealHash(header).Bytes(), header.Nonce.Uint64(), header.Number.Uint64())
 	} else {
 		number := header.Number.Uint64()
 

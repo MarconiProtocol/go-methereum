@@ -173,7 +173,7 @@ search:
 			if pow_mode == ModeQuickTest {
 				digest, result = quickHash(hash, nonce)
 			} else if pow_mode == ModeCryptonight {
-				digest, result = cryptonight.HashVariant2ForEthereumHeader(hash, nonce)
+				digest, result = cryptonight.HashVariant4ForEthereumHeader(hash, nonce, number)
 			} else {
 				digest, result = hashimotoFull(dataset.dataset, hash, nonce)
 			}
