@@ -31,7 +31,14 @@ type API struct {
 	ethash *Ethash // Make sure the mode of ethash is normal.
 }
 
-func (api *API) getWorkWithOptionalExtraData(extraData *string) ([4]string, error) {
+// GetWork returns a work package for external miner.
+//
+// The work package consists of 3 strings:
+//   result[0] - 32 bytes hex encoded current block header pow-hash
+//   result[1] - 32 bytes hex encoded seed hash used for DAG
+//   result[2] - 32 bytes hex encoded boundary condition ("target"), 2^256/difficulty
+//   result[3] - hex encoded block number
+func (api *API) GetWork() ([4]string, error) {
 	if api.ethash.config.PowMode != ModeNormal && api.ethash.config.PowMode != ModeCryptonight && api.ethash.config.PowMode != ModeTest {
 		return [4]string{}, errors.New("not supported")
 	}
@@ -42,7 +49,7 @@ func (api *API) getWorkWithOptionalExtraData(extraData *string) ([4]string, erro
 	)
 
 	select {
-	case api.ethash.fetchWorkCh <- &sealWork{errc: errc, res: workCh, extraData: extraData}:
+	case api.ethash.fetchWorkCh <- &sealWork{errc: errc, res: workCh}:
 	case <-api.ethash.exitCh:
 		return [4]string{}, errEthashStopped
 	}
@@ -53,33 +60,6 @@ func (api *API) getWorkWithOptionalExtraData(extraData *string) ([4]string, erro
 	case err := <-errc:
 		return [4]string{}, err
 	}
-}
-
-// GetWork returns a work package for external miner.
-//
-// The work package consists of 4 strings:
-//   result[0] - 32 bytes hex encoded current block header pow-hash
-//   result[1] - 32 bytes hex encoded seed hash used for DAG
-//   result[2] - 32 bytes hex encoded boundary condition ("target"), 2^256/difficulty
-//   result[3] - hex encoded block number
-func (api *API) GetWork() ([4]string, error) {
-	return api.getWorkWithOptionalExtraData(nil)
-}
-
-// GetWorkWithExtraData accepts extradata which will be used instead of the
-// current extradata and returns a work package for external miner.
-//
-// Please note that calling this endpoint will cause data to be generated and
-// stored. As a result, it is not advisable that this endpoint be publically
-// accessible because it presents the risk of a DoS attack.
-//
-// The work package consists of 4 strings:
-//   result[0] - 32 bytes hex encoded current block header pow-hash
-//   result[1] - 32 bytes hex encoded seed hash used for DAG
-//   result[2] - 32 bytes hex encoded boundary condition ("target"), 2^256/difficulty
-//   result[3] - hex encoded block number
-func (api *API) GetWorkWithExtraData(appendedExtraData string) ([4]string, error) {
-	return api.getWorkWithOptionalExtraData(&appendedExtraData)
 }
 
 // SubmitWork can be used by external miner to submit their POW solution.

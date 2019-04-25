@@ -142,7 +142,7 @@ type worker struct {
 	// Channels
 	newWorkCh          chan *newWorkReq
 	taskCh             chan *task
-	resultCh           chan consensus.MiningResult
+	resultCh           chan *types.Block
 	startCh            chan struct{}
 	exitCh             chan struct{}
 	resubmitIntervalCh chan time.Duration
@@ -197,7 +197,7 @@ func newWorker(config *params.ChainConfig, engine consensus.Engine, eth Backend,
 		chainSideCh:        make(chan core.ChainSideEvent, chainSideChanSize),
 		newWorkCh:          make(chan *newWorkReq),
 		taskCh:             make(chan *task),
-		resultCh:           make(chan consensus.MiningResult, resultQueueSize),
+		resultCh:           make(chan *types.Block, resultQueueSize),
 		exitCh:             make(chan struct{}),
 		startCh:            make(chan struct{}, 1),
 		resubmitIntervalCh: make(chan time.Duration),
@@ -535,33 +535,12 @@ func (w *worker) taskLoop() {
 	}
 }
 
-// stores a new task based on the task associated with oldBlock but with
-// task.block = newBlock
-func (w *worker) copyFromBlockToTasks(oldBlock, newBlock *types.Block) {
-	w.pendingMu.Lock()
-	defer w.pendingMu.Unlock()
-
-	newHash := w.engine.SealHash(newBlock.Header())
-	if _, present := w.pendingTasks[newHash]; present {
-		return
-	}
-
-	oldTask := w.pendingTasks[w.engine.SealHash(oldBlock.Header())]
-
-	receipts := deepCopyReceipts(oldTask.receipts)
-	s := oldTask.state.Copy()
-
-	newTask := &task{receipts: receipts, state: s, block: newBlock, createdAt: oldTask.createdAt}
-	w.pendingTasks[newHash] = newTask
-}
-
 // resultLoop is a standalone goroutine to handle sealing result submitting
 // and flush relative data to the database.
 func (w *worker) resultLoop() {
 	for {
 		select {
-		case result := <-w.resultCh:
-			block := result.ResultBlock
+		case block := <-w.resultCh:
 			// Short circuit when receiving empty result.
 			if block == nil {
 				continue
@@ -569,9 +548,6 @@ func (w *worker) resultLoop() {
 			// Short circuit when receiving duplicate result caused by resubmitting.
 			if w.chain.HasBlock(block.Hash(), block.NumberU64()) {
 				continue
-			}
-			if result.BaseBlock != nil {
-				w.copyFromBlockToTasks(result.BaseBlock, result.ResultBlock)
 			}
 			var (
 				sealhash = w.engine.SealHash(block.Header())
@@ -966,21 +942,15 @@ func (w *worker) commitNewWork(interrupt *int32, noempty bool, timestamp int64) 
 	w.commit(uncles, w.fullTaskHook, true, tstart)
 }
 
-func deepCopyReceipts(oldReceipts []*types.Receipt) []*types.Receipt {
-	newReceipts := make([]*types.Receipt, len(oldReceipts))
-	for i, l := range oldReceipts {
-		newReceipts[i] = new(types.Receipt)
-		*newReceipts[i] = *l
-	}
-
-	return newReceipts
-}
-
 // commit runs any post-transaction state modifications, assembles the final block
 // and commits new work if consensus engine is running.
 func (w *worker) commit(uncles []*types.Header, interval func(), update bool, start time.Time) error {
 	// Deep copy receipts here to avoid interaction between different tasks.
-	receipts := deepCopyReceipts(w.current.receipts)
+	receipts := make([]*types.Receipt, len(w.current.receipts))
+	for i, l := range w.current.receipts {
+		receipts[i] = new(types.Receipt)
+		*receipts[i] = *l
+	}
 	s := w.current.state.Copy()
 	block, err := w.engine.Finalize(w.chain, w.current.header, s, w.current.txs, uncles, w.current.receipts)
 	if err != nil {

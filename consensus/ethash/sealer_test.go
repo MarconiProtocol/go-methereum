@@ -10,7 +10,6 @@ import (
 	"time"
 
 	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/consensus"
 	"gitlab.neji.vm.tc/marconi/go-ethereum/core/types"
 )
 
@@ -176,7 +175,7 @@ func TestStaleSubmission(t *testing.T) {
 			false,
 		},
 	}
-	results := make(chan consensus.MiningResult, 16)
+	results := make(chan *types.Block, 16)
 
 	for id, c := range testcases {
 		for _, h := range c.headers {
@@ -189,8 +188,7 @@ func TestStaleSubmission(t *testing.T) {
 			continue
 		}
 		select {
-		case result := <-results:
-			res := result.ResultBlock
+		case res := <-results:
 			if res.Header().Nonce != fakeNonce {
 				t.Errorf("case %d block nonce mismatch, want %s, get %s", id+1, fakeNonce, res.Header().Nonce)
 			}

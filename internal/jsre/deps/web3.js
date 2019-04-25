@@ -5431,13 +5431,6 @@ var methods = function () {
         params: 0
     });
 
-    var getWorkWithExtraData = new Method({
-        name: 'getWorkWithExtraData',
-        call: 'eth_getWorkWithExtraData',
-        params: 1
-    });
-
-
     return [
         getBalance,
         getStorageAt,
@@ -5461,8 +5454,7 @@ var methods = function () {
         compileLLL,
         compileSerpent,
         submitWork,
-        getWork,
-        getWorkWithExtraData
+        getWork
     ];
 };
 
