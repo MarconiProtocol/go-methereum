@@ -19,5 +19,4 @@ ABSOLUTE_PEERDIR="/opt/marconi/etc/meth/datadir/"
   --rpcapi="db,eth,net,web3,personal" \
   --rpcport $PEER_RPC_PORT \
   --datadir ${ABSOLUTE_PEERDIR} \
-  --bootnodes enode://$BOOTNODE_ENODE_HASH@$BOOTNODE_IP:$BOOTNODE_PORT \
   --syncmode "full"
