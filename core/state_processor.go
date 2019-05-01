@@ -88,7 +88,9 @@ func (p *StateProcessor) Process(block *types.Block, statedb *state.StateDB, cfg
 // prevents the chain from getting bloated due to random stuff getting
 // deployed.
 var whitelisted_addresses = map[string]bool {
-	"0xf340cb7130921bee32069d449e03b8d0e041298e": true,			// Marconi Address
+	"0xf340cb7130921bee32069d449e03b8d0e041298e": true, // Marconi Foundation Address
+	"0x1812cac3f38db9d4ba734b398cececd641c91795": true, // Marconi Deploy Address #1
+	"0x2fcfd5ca0ba7f0551f5e2705959f4b4aeec7deee": true, // Marconi Deploy Address #2
 }
 
 // ApplyTransaction attempts to apply a transaction to the given state database
