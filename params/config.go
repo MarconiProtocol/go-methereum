@@ -86,7 +86,7 @@ var (
 		MIP2Block:           big.NewInt(788400),
 		MIP3Block:           big.NewInt(1314000),
 		MIP4Block:           big.NewInt(1839600),
-		MIP5Block:           big.NewInt(2365200),
+		MIP5Block:           big.NewInt(3942000),
 		Ethash:              new(EthashConfig),
 	}
 
@@ -116,7 +116,7 @@ var (
 		MIP2Block:           big.NewInt(788400),
 		MIP3Block:           big.NewInt(1314000),
 		MIP4Block:           big.NewInt(1839600),
-		MIP5Block:           big.NewInt(2365200),
+		MIP5Block:           big.NewInt(3942000),
 		Clique: &CliqueConfig{
 			Period: 15,
 			Epoch:  30000,
