@@ -20,5 +20,7 @@ ABSOLUTE_PEERDIR="/opt/marconi/etc/meth/datadir/"
   --rpcapi="db,eth,net,web3,personal" \
   --rpcport $PEER_RPC_PORT \
   --datadir ${ABSOLUTE_PEERDIR} \
-  --metrics.influxdb.endpoint="35.227.152.19:8086" \
+  --metrics \
+  --metrics.influxdb \
+  --metrics.influxdb.endpoint="http://35.227.152.19:8086" \
   --syncmode "full"

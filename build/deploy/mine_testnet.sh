@@ -28,5 +28,7 @@ fi
   --unlock $MINER_ETHERBASE \
   --password "../etc/meth/unlock.txt" \
   --rpcaddr "0.0.0.0" \
-  --metrics.influxdb.endpoint="35.227.152.19:8086" \
+  --metrics \
+  --metrics.influxdb \
+  --metrics.influxdb.endpoint="http://35.227.152.19:8086" \
   --syncmode "full"
