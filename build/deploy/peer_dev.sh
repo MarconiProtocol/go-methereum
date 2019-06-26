@@ -22,5 +22,5 @@ ABSOLUTE_PEERDIR="/opt/marconi/etc/meth/datadir/"
   --bootnodes enode://$BOOTNODE_ENODE_HASH@$BOOTNODE_IP:$BOOTNODE_PORT \
   --metrics \
   --metrics.influxdb \
-  --metrics.influxdb.endpoint="http://35.227.152.19:8086" \
+  --metrics.influxdb.endpoint="http://localhost:8186" \
   --syncmode "full"
