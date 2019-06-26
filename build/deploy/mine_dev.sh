@@ -30,5 +30,5 @@ fi
   --rpcaddr "0.0.0.0" \
   --metrics \
   --metrics.influxdb \
-  --metrics.influxdb.endpoint="http://35.227.152.19:8086" \
+  --metrics.influxdb.endpoint="http://localhost:8186" \
   --syncmode "full"
