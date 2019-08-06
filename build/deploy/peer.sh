@@ -23,4 +23,5 @@ ABSOLUTE_PEERDIR="/opt/marconi/etc/meth/datadir/"
   --metrics \
   --metrics.influxdb \
   --metrics.influxdb.endpoint="http://localhost:8186" \
+  --rpcaddr 0.0.0.0 \
   --syncmode "full"
