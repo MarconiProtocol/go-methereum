@@ -88,6 +88,7 @@ var (
 		MIP4Block:           big.NewInt(1839600),
 		MIP5Block:           big.NewInt(3942000),
 		Ethash:              new(EthashConfig),
+		ContractsRequireWhitelistedAccount: true,
 	}
 
 	// TestnetTrustedCheckpoint contains the light client trusted checkpoint for the Ropsten test network.
