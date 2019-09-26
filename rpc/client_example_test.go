@@ -22,7 +22,7 @@ import (
 	"math/big"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/rpc"
+	"github.com/MarconiFoundation/go-ethereum/rpc"
 )
 
 // In this example, our client wishes to track the latest 'block number'

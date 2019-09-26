@@ -21,8 +21,8 @@ package geth
 import (
 	"errors"
 
-	ethereum "gitlab.neji.vm.tc/marconi/go-ethereum"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
+	ethereum "github.com/MarconiFoundation/go-ethereum"
+	"github.com/MarconiFoundation/go-ethereum/common"
 )
 
 // Subscription represents an event subscription where events are

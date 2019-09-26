@@ -23,10 +23,10 @@ import (
 	"errors"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/accounts"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/accounts/keystore"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto"
+	"github.com/MarconiFoundation/go-ethereum/accounts"
+	"github.com/MarconiFoundation/go-ethereum/accounts/keystore"
+	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiFoundation/go-ethereum/crypto"
 )
 
 const (

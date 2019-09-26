@@ -19,7 +19,7 @@ package tests
 import (
 	"testing"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/core/vm"
+	"github.com/MarconiFoundation/go-ethereum/core/vm"
 )
 
 func TestVM(t *testing.T) {

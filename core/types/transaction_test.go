@@ -23,13 +23,13 @@ import (
 	"math/big"
 	"testing"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/rlp"
+	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiFoundation/go-ethereum/crypto"
+	"github.com/MarconiFoundation/go-ethereum/rlp"
 )
 
 // The values in those tests are from the Transaction Tests
-// at gitlab.neji.vm.tc/marconi/tests.
+// at github/ethereum/tests.
 var (
 	emptyTx = NewTransaction(
 		0,

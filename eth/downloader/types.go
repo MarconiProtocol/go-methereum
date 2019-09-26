@@ -19,7 +19,7 @@ package downloader
 import (
 	"fmt"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/core/types"
+	"github.com/MarconiFoundation/go-ethereum/core/types"
 )
 
 // peerDropFn is a callback type for dropping a peer detected as malicious.

@@ -25,9 +25,9 @@ import (
 	"fmt"
 	"io"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/bmt"
-	ch "gitlab.neji.vm.tc/marconi/go-ethereum/swarm/chunk"
+	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiFoundation/go-ethereum/swarm/bmt"
+	ch "github.com/MarconiFoundation/go-ethereum/swarm/chunk"
 	"golang.org/x/crypto/sha3"
 )
 

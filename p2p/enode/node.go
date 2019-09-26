@@ -26,7 +26,7 @@ import (
 	"net"
 	"strings"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/enr"
+	"github.com/MarconiFoundation/go-ethereum/p2p/enr"
 )
 
 // Node represents a host on the network.

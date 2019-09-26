@@ -20,8 +20,8 @@ import (
 	"fmt"
 	"strconv"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage/feed/lookup"
+	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiFoundation/go-ethereum/swarm/storage/feed/lookup"
 )
 
 // Query is used to specify constraints when performing an update lookup

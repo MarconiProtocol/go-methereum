@@ -21,7 +21,7 @@ package dashboard
 import (
 	"syscall"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
+	"github.com/MarconiFoundation/go-ethereum/log"
 )
 
 // getProcessCPUTime retrieves the process' CPU time since program startup.

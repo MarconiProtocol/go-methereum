@@ -3,8 +3,8 @@ package http
 import (
 	"context"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/api"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/sctx"
+	"github.com/MarconiFoundation/go-ethereum/swarm/api"
+	"github.com/MarconiFoundation/go-ethereum/swarm/sctx"
 )
 
 type uriKey struct{}

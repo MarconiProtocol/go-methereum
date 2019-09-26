@@ -19,7 +19,7 @@
 package downloader
 
 import (
-	"gitlab.neji.vm.tc/marconi/go-ethereum/metrics"
+	"github.com/MarconiFoundation/go-ethereum/metrics"
 )
 
 var (

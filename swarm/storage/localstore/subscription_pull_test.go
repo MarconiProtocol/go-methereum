@@ -24,7 +24,7 @@ import (
 	"testing"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage"
+	"github.com/MarconiFoundation/go-ethereum/swarm/storage"
 )
 
 // TestDB_SubscribePull uploads some chunks before and after

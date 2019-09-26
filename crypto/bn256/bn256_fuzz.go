@@ -10,8 +10,8 @@ import (
 	"bytes"
 	"math/big"
 
-	cloudflare "gitlab.neji.vm.tc/marconi/go-ethereum/crypto/bn256/cloudflare"
-	google "gitlab.neji.vm.tc/marconi/go-ethereum/crypto/bn256/google"
+	cloudflare "github.com/MarconiFoundation/go-ethereum/crypto/bn256/cloudflare"
+	google "github.com/MarconiFoundation/go-ethereum/crypto/bn256/google"
 )
 
 // FuzzAdd fuzzez bn256 addition between the Google and Cloudflare libraries.

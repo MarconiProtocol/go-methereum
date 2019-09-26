@@ -22,7 +22,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
+	"github.com/MarconiFoundation/go-ethereum/common"
 )
 
 type keyStorePlain struct {

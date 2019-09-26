@@ -6,8 +6,8 @@ import (
 	"encoding/json"
 	"errors"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common/hexutil"
+	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiFoundation/go-ethereum/common/hexutil"
 )
 
 var _ = (*receiptMarshaling)(nil)

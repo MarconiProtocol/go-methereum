@@ -22,7 +22,7 @@ import (
 	"html/template"
 	"path"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/api"
+	"github.com/MarconiFoundation/go-ethereum/swarm/api"
 )
 
 type htmlListData struct {

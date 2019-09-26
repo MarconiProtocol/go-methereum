@@ -24,8 +24,8 @@ import (
 	"reflect"
 	"testing"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/cmd/utils"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/core/vm"
+	"github.com/MarconiFoundation/go-ethereum/cmd/utils"
+	"github.com/MarconiFoundation/go-ethereum/core/vm"
 )
 
 func TestState(t *testing.T) {

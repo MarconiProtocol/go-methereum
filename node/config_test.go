@@ -24,8 +24,8 @@ import (
 	"runtime"
 	"testing"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p"
+	"github.com/MarconiFoundation/go-ethereum/crypto"
+	"github.com/MarconiFoundation/go-ethereum/p2p"
 )
 
 // Tests that datadirs can be successfully created, be them manually configured

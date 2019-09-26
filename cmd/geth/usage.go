@@ -24,8 +24,8 @@ import (
 
 	"strings"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/cmd/utils"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/internal/debug"
+	"github.com/MarconiFoundation/go-ethereum/cmd/utils"
+	"github.com/MarconiFoundation/go-ethereum/internal/debug"
 	cli "gopkg.in/urfave/cli.v1"
 )
 

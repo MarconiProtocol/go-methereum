@@ -24,8 +24,8 @@ import (
 	"os"
 	"strings"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/accounts/abi/bind"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common/compiler"
+	"github.com/MarconiFoundation/go-ethereum/accounts/abi/bind"
+	"github.com/MarconiFoundation/go-ethereum/common/compiler"
 )
 
 var (

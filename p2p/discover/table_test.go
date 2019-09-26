@@ -27,10 +27,10 @@ import (
 	"testing/quick"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/enode"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/enr"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/netutil"
+	"github.com/MarconiFoundation/go-ethereum/crypto"
+	"github.com/MarconiFoundation/go-ethereum/p2p/enode"
+	"github.com/MarconiFoundation/go-ethereum/p2p/enr"
+	"github.com/MarconiFoundation/go-ethereum/p2p/netutil"
 )
 
 func TestTable_pingReplace(t *testing.T) {

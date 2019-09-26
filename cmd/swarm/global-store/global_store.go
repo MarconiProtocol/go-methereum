@@ -21,11 +21,11 @@ import (
 	"net/http"
 	"os"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/rpc"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage/mock"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage/mock/db"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage/mock/mem"
+	"github.com/MarconiFoundation/go-ethereum/log"
+	"github.com/MarconiFoundation/go-ethereum/rpc"
+	"github.com/MarconiFoundation/go-ethereum/swarm/storage/mock"
+	"github.com/MarconiFoundation/go-ethereum/swarm/storage/mock/db"
+	"github.com/MarconiFoundation/go-ethereum/swarm/storage/mock/mem"
 	cli "gopkg.in/urfave/cli.v1"
 )
 

@@ -22,8 +22,8 @@ import (
 	"reflect"
 	"testing"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
+	"github.com/MarconiFoundation/go-ethereum"
+	"github.com/MarconiFoundation/go-ethereum/common"
 )
 
 // Verify that Client implements the ethereum interfaces.

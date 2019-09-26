@@ -25,7 +25,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
+	"github.com/MarconiFoundation/go-ethereum/log"
 )
 
 /*

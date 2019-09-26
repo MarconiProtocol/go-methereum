@@ -22,8 +22,8 @@ import (
 	"os"
 	"strings"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common/math"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/core/vm"
+	"github.com/MarconiFoundation/go-ethereum/common/math"
+	"github.com/MarconiFoundation/go-ethereum/core/vm"
 )
 
 // Compiler contains information about the parsed source

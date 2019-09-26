@@ -21,7 +21,7 @@ package geth
 import (
 	"errors"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p"
+	"github.com/MarconiFoundation/go-ethereum/p2p"
 )
 
 // NodeInfo represents pi short summary of the information known about the host.

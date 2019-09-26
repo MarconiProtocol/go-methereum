@@ -20,8 +20,8 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/accounts/keystore"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
+	"github.com/MarconiFoundation/go-ethereum/accounts/keystore"
+	"github.com/MarconiFoundation/go-ethereum/log"
 )
 
 // deployFaucet queries the user for various input on deploying a faucet, after

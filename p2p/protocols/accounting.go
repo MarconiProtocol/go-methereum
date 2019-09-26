@@ -19,7 +19,7 @@ package protocols
 import (
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/metrics"
+	"github.com/MarconiFoundation/go-ethereum/metrics"
 )
 
 // define some metrics

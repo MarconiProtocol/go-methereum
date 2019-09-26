@@ -22,8 +22,8 @@ import (
 	"fmt"
 	"os"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/cmd/utils"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage"
+	"github.com/MarconiFoundation/go-ethereum/cmd/utils"
+	"github.com/MarconiFoundation/go-ethereum/swarm/storage"
 	"gopkg.in/urfave/cli.v1"
 )
 

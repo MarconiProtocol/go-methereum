@@ -26,7 +26,7 @@ import (
 	"io/ioutil"
 	"os"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
+	"github.com/MarconiFoundation/go-ethereum/log"
 )
 
 type storedCredential struct {

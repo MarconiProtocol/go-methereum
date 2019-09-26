@@ -26,7 +26,7 @@ import (
 	"os"
 	"strings"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/rlp"
+	"github.com/MarconiFoundation/go-ethereum/rlp"
 )
 
 var (
