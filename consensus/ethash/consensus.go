@@ -35,7 +35,7 @@ import (
 	"github.com/MarconiFoundation/go-ethereum/params"
 	"github.com/MarconiFoundation/go-ethereum/rlp"
 	"golang.org/x/crypto/sha3"
-	"github.com/MarconiFoundation/xmr-stak"
+	"github.com/MarconiFoundation/marconi-cryptonight"
 )
 
 // Ethash proof-of-work protocol constants.

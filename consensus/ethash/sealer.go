@@ -34,7 +34,7 @@ import (
 	"github.com/MarconiFoundation/go-ethereum/consensus"
 	"github.com/MarconiFoundation/go-ethereum/core/types"
 	"github.com/MarconiFoundation/go-ethereum/log"
-    "github.com/MarconiFoundation/xmr-stak"
+    "github.com/MarconiFoundation/marconi-cryptonight"
 )
 
 const (
