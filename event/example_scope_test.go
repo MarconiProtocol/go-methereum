@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"sync"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/event"
+	"github.com/MarconiFoundation/go-ethereum/event"
 )
 
 // This example demonstrates how SubscriptionScope can be used to control the lifetime of

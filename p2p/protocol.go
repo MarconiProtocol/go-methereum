@@ -19,8 +19,8 @@ package p2p
 import (
 	"fmt"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/enode"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/enr"
+	"github.com/MarconiFoundation/go-ethereum/p2p/enode"
+	"github.com/MarconiFoundation/go-ethereum/p2p/enr"
 )
 
 // Protocol represents a P2P subprotocol implementation.

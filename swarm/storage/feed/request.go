@@ -21,10 +21,10 @@ import (
 	"encoding/json"
 	"hash"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common/hexutil"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage/feed/lookup"
+	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiFoundation/go-ethereum/common/hexutil"
+	"github.com/MarconiFoundation/go-ethereum/swarm/storage"
+	"github.com/MarconiFoundation/go-ethereum/swarm/storage/feed/lookup"
 )
 
 // Request represents a request to sign or signed feed update message

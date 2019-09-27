@@ -29,11 +29,11 @@ import (
 	"strings"
 	"sync"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/event"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/enode"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/simulations/adapters"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/rpc"
+	"github.com/MarconiFoundation/go-ethereum/event"
+	"github.com/MarconiFoundation/go-ethereum/p2p"
+	"github.com/MarconiFoundation/go-ethereum/p2p/enode"
+	"github.com/MarconiFoundation/go-ethereum/p2p/simulations/adapters"
+	"github.com/MarconiFoundation/go-ethereum/rpc"
 	"github.com/julienschmidt/httprouter"
 	"golang.org/x/net/websocket"
 )

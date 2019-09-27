@@ -27,11 +27,11 @@ import (
 	"strings"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage/feed"
+	"github.com/MarconiFoundation/go-ethereum/swarm/storage/feed"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/log"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage"
+	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiFoundation/go-ethereum/swarm/log"
+	"github.com/MarconiFoundation/go-ethereum/swarm/storage"
 )
 
 const (

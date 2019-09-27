@@ -25,17 +25,17 @@ import (
 	"testing"
 	"time"
 
-	ethereum "gitlab.neji.vm.tc/marconi/go-ethereum"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/consensus/ethash"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/core"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/core/bloombits"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/core/rawdb"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/core/types"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/ethdb"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/event"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/params"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/rpc"
+	ethereum "github.com/MarconiFoundation/go-ethereum"
+	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiFoundation/go-ethereum/consensus/ethash"
+	"github.com/MarconiFoundation/go-ethereum/core"
+	"github.com/MarconiFoundation/go-ethereum/core/bloombits"
+	"github.com/MarconiFoundation/go-ethereum/core/rawdb"
+	"github.com/MarconiFoundation/go-ethereum/core/types"
+	"github.com/MarconiFoundation/go-ethereum/ethdb"
+	"github.com/MarconiFoundation/go-ethereum/event"
+	"github.com/MarconiFoundation/go-ethereum/params"
+	"github.com/MarconiFoundation/go-ethereum/rpc"
 )
 
 type testBackend struct {

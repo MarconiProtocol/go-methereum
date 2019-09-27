@@ -22,12 +22,12 @@ import (
 	"testing"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/core/types"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/eth/downloader"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/rlp"
+	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiFoundation/go-ethereum/core/types"
+	"github.com/MarconiFoundation/go-ethereum/crypto"
+	"github.com/MarconiFoundation/go-ethereum/eth/downloader"
+	"github.com/MarconiFoundation/go-ethereum/p2p"
+	"github.com/MarconiFoundation/go-ethereum/rlp"
 )
 
 func init() {

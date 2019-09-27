@@ -23,9 +23,9 @@ import (
 	"net"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/enode"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/netutil"
+	"github.com/MarconiFoundation/go-ethereum/log"
+	"github.com/MarconiFoundation/go-ethereum/p2p/enode"
+	"github.com/MarconiFoundation/go-ethereum/p2p/netutil"
 )
 
 const (

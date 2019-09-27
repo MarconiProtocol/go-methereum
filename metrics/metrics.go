@@ -11,7 +11,7 @@ import (
 	"strings"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
+	"github.com/MarconiFoundation/go-ethereum/log"
 )
 
 // Enabled is checked by the constructor functions for all of the

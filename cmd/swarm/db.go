@@ -22,10 +22,10 @@ import (
 	"os"
 	"path/filepath"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/cmd/utils"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage"
+	"github.com/MarconiFoundation/go-ethereum/cmd/utils"
+	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiFoundation/go-ethereum/log"
+	"github.com/MarconiFoundation/go-ethereum/swarm/storage"
 	"gopkg.in/urfave/cli.v1"
 )
 

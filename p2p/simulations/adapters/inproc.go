@@ -23,13 +23,13 @@ import (
 	"net"
 	"sync"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/event"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/node"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/enode"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/simulations/pipes"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/rpc"
+	"github.com/MarconiFoundation/go-ethereum/event"
+	"github.com/MarconiFoundation/go-ethereum/log"
+	"github.com/MarconiFoundation/go-ethereum/node"
+	"github.com/MarconiFoundation/go-ethereum/p2p"
+	"github.com/MarconiFoundation/go-ethereum/p2p/enode"
+	"github.com/MarconiFoundation/go-ethereum/p2p/simulations/pipes"
+	"github.com/MarconiFoundation/go-ethereum/rpc"
 )
 
 // SimAdapter is a NodeAdapter which creates in-memory simulation nodes and

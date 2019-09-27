@@ -19,7 +19,7 @@ package network
 import (
 	"testing"
 
-	p2ptest "gitlab.neji.vm.tc/marconi/go-ethereum/p2p/testing"
+	p2ptest "github.com/MarconiFoundation/go-ethereum/p2p/testing"
 )
 
 /***

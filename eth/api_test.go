@@ -21,9 +21,9 @@ import (
 	"testing"
 
 	"github.com/davecgh/go-spew/spew"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/core/state"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/ethdb"
+	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiFoundation/go-ethereum/core/state"
+	"github.com/MarconiFoundation/go-ethereum/ethdb"
 )
 
 var dumper = spew.ConfigState{Indent: "    "}

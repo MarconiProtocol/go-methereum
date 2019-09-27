@@ -22,8 +22,8 @@ import (
 	"errors"
 	"math/big"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/core/types"
+	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiFoundation/go-ethereum/core/types"
 )
 
 // NotFound is returned by API methods if the requested item does not exist.

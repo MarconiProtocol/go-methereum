@@ -21,9 +21,9 @@ import (
 	"errors"
 	"math/big"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/core/state"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/core/types"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/params"
+	"github.com/MarconiFoundation/go-ethereum/core/state"
+	"github.com/MarconiFoundation/go-ethereum/core/types"
+	"github.com/MarconiFoundation/go-ethereum/params"
 )
 
 var (

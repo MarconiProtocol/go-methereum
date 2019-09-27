@@ -24,9 +24,9 @@ import (
 	"reflect"
 	"testing"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage/feed/lookup"
+	"github.com/MarconiFoundation/go-ethereum/crypto"
+	"github.com/MarconiFoundation/go-ethereum/swarm/storage"
+	"github.com/MarconiFoundation/go-ethereum/swarm/storage/feed/lookup"
 )
 
 func areEqualJSON(s1, s2 string) (bool, error) {

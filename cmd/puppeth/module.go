@@ -25,7 +25,7 @@ import (
 	"strings"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
+	"github.com/MarconiFoundation/go-ethereum/log"
 )
 
 var (

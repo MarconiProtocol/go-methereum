@@ -20,8 +20,8 @@ package rawdb
 import (
 	"encoding/binary"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/metrics"
+	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiFoundation/go-ethereum/metrics"
 )
 
 // The fields below define the low level database schema prefixing.

@@ -26,7 +26,7 @@ import (
 	"testing"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/testutil"
+	"github.com/MarconiFoundation/go-ethereum/swarm/testutil"
 	"golang.org/x/crypto/sha3"
 )
 

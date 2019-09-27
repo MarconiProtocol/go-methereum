@@ -21,7 +21,7 @@ import (
 	"context"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage"
+	"github.com/MarconiFoundation/go-ethereum/swarm/storage"
 )
 
 const (

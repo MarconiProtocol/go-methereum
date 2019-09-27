@@ -28,10 +28,10 @@ import (
 	"testing"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	ch "gitlab.neji.vm.tc/marconi/go-ethereum/swarm/chunk"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/log"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage/mock/mem"
+	"github.com/MarconiFoundation/go-ethereum/common"
+	ch "github.com/MarconiFoundation/go-ethereum/swarm/chunk"
+	"github.com/MarconiFoundation/go-ethereum/swarm/log"
+	"github.com/MarconiFoundation/go-ethereum/swarm/storage/mock/mem"
 	ldberrors "github.com/syndtr/goleveldb/leveldb/errors"
 )
 

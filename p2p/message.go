@@ -25,9 +25,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/event"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/enode"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/rlp"
+	"github.com/MarconiFoundation/go-ethereum/event"
+	"github.com/MarconiFoundation/go-ethereum/p2p/enode"
+	"github.com/MarconiFoundation/go-ethereum/rlp"
 )
 
 // Msg defines the structure of a p2p message.

@@ -33,15 +33,15 @@ import (
 	"time"
 
 	"github.com/docker/docker/pkg/reexec"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/accounts"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/accounts/keystore"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/internal/cmdtest"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/node"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/rpc"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/api"
-	swarmhttp "gitlab.neji.vm.tc/marconi/go-ethereum/swarm/api/http"
+	"github.com/MarconiFoundation/go-ethereum/accounts"
+	"github.com/MarconiFoundation/go-ethereum/accounts/keystore"
+	"github.com/MarconiFoundation/go-ethereum/internal/cmdtest"
+	"github.com/MarconiFoundation/go-ethereum/node"
+	"github.com/MarconiFoundation/go-ethereum/p2p"
+	"github.com/MarconiFoundation/go-ethereum/rpc"
+	"github.com/MarconiFoundation/go-ethereum/swarm"
+	"github.com/MarconiFoundation/go-ethereum/swarm/api"
+	swarmhttp "github.com/MarconiFoundation/go-ethereum/swarm/api/http"
 )
 
 var loglevel = flag.Int("loglevel", 3, "verbosity of logs")

@@ -21,7 +21,7 @@ import (
 	"io"
 	"net"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/rlp"
+	"github.com/MarconiFoundation/go-ethereum/rlp"
 )
 
 // Entry is implemented by known node record entry types.

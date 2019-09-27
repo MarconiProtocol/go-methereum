@@ -29,8 +29,8 @@ import (
 	"testing"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/cmd/utils"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
+	"github.com/MarconiFoundation/go-ethereum/cmd/utils"
+	"github.com/MarconiFoundation/go-ethereum/log"
 )
 
 type testFile struct {

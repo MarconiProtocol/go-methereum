@@ -20,9 +20,9 @@ import (
 	"math/big"
 	"testing"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/core/state"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/params"
+	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiFoundation/go-ethereum/core/state"
+	"github.com/MarconiFoundation/go-ethereum/params"
 )
 
 type dummyContractRef struct {

@@ -23,22 +23,22 @@ import (
 	"math/big"
 	"strings"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common/hexutil"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common/math"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/core"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/core/state"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/core/types"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/core/vm"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/ethdb"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/params"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/rlp"
+	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiFoundation/go-ethereum/common/hexutil"
+	"github.com/MarconiFoundation/go-ethereum/common/math"
+	"github.com/MarconiFoundation/go-ethereum/core"
+	"github.com/MarconiFoundation/go-ethereum/core/state"
+	"github.com/MarconiFoundation/go-ethereum/core/types"
+	"github.com/MarconiFoundation/go-ethereum/core/vm"
+	"github.com/MarconiFoundation/go-ethereum/crypto"
+	"github.com/MarconiFoundation/go-ethereum/ethdb"
+	"github.com/MarconiFoundation/go-ethereum/params"
+	"github.com/MarconiFoundation/go-ethereum/rlp"
 	"golang.org/x/crypto/sha3"
 )
 
 // StateTest checks transaction processing without block context.
-// See https://gitlab.neji.vm.tc/marconi/EIPs/issues/176 for the test format specification.
+// See https://github.com/ethereum/EIPs/issues/176 for the test format specification.
 type StateTest struct {
 	json stJSON
 }
@@ -229,7 +229,7 @@ func (tx *stTransaction) toMessage(ps stPostState) (core.Message, error) {
 	dataHex := tx.Data[ps.Indexes.Data]
 	valueHex := tx.Value[ps.Indexes.Value]
 	gasLimit := tx.GasLimit[ps.Indexes.Gas]
-	// Value, Data hex encoding is messy: https://gitlab.neji.vm.tc/marconi/tests/issues/203
+	// Value, Data hex encoding is messy: https://github.com/ethereum/tests/issues/203
 	value := new(big.Int)
 	if valueHex != "0x" {
 		v, ok := math.ParseBig256(valueHex)

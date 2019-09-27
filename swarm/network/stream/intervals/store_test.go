@@ -19,7 +19,7 @@ package intervals
 import (
 	"testing"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/state"
+	"github.com/MarconiFoundation/go-ethereum/swarm/state"
 )
 
 // TestInmemoryStore tests basic functionality of InmemoryStore.

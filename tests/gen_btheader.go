@@ -6,10 +6,10 @@ import (
 	"encoding/json"
 	"math/big"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common/hexutil"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common/math"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/core/types"
+	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiFoundation/go-ethereum/common/hexutil"
+	"github.com/MarconiFoundation/go-ethereum/common/math"
+	"github.com/MarconiFoundation/go-ethereum/core/types"
 )
 
 var _ = (*btHeaderMarshaling)(nil)

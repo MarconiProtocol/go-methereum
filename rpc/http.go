@@ -31,7 +31,7 @@ import (
 	"sync"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
+	"github.com/MarconiFoundation/go-ethereum/log"
 	"github.com/rs/cors"
 )
 

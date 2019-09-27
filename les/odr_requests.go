@@ -23,15 +23,15 @@ import (
 	"errors"
 	"fmt"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/core/rawdb"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/core/types"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/ethdb"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/light"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/rlp"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/trie"
+	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiFoundation/go-ethereum/core/rawdb"
+	"github.com/MarconiFoundation/go-ethereum/core/types"
+	"github.com/MarconiFoundation/go-ethereum/crypto"
+	"github.com/MarconiFoundation/go-ethereum/ethdb"
+	"github.com/MarconiFoundation/go-ethereum/light"
+	"github.com/MarconiFoundation/go-ethereum/log"
+	"github.com/MarconiFoundation/go-ethereum/rlp"
+	"github.com/MarconiFoundation/go-ethereum/trie"
 )
 
 var (

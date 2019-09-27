@@ -19,8 +19,8 @@ package vm
 import (
 	"math/big"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/core/types"
+	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiFoundation/go-ethereum/core/types"
 )
 
 // StateDB is an EVM database for full state querying.

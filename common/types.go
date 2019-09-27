@@ -26,7 +26,7 @@ import (
 	"reflect"
 	"strings"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common/hexutil"
+	"github.com/MarconiFoundation/go-ethereum/common/hexutil"
 	"golang.org/x/crypto/sha3"
 )
 

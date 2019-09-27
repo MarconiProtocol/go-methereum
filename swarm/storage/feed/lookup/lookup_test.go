@@ -21,8 +21,8 @@ import (
 	"math/rand"
 	"testing"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/log"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage/feed/lookup"
+	"github.com/MarconiFoundation/go-ethereum/swarm/log"
+	"github.com/MarconiFoundation/go-ethereum/swarm/storage/feed/lookup"
 )
 
 type Data struct {

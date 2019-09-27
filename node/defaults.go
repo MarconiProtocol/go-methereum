@@ -22,9 +22,9 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/nat"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/rpc"
+	"github.com/MarconiFoundation/go-ethereum/p2p"
+	"github.com/MarconiFoundation/go-ethereum/p2p/nat"
+	"github.com/MarconiFoundation/go-ethereum/rpc"
 )
 
 const (

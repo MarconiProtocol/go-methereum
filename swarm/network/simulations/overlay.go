@@ -27,13 +27,13 @@ import (
 	"sync"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/node"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/enode"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/simulations"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/simulations/adapters"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/network"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/state"
+	"github.com/MarconiFoundation/go-ethereum/log"
+	"github.com/MarconiFoundation/go-ethereum/node"
+	"github.com/MarconiFoundation/go-ethereum/p2p/enode"
+	"github.com/MarconiFoundation/go-ethereum/p2p/simulations"
+	"github.com/MarconiFoundation/go-ethereum/p2p/simulations/adapters"
+	"github.com/MarconiFoundation/go-ethereum/swarm/network"
+	"github.com/MarconiFoundation/go-ethereum/swarm/state"
 	colorable "github.com/mattn/go-colorable"
 )
 

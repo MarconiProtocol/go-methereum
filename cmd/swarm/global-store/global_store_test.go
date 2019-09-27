@@ -25,9 +25,9 @@ import (
 	"testing"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/rpc"
-	mockRPC "gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage/mock/rpc"
+	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiFoundation/go-ethereum/rpc"
+	mockRPC "github.com/MarconiFoundation/go-ethereum/swarm/storage/mock/rpc"
 )
 
 // TestHTTP_InMemory tests in-memory global store that exposes

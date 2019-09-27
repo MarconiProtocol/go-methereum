@@ -28,11 +28,11 @@
 //  	"context"
 //  	"fmt"
 //  	"os"
-//  	pss "gitlab.neji.vm.tc/marconi/go-ethereum/swarm/pss/client"
-//  	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/protocols"
-//  	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p"
-//  	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/pot"
-//  	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/log"
+//  	pss "github.com/MarconiFoundation/go-ethereum/swarm/pss/client"
+//  	"github.com/MarconiFoundation/go-ethereum/p2p/protocols"
+//  	"github.com/MarconiFoundation/go-ethereum/p2p"
+//  	"github.com/MarconiFoundation/go-ethereum/swarm/pot"
+//  	"github.com/MarconiFoundation/go-ethereum/swarm/log"
 //  )
 //
 //  type FooMsg struct {

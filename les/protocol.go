@@ -24,12 +24,12 @@ import (
 	"io"
 	"math/big"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/core"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/core/rawdb"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/enode"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/rlp"
+	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiFoundation/go-ethereum/core"
+	"github.com/MarconiFoundation/go-ethereum/core/rawdb"
+	"github.com/MarconiFoundation/go-ethereum/crypto"
+	"github.com/MarconiFoundation/go-ethereum/p2p/enode"
+	"github.com/MarconiFoundation/go-ethereum/rlp"
 )
 
 // Constants to match up protocol versions and messages

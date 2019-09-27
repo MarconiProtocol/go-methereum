@@ -23,15 +23,15 @@ import (
 	"os"
 	"testing"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common/hexutil"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/api"
-	swarm "gitlab.neji.vm.tc/marconi/go-ethereum/swarm/api/client"
-	swarmhttp "gitlab.neji.vm.tc/marconi/go-ethereum/swarm/api/http"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage/feed"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage/feed/lookup"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/testutil"
+	"github.com/MarconiFoundation/go-ethereum/common/hexutil"
+	"github.com/MarconiFoundation/go-ethereum/crypto"
+	"github.com/MarconiFoundation/go-ethereum/log"
+	"github.com/MarconiFoundation/go-ethereum/swarm/api"
+	swarm "github.com/MarconiFoundation/go-ethereum/swarm/api/client"
+	swarmhttp "github.com/MarconiFoundation/go-ethereum/swarm/api/http"
+	"github.com/MarconiFoundation/go-ethereum/swarm/storage/feed"
+	"github.com/MarconiFoundation/go-ethereum/swarm/storage/feed/lookup"
+	"github.com/MarconiFoundation/go-ethereum/swarm/testutil"
 )
 
 func TestCLIFeedUpdate(t *testing.T) {

@@ -24,10 +24,10 @@ import (
 	"fmt"
 	"sync"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage/feed/lookup"
+	"github.com/MarconiFoundation/go-ethereum/swarm/storage/feed/lookup"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/log"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage"
+	"github.com/MarconiFoundation/go-ethereum/swarm/log"
+	"github.com/MarconiFoundation/go-ethereum/swarm/storage"
 )
 
 type Handler struct {

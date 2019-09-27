@@ -29,9 +29,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/event"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
+	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiFoundation/go-ethereum/event"
+	"github.com/MarconiFoundation/go-ethereum/log"
 )
 
 const (

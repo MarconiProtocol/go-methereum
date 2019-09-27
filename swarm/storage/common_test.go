@@ -28,8 +28,8 @@ import (
 	"testing"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
-	ch "gitlab.neji.vm.tc/marconi/go-ethereum/swarm/chunk"
+	"github.com/MarconiFoundation/go-ethereum/log"
+	ch "github.com/MarconiFoundation/go-ethereum/swarm/chunk"
 	"github.com/mattn/go-colorable"
 )
 

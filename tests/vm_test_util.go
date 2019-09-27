@@ -22,19 +22,19 @@ import (
 	"fmt"
 	"math/big"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common/hexutil"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common/math"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/core"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/core/state"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/core/vm"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/ethdb"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/params"
+	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiFoundation/go-ethereum/common/hexutil"
+	"github.com/MarconiFoundation/go-ethereum/common/math"
+	"github.com/MarconiFoundation/go-ethereum/core"
+	"github.com/MarconiFoundation/go-ethereum/core/state"
+	"github.com/MarconiFoundation/go-ethereum/core/vm"
+	"github.com/MarconiFoundation/go-ethereum/crypto"
+	"github.com/MarconiFoundation/go-ethereum/ethdb"
+	"github.com/MarconiFoundation/go-ethereum/params"
 )
 
 // VMTest checks EVM execution without block or transaction context.
-// See https://gitlab.neji.vm.tc/marconi/tests/wiki/VM-Tests for the test format specification.
+// See https://github.com/ethereum/tests/wiki/VM-Tests for the test format specification.
 type VMTest struct {
 	json vmJSON
 }

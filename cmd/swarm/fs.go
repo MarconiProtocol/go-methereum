@@ -23,10 +23,10 @@ import (
 	"strings"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/cmd/utils"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/rpc"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/fuse"
+	"github.com/MarconiFoundation/go-ethereum/cmd/utils"
+	"github.com/MarconiFoundation/go-ethereum/log"
+	"github.com/MarconiFoundation/go-ethereum/rpc"
+	"github.com/MarconiFoundation/go-ethereum/swarm/fuse"
 	"gopkg.in/urfave/cli.v1"
 )
 

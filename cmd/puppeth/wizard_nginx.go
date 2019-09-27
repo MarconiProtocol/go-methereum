@@ -19,7 +19,7 @@ package main
 import (
 	"fmt"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
+	"github.com/MarconiFoundation/go-ethereum/log"
 )
 
 // ensureVirtualHost checks whether a reverse-proxy is running on the specified

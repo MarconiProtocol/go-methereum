@@ -20,8 +20,8 @@ import (
 	"bytes"
 	"testing"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/ethdb"
+	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiFoundation/go-ethereum/ethdb"
 )
 
 // Tests that the node iterator indeed walks over the entire database contents.

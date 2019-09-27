@@ -20,7 +20,7 @@ import (
 	"io/ioutil"
 	"testing"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
+	"github.com/MarconiFoundation/go-ethereum/common"
 )
 
 const (

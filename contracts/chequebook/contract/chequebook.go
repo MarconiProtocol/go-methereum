@@ -7,12 +7,12 @@ import (
 	"math/big"
 	"strings"
 
-	ethereum "gitlab.neji.vm.tc/marconi/go-ethereum"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/accounts/abi"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/accounts/abi/bind"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/core/types"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/event"
+	ethereum "github.com/MarconiFoundation/go-ethereum"
+	"github.com/MarconiFoundation/go-ethereum/accounts/abi"
+	"github.com/MarconiFoundation/go-ethereum/accounts/abi/bind"
+	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiFoundation/go-ethereum/core/types"
+	"github.com/MarconiFoundation/go-ethereum/event"
 )
 
 // ChequebookABI is the input ABI used to generate the binding from.

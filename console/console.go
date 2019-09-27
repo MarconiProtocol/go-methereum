@@ -28,9 +28,9 @@ import (
 	"strings"
 	"syscall"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/internal/jsre"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/internal/web3ext"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/rpc"
+	"github.com/MarconiFoundation/go-ethereum/internal/jsre"
+	"github.com/MarconiFoundation/go-ethereum/internal/web3ext"
+	"github.com/MarconiFoundation/go-ethereum/rpc"
 	"github.com/mattn/go-colorable"
 	"github.com/peterh/liner"
 	"github.com/robertkrimen/otto"

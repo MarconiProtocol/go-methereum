@@ -25,7 +25,7 @@ import (
 
 	"bazil.org/fuse"
 	"bazil.org/fuse/fs"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/log"
+	"github.com/MarconiFoundation/go-ethereum/swarm/log"
 	"golang.org/x/net/context"
 )
 

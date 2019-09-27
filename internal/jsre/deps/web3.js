@@ -5862,7 +5862,7 @@ module.exports = Shh;
  * @author Alex Beregszaszi <alex@rtfs.hu>
  * @date 2016
  *
- * Reference: https://gitlab.neji.vm.tc/marconi/go-ethereum/blob/swarm/internal/web3ext/web3ext.go#L33
+ * Reference: https://github.com/MarconiFoundation/go-ethereum/blob/swarm/internal/web3ext/web3ext.go#L33
  */
 
 "use strict";

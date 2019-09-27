@@ -25,14 +25,14 @@ import (
 	"sync"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common/hexutil"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/enode"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/protocols"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/rlp"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/rpc"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/log"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/pss"
+	"github.com/MarconiFoundation/go-ethereum/common/hexutil"
+	"github.com/MarconiFoundation/go-ethereum/p2p"
+	"github.com/MarconiFoundation/go-ethereum/p2p/enode"
+	"github.com/MarconiFoundation/go-ethereum/p2p/protocols"
+	"github.com/MarconiFoundation/go-ethereum/rlp"
+	"github.com/MarconiFoundation/go-ethereum/rpc"
+	"github.com/MarconiFoundation/go-ethereum/swarm/log"
+	"github.com/MarconiFoundation/go-ethereum/swarm/pss"
 )
 
 const (

@@ -20,11 +20,11 @@ package consensus
 import (
 	"math/big"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/core/state"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/core/types"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/params"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/rpc"
+	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiFoundation/go-ethereum/core/state"
+	"github.com/MarconiFoundation/go-ethereum/core/types"
+	"github.com/MarconiFoundation/go-ethereum/params"
+	"github.com/MarconiFoundation/go-ethereum/rpc"
 )
 
 // ChainReader defines a small collection of methods needed to access the local

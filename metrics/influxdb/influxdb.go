@@ -5,8 +5,8 @@ import (
 	uurl "net/url"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/metrics"
+	"github.com/MarconiFoundation/go-ethereum/log"
+	"github.com/MarconiFoundation/go-ethereum/metrics"
 	"github.com/influxdata/influxdb/client"
 )
 

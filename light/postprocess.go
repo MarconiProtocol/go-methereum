@@ -24,16 +24,16 @@ import (
 	"math/big"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common/bitutil"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/core"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/core/rawdb"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/core/types"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/ethdb"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/params"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/rlp"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/trie"
+	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiFoundation/go-ethereum/common/bitutil"
+	"github.com/MarconiFoundation/go-ethereum/core"
+	"github.com/MarconiFoundation/go-ethereum/core/rawdb"
+	"github.com/MarconiFoundation/go-ethereum/core/types"
+	"github.com/MarconiFoundation/go-ethereum/ethdb"
+	"github.com/MarconiFoundation/go-ethereum/log"
+	"github.com/MarconiFoundation/go-ethereum/params"
+	"github.com/MarconiFoundation/go-ethereum/rlp"
+	"github.com/MarconiFoundation/go-ethereum/trie"
 )
 
 // IndexerConfig includes a set of configs for chain indexers.

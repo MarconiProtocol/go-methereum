@@ -19,7 +19,7 @@
 This key store behaves as KeyStorePlain with the difference that
 the private key is encrypted and on disk uses another JSON encoding.
 
-The crypto is documented at https://gitlab.neji.vm.tc/marconi/wiki/wiki/Web3-Secret-Storage-Definition
+The crypto is documented at https://github.com/ethereum/wiki/wiki/Web3-Secret-Storage-Definition
 
 */
 
@@ -38,9 +38,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common/math"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto"
+	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiFoundation/go-ethereum/common/math"
+	"github.com/MarconiFoundation/go-ethereum/crypto"
 	"github.com/pborman/uuid"
 	"golang.org/x/crypto/pbkdf2"
 	"golang.org/x/crypto/scrypt"
@@ -120,7 +120,7 @@ func (ks keyStorePassphrase) StoreKey(filename string, key *Key, auth string) er
 				"This indicates that the keystore is corrupted. \n" +
 				"The corrupted file is stored at \n%v\n" +
 				"Please file a ticket at:\n\n" +
-				"https://gitlab.neji.vm.tc/marconi/go-ethereum/issues." +
+				"https://github.com/MarconiFoundation/go-ethereum/issues." +
 				"The error was : %s"
 			return fmt.Errorf(msg, tmpName, err)
 		}

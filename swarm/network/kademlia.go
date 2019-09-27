@@ -24,10 +24,10 @@ import (
 	"sync"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/log"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/pot"
-	sv "gitlab.neji.vm.tc/marconi/go-ethereum/swarm/version"
+	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiFoundation/go-ethereum/swarm/log"
+	"github.com/MarconiFoundation/go-ethereum/swarm/pot"
+	sv "github.com/MarconiFoundation/go-ethereum/swarm/version"
 )
 
 /*

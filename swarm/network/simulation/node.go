@@ -24,10 +24,10 @@ import (
 	"os"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/enode"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/simulations"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/simulations/adapters"
+	"github.com/MarconiFoundation/go-ethereum/log"
+	"github.com/MarconiFoundation/go-ethereum/p2p/enode"
+	"github.com/MarconiFoundation/go-ethereum/p2p/simulations"
+	"github.com/MarconiFoundation/go-ethereum/p2p/simulations/adapters"
 )
 
 // NodeIDs returns NodeIDs for all nodes in the network.

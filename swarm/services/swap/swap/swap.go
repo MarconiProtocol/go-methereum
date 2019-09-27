@@ -22,7 +22,7 @@ import (
 	"sync"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/log"
+	"github.com/MarconiFoundation/go-ethereum/swarm/log"
 )
 
 // SwAP Swarm Accounting Protocol with

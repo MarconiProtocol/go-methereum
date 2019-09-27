@@ -37,17 +37,17 @@ import (
 	"testing"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage/feed/lookup"
+	"github.com/MarconiFoundation/go-ethereum/swarm/storage/feed/lookup"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/core/types"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/api"
-	swarm "gitlab.neji.vm.tc/marconi/go-ethereum/swarm/api/client"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage/feed"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/testutil"
+	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiFoundation/go-ethereum/core/types"
+	"github.com/MarconiFoundation/go-ethereum/crypto"
+	"github.com/MarconiFoundation/go-ethereum/log"
+	"github.com/MarconiFoundation/go-ethereum/swarm/api"
+	swarm "github.com/MarconiFoundation/go-ethereum/swarm/api/client"
+	"github.com/MarconiFoundation/go-ethereum/swarm/storage"
+	"github.com/MarconiFoundation/go-ethereum/swarm/storage/feed"
+	"github.com/MarconiFoundation/go-ethereum/swarm/testutil"
 )
 
 func init() {

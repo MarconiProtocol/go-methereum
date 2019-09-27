@@ -21,9 +21,9 @@ import (
 	"path/filepath"
 	"sync"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/metrics"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/log"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage/mock"
+	"github.com/MarconiFoundation/go-ethereum/metrics"
+	"github.com/MarconiFoundation/go-ethereum/swarm/log"
+	"github.com/MarconiFoundation/go-ethereum/swarm/storage/mock"
 )
 
 type LocalStoreParams struct {

@@ -23,9 +23,9 @@ import (
 	"errors"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/protocols"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/log"
+	"github.com/MarconiFoundation/go-ethereum/p2p"
+	"github.com/MarconiFoundation/go-ethereum/p2p/protocols"
+	"github.com/MarconiFoundation/go-ethereum/swarm/log"
 )
 
 // Generic ping protocol implementation for

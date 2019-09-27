@@ -31,12 +31,12 @@ import (
 	"testing"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto/ecies"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/api"
-	swarmapi "gitlab.neji.vm.tc/marconi/go-ethereum/swarm/api/client"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/testutil"
+	"github.com/MarconiFoundation/go-ethereum/crypto"
+	"github.com/MarconiFoundation/go-ethereum/crypto/ecies"
+	"github.com/MarconiFoundation/go-ethereum/log"
+	"github.com/MarconiFoundation/go-ethereum/swarm/api"
+	swarmapi "github.com/MarconiFoundation/go-ethereum/swarm/api/client"
+	"github.com/MarconiFoundation/go-ethereum/swarm/testutil"
 	"golang.org/x/crypto/sha3"
 )
 

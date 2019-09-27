@@ -31,14 +31,14 @@ import (
 
 	"github.com/mattn/go-colorable"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/rpc"
+	"github.com/MarconiFoundation/go-ethereum/log"
+	"github.com/MarconiFoundation/go-ethereum/rpc"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/node"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/enode"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/simulations"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/simulations/adapters"
+	"github.com/MarconiFoundation/go-ethereum/node"
+	"github.com/MarconiFoundation/go-ethereum/p2p"
+	"github.com/MarconiFoundation/go-ethereum/p2p/enode"
+	"github.com/MarconiFoundation/go-ethereum/p2p/simulations"
+	"github.com/MarconiFoundation/go-ethereum/p2p/simulations/adapters"
 )
 
 const (

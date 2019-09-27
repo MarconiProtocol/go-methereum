@@ -23,8 +23,8 @@ import (
 	"math/rand"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common/mclock"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
+	"github.com/MarconiFoundation/go-ethereum/common/mclock"
+	"github.com/MarconiFoundation/go-ethereum/log"
 )
 
 const (

@@ -17,8 +17,8 @@
 package localstore
 
 import (
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/shed"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/storage"
+	"github.com/MarconiFoundation/go-ethereum/swarm/shed"
+	"github.com/MarconiFoundation/go-ethereum/swarm/storage"
 	"github.com/syndtr/goleveldb/leveldb"
 )
 

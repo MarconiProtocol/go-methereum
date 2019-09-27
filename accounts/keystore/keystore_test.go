@@ -26,9 +26,9 @@ import (
 	"testing"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/accounts"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/event"
+	"github.com/MarconiFoundation/go-ethereum/accounts"
+	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiFoundation/go-ethereum/event"
 )
 
 var testSigData = make([]byte, 32)

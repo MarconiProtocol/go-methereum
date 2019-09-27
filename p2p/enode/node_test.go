@@ -21,8 +21,8 @@ import (
 	"fmt"
 	"testing"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/enr"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/rlp"
+	"github.com/MarconiFoundation/go-ethereum/p2p/enr"
+	"github.com/MarconiFoundation/go-ethereum/rlp"
 	"github.com/stretchr/testify/assert"
 )
 

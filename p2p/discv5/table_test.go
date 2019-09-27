@@ -27,8 +27,8 @@ import (
 	"testing/quick"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto"
+	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiFoundation/go-ethereum/crypto"
 )
 
 type nullTransport struct{}

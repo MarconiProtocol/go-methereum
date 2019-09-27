@@ -22,7 +22,7 @@ import (
 	"errors"
 	"math/big"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
+	"github.com/MarconiFoundation/go-ethereum/common"
 )
 
 // Interface represents a wrapped version of Go's interface{}, with the capacity

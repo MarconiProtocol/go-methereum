@@ -26,12 +26,12 @@ import (
 	"testing"
 	"time"
 
-	ethereum "gitlab.neji.vm.tc/marconi/go-ethereum"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/core/types"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/ethdb"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/event"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/trie"
+	ethereum "github.com/MarconiFoundation/go-ethereum"
+	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiFoundation/go-ethereum/core/types"
+	"github.com/MarconiFoundation/go-ethereum/ethdb"
+	"github.com/MarconiFoundation/go-ethereum/event"
+	"github.com/MarconiFoundation/go-ethereum/trie"
 )
 
 // Reduce some of the parameters to make the tester faster.

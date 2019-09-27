@@ -20,7 +20,7 @@ package storage
 // no need for queueing/caching
 
 import (
-	"gitlab.neji.vm.tc/marconi/go-ethereum/metrics"
+	"github.com/MarconiFoundation/go-ethereum/metrics"
 	"github.com/syndtr/goleveldb/leveldb"
 	"github.com/syndtr/goleveldb/leveldb/iterator"
 	"github.com/syndtr/goleveldb/leveldb/opt"

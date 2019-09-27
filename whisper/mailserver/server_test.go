@@ -25,9 +25,9 @@ import (
 	"testing"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto"
-	whisper "gitlab.neji.vm.tc/marconi/go-ethereum/whisper/whisperv6"
+	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiFoundation/go-ethereum/crypto"
+	whisper "github.com/MarconiFoundation/go-ethereum/whisper/whisperv6"
 )
 
 const powRequirement = 0.00001

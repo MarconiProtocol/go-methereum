@@ -19,8 +19,8 @@ package runtime_test
 import (
 	"fmt"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/core/vm/runtime"
+	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiFoundation/go-ethereum/core/vm/runtime"
 )
 
 func ExampleExecute() {

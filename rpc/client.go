@@ -32,7 +32,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/log"
+	"github.com/MarconiFoundation/go-ethereum/log"
 )
 
 var (

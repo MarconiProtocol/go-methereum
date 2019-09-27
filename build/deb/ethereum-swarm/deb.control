@@ -5,8 +5,8 @@ Maintainer: {{.Author}}
 Build-Depends: debhelper (>= 8.0.0), golang-1.10
 Standards-Version: 3.9.5
 Homepage: https://ethereum.org
-Vcs-Git: git://gitlab.neji.vm.tc/marconi/go-ethereum.git
-Vcs-Browser: https://gitlab.neji.vm.tc/marconi/go-ethereum
+Vcs-Git: git://github.com/MarconiFoundation/go-ethereum.git
+Vcs-Browser: https://github.com/MarconiFoundation/go-ethereum
 
 {{range .Executables}}
 Package: {{$.ExeName .}}

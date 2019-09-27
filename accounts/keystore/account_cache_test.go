@@ -29,8 +29,8 @@ import (
 
 	"github.com/cespare/cp"
 	"github.com/davecgh/go-spew/spew"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/accounts"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/common"
+	"github.com/MarconiFoundation/go-ethereum/accounts"
+	"github.com/MarconiFoundation/go-ethereum/common"
 )
 
 var (

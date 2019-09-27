@@ -6,13 +6,13 @@ import (
 	"testing"
 	"time"
 
-	"gitlab.neji.vm.tc/marconi/go-ethereum/crypto"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/enode"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/p2p/protocols"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/network"
-	"gitlab.neji.vm.tc/marconi/go-ethereum/swarm/pot"
-	whisper "gitlab.neji.vm.tc/marconi/go-ethereum/whisper/whisperv6"
+	"github.com/MarconiFoundation/go-ethereum/crypto"
+	"github.com/MarconiFoundation/go-ethereum/p2p"
+	"github.com/MarconiFoundation/go-ethereum/p2p/enode"
+	"github.com/MarconiFoundation/go-ethereum/p2p/protocols"
+	"github.com/MarconiFoundation/go-ethereum/swarm/network"
+	"github.com/MarconiFoundation/go-ethereum/swarm/pot"
+	whisper "github.com/MarconiFoundation/go-ethereum/whisper/whisperv6"
 )
 
 type testCase struct {
