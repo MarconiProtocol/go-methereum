@@ -3,7 +3,10 @@
 source ../etc/meth/config.sh
 
 if [ -z $NETWORK_ID ] || [ -z $BOOTNODE_PORT ] || [ -z $PEER_PORT ] || [ -z $SYNC_MODE ] || [ -z $TESTNET_FLAG ]; then
-  echo "Misconfigured config.sh"
+  echo "***************************"
+  echo "* Misconfigured config.sh *"
+  echo "***************************"
+  exit 1
 fi
 
 # TODO: accept this as param, passed by mcli
