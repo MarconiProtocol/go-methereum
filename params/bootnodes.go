@@ -41,7 +41,7 @@ var TestnetBootnodes = []string{
 }
 
 var RinkebyBootnodes = []string{
-	"enode://4abad20ca8bc8571fbb64c31e961cbec1d61bcf6c6485f874a54a748cee0198cc9784fb93ab28a859afdcb5ea65b6a1b0fd81a05fe373937adaa33984a037990@13.52.50.48:42424",
+	"enode://a0e40c0e4228e7a78288ecdc7f100912ae075305a39f0b382541b1689867632facb7d0671df53e35d04fa24af147a9b4b9687acc75d58fef9c2895c880cb73fc@44.224.78.43:23200",
 }
 
 // GoerliBootnodes are the enode URLs of the P2P bootstrap nodes running on the
