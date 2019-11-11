@@ -16,6 +16,7 @@ if [ -z $MINER_PORT ] || [ -z $MINER_ETHERBASE ]; then
   echo "Misconfigured config.sh, please check miner settings"
 fi
 
+if [ "$TESTNET_FLAG" = true ]; then
 ./gmeth --datadir ${ABSOLUTE_MINERDIR} \
   --port $MINER_PORT \
   --rpc \
@@ -23,9 +24,23 @@ fi
   --rpcapi="db,eth,net,web3,personal" \
   --mine --minerthreads 1 \
   --testnet \
-  --networkid 179109 \
+  --networkid $NETWORK_ID \
   --etherbase $MINER_ETHERBASE \
   --unlock $MINER_ETHERBASE \
   --password "../etc/meth/unlock.txt" \
   --rpcaddr "0.0.0.0" \
   --syncmode "full"
+else
+./gmeth --datadir ${ABSOLUTE_MINERDIR} \
+  --port $MINER_PORT \
+  --rpc \
+  --rpcport $MINER_RPC_PORT \
+  --rpcapi="db,eth,net,web3,personal" \
+  --mine --minerthreads 1 \
+  --networkid $NETWORK_ID \
+  --etherbase $MINER_ETHERBASE \
+  --unlock $MINER_ETHERBASE \
+  --password "../etc/meth/unlock.txt" \
+  --rpcaddr "0.0.0.0" \
+  --syncmode "full"
+fi
