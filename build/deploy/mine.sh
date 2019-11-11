@@ -22,7 +22,7 @@ fi
   --rpcport $MINER_RPC_PORT \
   --rpcapi="db,eth,net,web3,personal" \
   --mine --minerthreads 1 \
-  --networkid 161027 \
+  --networkid $NETWORK_ID \
   --etherbase $MINER_ETHERBASE \
   --unlock $MINER_ETHERBASE \
   --password "../etc/meth/unlock.txt" \
