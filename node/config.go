@@ -26,15 +26,15 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/MarconiFoundation/go-ethereum/accounts"
-	"github.com/MarconiFoundation/go-ethereum/accounts/keystore"
-	"github.com/MarconiFoundation/go-ethereum/accounts/usbwallet"
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/crypto"
-	"github.com/MarconiFoundation/go-ethereum/log"
-	"github.com/MarconiFoundation/go-ethereum/p2p"
-	"github.com/MarconiFoundation/go-ethereum/p2p/enode"
-	"github.com/MarconiFoundation/go-ethereum/rpc"
+	"github.com/MarconiProtocol/go-methereum/accounts"
+	"github.com/MarconiProtocol/go-methereum/accounts/keystore"
+	"github.com/MarconiProtocol/go-methereum/accounts/usbwallet"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/crypto"
+	"github.com/MarconiProtocol/go-methereum/log"
+	"github.com/MarconiProtocol/go-methereum/p2p"
+	"github.com/MarconiProtocol/go-methereum/p2p/enode"
+	"github.com/MarconiProtocol/go-methereum/rpc"
 )
 
 const (

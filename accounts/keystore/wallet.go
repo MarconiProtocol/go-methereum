@@ -19,9 +19,9 @@ package keystore
 import (
 	"math/big"
 
-	ethereum "github.com/MarconiFoundation/go-ethereum"
-	"github.com/MarconiFoundation/go-ethereum/accounts"
-	"github.com/MarconiFoundation/go-ethereum/core/types"
+	ethereum "github.com/MarconiProtocol/go-methereum"
+	"github.com/MarconiProtocol/go-methereum/accounts"
+	"github.com/MarconiProtocol/go-methereum/core/types"
 )
 
 // keystoreWallet implements the accounts.Wallet interface for the original

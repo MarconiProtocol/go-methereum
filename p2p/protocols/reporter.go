@@ -20,8 +20,8 @@ import (
 	"encoding/binary"
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/log"
-	"github.com/MarconiFoundation/go-ethereum/metrics"
+	"github.com/MarconiProtocol/go-methereum/log"
+	"github.com/MarconiProtocol/go-methereum/metrics"
 
 	"github.com/syndtr/goleveldb/leveldb"
 )

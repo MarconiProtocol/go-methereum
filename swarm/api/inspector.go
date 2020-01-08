@@ -19,8 +19,8 @@ package api
 import (
 	"context"
 
-	"github.com/MarconiFoundation/go-ethereum/swarm/network"
-	"github.com/MarconiFoundation/go-ethereum/swarm/storage"
+	"github.com/MarconiProtocol/go-methereum/swarm/network"
+	"github.com/MarconiProtocol/go-methereum/swarm/storage"
 )
 
 type Inspector struct {

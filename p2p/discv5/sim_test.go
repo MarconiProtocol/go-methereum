@@ -28,7 +28,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiProtocol/go-methereum/common"
 )
 
 // In this test, nodes try to randomly resolve each other.

@@ -24,7 +24,7 @@ import (
 	"os/exec"
 	"runtime"
 
-	"github.com/MarconiFoundation/go-ethereum/swarm/log"
+	"github.com/MarconiProtocol/go-methereum/swarm/log"
 )
 
 func externalUnmount(mountPoint string) error {

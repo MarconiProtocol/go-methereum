@@ -21,8 +21,8 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/common/hexutil"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/common/hexutil"
 )
 
 func hexAddr(a string) common.Address { return common.BytesToAddress(common.FromHex(a)) }

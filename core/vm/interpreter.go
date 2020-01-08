@@ -21,9 +21,9 @@ import (
 	"hash"
 	"sync/atomic"
 
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/common/math"
-	"github.com/MarconiFoundation/go-ethereum/params"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/common/math"
+	"github.com/MarconiProtocol/go-methereum/params"
 )
 
 // Config are the configuration options for the Interpreter

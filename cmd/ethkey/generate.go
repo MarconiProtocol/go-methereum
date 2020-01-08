@@ -23,9 +23,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/MarconiFoundation/go-ethereum/accounts/keystore"
-	"github.com/MarconiFoundation/go-ethereum/cmd/utils"
-	"github.com/MarconiFoundation/go-ethereum/crypto"
+	"github.com/MarconiProtocol/go-methereum/accounts/keystore"
+	"github.com/MarconiProtocol/go-methereum/cmd/utils"
+	"github.com/MarconiProtocol/go-methereum/crypto"
 	"github.com/pborman/uuid"
 	"gopkg.in/urfave/cli.v1"
 )

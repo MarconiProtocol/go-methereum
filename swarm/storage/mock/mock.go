@@ -36,7 +36,7 @@ import (
 	"errors"
 	"io"
 
-	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiProtocol/go-methereum/common"
 )
 
 // ErrNotFound indicates that the chunk is not found.

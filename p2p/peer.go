@@ -25,12 +25,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/common/mclock"
-	"github.com/MarconiFoundation/go-ethereum/event"
-	"github.com/MarconiFoundation/go-ethereum/log"
-	"github.com/MarconiFoundation/go-ethereum/p2p/enode"
-	"github.com/MarconiFoundation/go-ethereum/p2p/enr"
-	"github.com/MarconiFoundation/go-ethereum/rlp"
+	"github.com/MarconiProtocol/go-methereum/common/mclock"
+	"github.com/MarconiProtocol/go-methereum/event"
+	"github.com/MarconiProtocol/go-methereum/log"
+	"github.com/MarconiProtocol/go-methereum/p2p/enode"
+	"github.com/MarconiProtocol/go-methereum/p2p/enr"
+	"github.com/MarconiProtocol/go-methereum/rlp"
 )
 
 var (

@@ -21,9 +21,9 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/crypto"
-	"github.com/MarconiFoundation/go-ethereum/log"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/crypto"
+	"github.com/MarconiProtocol/go-methereum/log"
 )
 
 type Filter struct {

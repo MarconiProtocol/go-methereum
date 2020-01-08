@@ -23,9 +23,9 @@ import (
 	"io/ioutil"
 	"strings"
 
-	"github.com/MarconiFoundation/go-ethereum/cmd/utils"
-	"github.com/MarconiFoundation/go-ethereum/swarm/api"
-	"github.com/MarconiFoundation/go-ethereum/swarm/api/client"
+	"github.com/MarconiProtocol/go-methereum/cmd/utils"
+	"github.com/MarconiProtocol/go-methereum/swarm/api"
+	"github.com/MarconiProtocol/go-methereum/swarm/api/client"
 	"gopkg.in/urfave/cli.v1"
 )
 

@@ -22,8 +22,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/MarconiFoundation/go-ethereum"
-	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiProtocol/go-methereum"
+	"github.com/MarconiProtocol/go-methereum/common"
 )
 
 // Verify that Client implements the ethereum interfaces.

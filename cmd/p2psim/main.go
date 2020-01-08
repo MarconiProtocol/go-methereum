@@ -45,12 +45,12 @@ import (
 	"strings"
 	"text/tabwriter"
 
-	"github.com/MarconiFoundation/go-ethereum/crypto"
-	"github.com/MarconiFoundation/go-ethereum/p2p"
-	"github.com/MarconiFoundation/go-ethereum/p2p/enode"
-	"github.com/MarconiFoundation/go-ethereum/p2p/simulations"
-	"github.com/MarconiFoundation/go-ethereum/p2p/simulations/adapters"
-	"github.com/MarconiFoundation/go-ethereum/rpc"
+	"github.com/MarconiProtocol/go-methereum/crypto"
+	"github.com/MarconiProtocol/go-methereum/p2p"
+	"github.com/MarconiProtocol/go-methereum/p2p/enode"
+	"github.com/MarconiProtocol/go-methereum/p2p/simulations"
+	"github.com/MarconiProtocol/go-methereum/p2p/simulations/adapters"
+	"github.com/MarconiProtocol/go-methereum/rpc"
 	"gopkg.in/urfave/cli.v1"
 )
 

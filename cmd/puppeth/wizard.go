@@ -31,9 +31,9 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/core"
-	"github.com/MarconiFoundation/go-ethereum/log"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/core"
+	"github.com/MarconiProtocol/go-methereum/log"
 	"golang.org/x/crypto/ssh/terminal"
 )
 

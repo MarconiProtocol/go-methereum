@@ -26,11 +26,11 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/common/math"
-	"github.com/MarconiFoundation/go-ethereum/crypto"
-	"github.com/MarconiFoundation/go-ethereum/crypto/ecies"
-	"github.com/MarconiFoundation/go-ethereum/rlp"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/common/math"
+	"github.com/MarconiProtocol/go-methereum/crypto"
+	"github.com/MarconiProtocol/go-methereum/crypto/ecies"
+	"github.com/MarconiProtocol/go-methereum/rlp"
 )
 
 // Envelope represents a clear-text data packet to transmit through the Whisper

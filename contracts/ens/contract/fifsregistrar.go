@@ -6,10 +6,10 @@ package contract
 import (
 	"strings"
 
-	"github.com/MarconiFoundation/go-ethereum/accounts/abi"
-	"github.com/MarconiFoundation/go-ethereum/accounts/abi/bind"
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/core/types"
+	"github.com/MarconiProtocol/go-methereum/accounts/abi"
+	"github.com/MarconiProtocol/go-methereum/accounts/abi/bind"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/core/types"
 )
 
 // FIFSRegistrarABI is the input ABI used to generate the binding from.

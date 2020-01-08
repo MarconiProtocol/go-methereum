@@ -25,14 +25,14 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/MarconiFoundation/go-ethereum/swarm/storage"
-	"github.com/MarconiFoundation/go-ethereum/swarm/storage/feed/lookup"
+	"github.com/MarconiProtocol/go-methereum/swarm/storage"
+	"github.com/MarconiProtocol/go-methereum/swarm/storage/feed/lookup"
 
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/crypto"
-	"github.com/MarconiFoundation/go-ethereum/swarm/api"
-	swarmhttp "github.com/MarconiFoundation/go-ethereum/swarm/api/http"
-	"github.com/MarconiFoundation/go-ethereum/swarm/storage/feed"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/crypto"
+	"github.com/MarconiProtocol/go-methereum/swarm/api"
+	swarmhttp "github.com/MarconiProtocol/go-methereum/swarm/api/http"
+	"github.com/MarconiProtocol/go-methereum/swarm/storage/feed"
 )
 
 func serverFunc(api *api.API) swarmhttp.TestServer {

@@ -21,12 +21,12 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/MarconiFoundation/go-ethereum/accounts/abi"
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/core/state"
-	"github.com/MarconiFoundation/go-ethereum/core/vm"
-	"github.com/MarconiFoundation/go-ethereum/ethdb"
-	"github.com/MarconiFoundation/go-ethereum/params"
+	"github.com/MarconiProtocol/go-methereum/accounts/abi"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/core/state"
+	"github.com/MarconiProtocol/go-methereum/core/vm"
+	"github.com/MarconiProtocol/go-methereum/ethdb"
+	"github.com/MarconiProtocol/go-methereum/params"
 )
 
 func TestDefaults(t *testing.T) {

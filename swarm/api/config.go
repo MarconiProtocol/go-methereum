@@ -23,16 +23,16 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/contracts/ens"
-	"github.com/MarconiFoundation/go-ethereum/crypto"
-	"github.com/MarconiFoundation/go-ethereum/node"
-	"github.com/MarconiFoundation/go-ethereum/p2p/enode"
-	"github.com/MarconiFoundation/go-ethereum/swarm/log"
-	"github.com/MarconiFoundation/go-ethereum/swarm/network"
-	"github.com/MarconiFoundation/go-ethereum/swarm/pss"
-	"github.com/MarconiFoundation/go-ethereum/swarm/services/swap"
-	"github.com/MarconiFoundation/go-ethereum/swarm/storage"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/contracts/ens"
+	"github.com/MarconiProtocol/go-methereum/crypto"
+	"github.com/MarconiProtocol/go-methereum/node"
+	"github.com/MarconiProtocol/go-methereum/p2p/enode"
+	"github.com/MarconiProtocol/go-methereum/swarm/log"
+	"github.com/MarconiProtocol/go-methereum/swarm/network"
+	"github.com/MarconiProtocol/go-methereum/swarm/pss"
+	"github.com/MarconiProtocol/go-methereum/swarm/services/swap"
+	"github.com/MarconiProtocol/go-methereum/swarm/storage"
 )
 
 const (

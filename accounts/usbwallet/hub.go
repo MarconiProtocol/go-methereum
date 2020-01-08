@@ -22,9 +22,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/accounts"
-	"github.com/MarconiFoundation/go-ethereum/event"
-	"github.com/MarconiFoundation/go-ethereum/log"
+	"github.com/MarconiProtocol/go-methereum/accounts"
+	"github.com/MarconiProtocol/go-methereum/event"
+	"github.com/MarconiProtocol/go-methereum/log"
 	"github.com/karalabe/hid"
 )
 

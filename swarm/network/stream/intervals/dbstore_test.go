@@ -21,7 +21,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/MarconiFoundation/go-ethereum/swarm/state"
+	"github.com/MarconiProtocol/go-methereum/swarm/state"
 )
 
 // TestDBStore tests basic functionality of DBStore.

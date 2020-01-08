@@ -37,17 +37,17 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/swarm/storage/feed/lookup"
+	"github.com/MarconiProtocol/go-methereum/swarm/storage/feed/lookup"
 
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/core/types"
-	"github.com/MarconiFoundation/go-ethereum/crypto"
-	"github.com/MarconiFoundation/go-ethereum/log"
-	"github.com/MarconiFoundation/go-ethereum/swarm/api"
-	swarm "github.com/MarconiFoundation/go-ethereum/swarm/api/client"
-	"github.com/MarconiFoundation/go-ethereum/swarm/storage"
-	"github.com/MarconiFoundation/go-ethereum/swarm/storage/feed"
-	"github.com/MarconiFoundation/go-ethereum/swarm/testutil"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/core/types"
+	"github.com/MarconiProtocol/go-methereum/crypto"
+	"github.com/MarconiProtocol/go-methereum/log"
+	"github.com/MarconiProtocol/go-methereum/swarm/api"
+	swarm "github.com/MarconiProtocol/go-methereum/swarm/api/client"
+	"github.com/MarconiProtocol/go-methereum/swarm/storage"
+	"github.com/MarconiProtocol/go-methereum/swarm/storage/feed"
+	"github.com/MarconiProtocol/go-methereum/swarm/testutil"
 )
 
 func init() {

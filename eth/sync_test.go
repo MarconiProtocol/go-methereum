@@ -21,9 +21,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/eth/downloader"
-	"github.com/MarconiFoundation/go-ethereum/p2p"
-	"github.com/MarconiFoundation/go-ethereum/p2p/enode"
+	"github.com/MarconiProtocol/go-methereum/eth/downloader"
+	"github.com/MarconiProtocol/go-methereum/p2p"
+	"github.com/MarconiProtocol/go-methereum/p2p/enode"
 )
 
 // Tests that fast sync gets disabled as soon as a real block is successfully

@@ -17,10 +17,10 @@
 package clique
 
 import (
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/consensus"
-	"github.com/MarconiFoundation/go-ethereum/core/types"
-	"github.com/MarconiFoundation/go-ethereum/rpc"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/consensus"
+	"github.com/MarconiProtocol/go-methereum/core/types"
+	"github.com/MarconiProtocol/go-methereum/rpc"
 )
 
 // API is a user facing RPC API to allow controlling the signer and voting

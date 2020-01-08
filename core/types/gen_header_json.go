@@ -7,8 +7,8 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/common/hexutil"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/common/hexutil"
 )
 
 var _ = (*headerMarshaling)(nil)

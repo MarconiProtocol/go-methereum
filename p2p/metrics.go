@@ -25,11 +25,11 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/p2p/enode"
+	"github.com/MarconiProtocol/go-methereum/p2p/enode"
 
-	"github.com/MarconiFoundation/go-ethereum/event"
-	"github.com/MarconiFoundation/go-ethereum/log"
-	"github.com/MarconiFoundation/go-ethereum/metrics"
+	"github.com/MarconiProtocol/go-methereum/event"
+	"github.com/MarconiProtocol/go-methereum/log"
+	"github.com/MarconiProtocol/go-methereum/metrics"
 )
 
 const (

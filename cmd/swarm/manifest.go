@@ -22,9 +22,9 @@ import (
 	"os"
 	"strings"
 
-	"github.com/MarconiFoundation/go-ethereum/cmd/utils"
-	"github.com/MarconiFoundation/go-ethereum/swarm/api"
-	swarm "github.com/MarconiFoundation/go-ethereum/swarm/api/client"
+	"github.com/MarconiProtocol/go-methereum/cmd/utils"
+	"github.com/MarconiProtocol/go-methereum/swarm/api"
+	swarm "github.com/MarconiProtocol/go-methereum/swarm/api/client"
 	"gopkg.in/urfave/cli.v1"
 )
 

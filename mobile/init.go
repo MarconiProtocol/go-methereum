@@ -22,7 +22,7 @@ import (
 	"os"
 	"runtime"
 
-	"github.com/MarconiFoundation/go-ethereum/log"
+	"github.com/MarconiProtocol/go-methereum/log"
 )
 
 func init() {

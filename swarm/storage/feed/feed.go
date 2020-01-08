@@ -20,9 +20,9 @@ import (
 	"hash"
 	"unsafe"
 
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/common/hexutil"
-	"github.com/MarconiFoundation/go-ethereum/swarm/storage"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/common/hexutil"
+	"github.com/MarconiProtocol/go-methereum/swarm/storage"
 )
 
 // Feed represents a particular user's stream of updates on a topic

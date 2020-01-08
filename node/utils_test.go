@@ -22,8 +22,8 @@ package node
 import (
 	"reflect"
 
-	"github.com/MarconiFoundation/go-ethereum/p2p"
-	"github.com/MarconiFoundation/go-ethereum/rpc"
+	"github.com/MarconiProtocol/go-methereum/p2p"
+	"github.com/MarconiProtocol/go-methereum/rpc"
 )
 
 // NoopService is a trivial implementation of the Service interface.

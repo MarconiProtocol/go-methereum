@@ -24,7 +24,7 @@ import (
 	"io"
 	"testing"
 
-	"github.com/MarconiFoundation/go-ethereum/swarm/testutil"
+	"github.com/MarconiProtocol/go-methereum/swarm/testutil"
 	"golang.org/x/crypto/sha3"
 )
 

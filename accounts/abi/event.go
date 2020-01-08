@@ -20,8 +20,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/crypto"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/crypto"
 )
 
 // Event is an event potentially triggered by the EVM's LOG mechanism. The Event

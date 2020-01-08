@@ -19,7 +19,7 @@ package network
 import (
 	"testing"
 
-	p2ptest "github.com/MarconiFoundation/go-ethereum/p2p/testing"
+	p2ptest "github.com/MarconiProtocol/go-methereum/p2p/testing"
 )
 
 /***

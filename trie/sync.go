@@ -20,9 +20,9 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/common/prque"
-	"github.com/MarconiFoundation/go-ethereum/ethdb"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/common/prque"
+	"github.com/MarconiProtocol/go-methereum/ethdb"
 )
 
 // ErrNotRequested is returned by the trie sync when it's requested to process a

@@ -22,9 +22,9 @@ import (
 	"io"
 	"math/big"
 
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/crypto"
-	"github.com/MarconiFoundation/go-ethereum/rlp"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/crypto"
+	"github.com/MarconiProtocol/go-methereum/rlp"
 )
 
 var emptyCodeHash = crypto.Keccak256(nil)

@@ -23,9 +23,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/MarconiFoundation/go-ethereum/swarm/api"
-	"github.com/MarconiFoundation/go-ethereum/swarm/storage"
-	"github.com/MarconiFoundation/go-ethereum/swarm/storage/feed"
+	"github.com/MarconiProtocol/go-methereum/swarm/api"
+	"github.com/MarconiProtocol/go-methereum/swarm/storage"
+	"github.com/MarconiProtocol/go-methereum/swarm/storage/feed"
 )
 
 type TestServer interface {

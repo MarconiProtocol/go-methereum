@@ -23,10 +23,10 @@ import (
 	"errors"
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/accounts"
-	"github.com/MarconiFoundation/go-ethereum/accounts/keystore"
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/crypto"
+	"github.com/MarconiProtocol/go-methereum/accounts"
+	"github.com/MarconiProtocol/go-methereum/accounts/keystore"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/crypto"
 )
 
 const (

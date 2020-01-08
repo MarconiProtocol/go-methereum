@@ -30,9 +30,9 @@ import (
 
 	check "gopkg.in/check.v1"
 
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/core/types"
-	"github.com/MarconiFoundation/go-ethereum/ethdb"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/core/types"
+	"github.com/MarconiProtocol/go-methereum/ethdb"
 )
 
 // Tests that updating a state trie does not leak any database writes prior to

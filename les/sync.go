@@ -20,9 +20,9 @@ import (
 	"context"
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/core/rawdb"
-	"github.com/MarconiFoundation/go-ethereum/eth/downloader"
-	"github.com/MarconiFoundation/go-ethereum/light"
+	"github.com/MarconiProtocol/go-methereum/core/rawdb"
+	"github.com/MarconiProtocol/go-methereum/eth/downloader"
+	"github.com/MarconiProtocol/go-methereum/light"
 )
 
 // syncer is responsible for periodically synchronising with the network, both

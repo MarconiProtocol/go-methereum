@@ -23,9 +23,9 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/MarconiFoundation/go-ethereum/crypto"
-	"github.com/MarconiFoundation/go-ethereum/p2p/enr"
-	"github.com/MarconiFoundation/go-ethereum/rlp"
+	"github.com/MarconiProtocol/go-methereum/crypto"
+	"github.com/MarconiProtocol/go-methereum/p2p/enr"
+	"github.com/MarconiProtocol/go-methereum/rlp"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

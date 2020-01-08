@@ -16,7 +16,7 @@
 
 package feed
 
-import "github.com/MarconiFoundation/go-ethereum/common/hexutil"
+import "github.com/MarconiProtocol/go-methereum/common/hexutil"
 
 type binarySerializer interface {
 	binaryPut(serializedData []byte) error

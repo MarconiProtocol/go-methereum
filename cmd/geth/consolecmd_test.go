@@ -27,7 +27,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/params"
+	"github.com/MarconiProtocol/go-methereum/params"
 )
 
 const (

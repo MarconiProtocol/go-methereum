@@ -25,9 +25,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/crypto"
-	whisper "github.com/MarconiFoundation/go-ethereum/whisper/whisperv6"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/crypto"
+	whisper "github.com/MarconiProtocol/go-methereum/whisper/whisperv6"
 )
 
 const powRequirement = 0.00001

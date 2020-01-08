@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/MarconiFoundation/go-ethereum/log"
+	"github.com/MarconiProtocol/go-methereum/log"
 )
 
 // manageServers displays a list of servers the user can disconnect from, and an

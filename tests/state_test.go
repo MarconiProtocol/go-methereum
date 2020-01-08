@@ -24,8 +24,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/MarconiFoundation/go-ethereum/cmd/utils"
-	"github.com/MarconiFoundation/go-ethereum/core/vm"
+	"github.com/MarconiProtocol/go-methereum/cmd/utils"
+	"github.com/MarconiProtocol/go-methereum/core/vm"
 )
 
 func TestState(t *testing.T) {

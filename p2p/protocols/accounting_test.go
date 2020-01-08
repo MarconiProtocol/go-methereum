@@ -19,9 +19,9 @@ package protocols
 import (
 	"testing"
 
-	"github.com/MarconiFoundation/go-ethereum/p2p"
-	"github.com/MarconiFoundation/go-ethereum/p2p/simulations/adapters"
-	"github.com/MarconiFoundation/go-ethereum/rlp"
+	"github.com/MarconiProtocol/go-methereum/p2p"
+	"github.com/MarconiProtocol/go-methereum/p2p/simulations/adapters"
+	"github.com/MarconiProtocol/go-methereum/rlp"
 )
 
 //dummy Balance implementation

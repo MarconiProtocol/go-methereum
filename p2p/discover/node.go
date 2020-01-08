@@ -23,10 +23,10 @@ import (
 	"net"
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/common/math"
-	"github.com/MarconiFoundation/go-ethereum/crypto"
-	"github.com/MarconiFoundation/go-ethereum/crypto/secp256k1"
-	"github.com/MarconiFoundation/go-ethereum/p2p/enode"
+	"github.com/MarconiProtocol/go-methereum/common/math"
+	"github.com/MarconiProtocol/go-methereum/crypto"
+	"github.com/MarconiProtocol/go-methereum/crypto/secp256k1"
+	"github.com/MarconiProtocol/go-methereum/p2p/enode"
 )
 
 // node represents a host on the network.

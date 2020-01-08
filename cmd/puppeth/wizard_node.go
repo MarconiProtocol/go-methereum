@@ -21,9 +21,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/accounts/keystore"
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/log"
+	"github.com/MarconiProtocol/go-methereum/accounts/keystore"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/log"
 )
 
 // deployNode creates a new node configuration based on some user input.

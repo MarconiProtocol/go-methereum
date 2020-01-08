@@ -31,14 +31,14 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/MarconiFoundation/go-ethereum/log"
-	"github.com/MarconiFoundation/go-ethereum/node"
-	"github.com/MarconiFoundation/go-ethereum/p2p"
-	"github.com/MarconiFoundation/go-ethereum/p2p/enode"
-	"github.com/MarconiFoundation/go-ethereum/p2p/simulations"
-	"github.com/MarconiFoundation/go-ethereum/p2p/simulations/adapters"
-	"github.com/MarconiFoundation/go-ethereum/rlp"
-	"github.com/MarconiFoundation/go-ethereum/rpc"
+	"github.com/MarconiProtocol/go-methereum/log"
+	"github.com/MarconiProtocol/go-methereum/node"
+	"github.com/MarconiProtocol/go-methereum/p2p"
+	"github.com/MarconiProtocol/go-methereum/p2p/enode"
+	"github.com/MarconiProtocol/go-methereum/p2p/simulations"
+	"github.com/MarconiProtocol/go-methereum/p2p/simulations/adapters"
+	"github.com/MarconiProtocol/go-methereum/rlp"
+	"github.com/MarconiProtocol/go-methereum/rpc"
 )
 
 // ProtocolTester is the tester environment used for unit testing protocol

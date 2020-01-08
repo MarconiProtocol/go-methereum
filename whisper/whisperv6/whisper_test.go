@@ -24,7 +24,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiProtocol/go-methereum/common"
 	"golang.org/x/crypto/pbkdf2"
 )
 

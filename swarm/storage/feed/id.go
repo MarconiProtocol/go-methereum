@@ -21,10 +21,10 @@ import (
 	"hash"
 	"strconv"
 
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/swarm/storage/feed/lookup"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/swarm/storage/feed/lookup"
 
-	"github.com/MarconiFoundation/go-ethereum/swarm/storage"
+	"github.com/MarconiProtocol/go-methereum/swarm/storage"
 )
 
 // ID uniquely identifies an update on the network.

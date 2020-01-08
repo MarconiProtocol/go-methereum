@@ -21,7 +21,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/swarm/storage"
+	"github.com/MarconiProtocol/go-methereum/swarm/storage"
 )
 
 const (

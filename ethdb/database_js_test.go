@@ -19,7 +19,7 @@
 package ethdb_test
 
 import (
-	"github.com/MarconiFoundation/go-ethereum/ethdb"
+	"github.com/MarconiProtocol/go-methereum/ethdb"
 )
 
 var _ ethdb.Database = &ethdb.LDBDatabase{}

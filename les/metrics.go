@@ -17,8 +17,8 @@
 package les
 
 import (
-	"github.com/MarconiFoundation/go-ethereum/metrics"
-	"github.com/MarconiFoundation/go-ethereum/p2p"
+	"github.com/MarconiProtocol/go-methereum/metrics"
+	"github.com/MarconiProtocol/go-methereum/p2p"
 )
 
 var (

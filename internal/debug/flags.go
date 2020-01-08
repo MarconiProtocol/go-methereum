@@ -24,9 +24,9 @@ import (
 	"os"
 	"runtime"
 
-	"github.com/MarconiFoundation/go-ethereum/log"
-	"github.com/MarconiFoundation/go-ethereum/metrics"
-	"github.com/MarconiFoundation/go-ethereum/metrics/exp"
+	"github.com/MarconiProtocol/go-methereum/log"
+	"github.com/MarconiProtocol/go-methereum/metrics"
+	"github.com/MarconiProtocol/go-methereum/metrics/exp"
 	"github.com/fjl/memsize/memsizeui"
 	colorable "github.com/mattn/go-colorable"
 	"github.com/mattn/go-isatty"

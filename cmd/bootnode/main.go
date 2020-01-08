@@ -24,14 +24,14 @@ import (
 	"net"
 	"os"
 
-	"github.com/MarconiFoundation/go-ethereum/cmd/utils"
-	"github.com/MarconiFoundation/go-ethereum/crypto"
-	"github.com/MarconiFoundation/go-ethereum/log"
-	"github.com/MarconiFoundation/go-ethereum/p2p/discover"
-	"github.com/MarconiFoundation/go-ethereum/p2p/discv5"
-	"github.com/MarconiFoundation/go-ethereum/p2p/enode"
-	"github.com/MarconiFoundation/go-ethereum/p2p/nat"
-	"github.com/MarconiFoundation/go-ethereum/p2p/netutil"
+	"github.com/MarconiProtocol/go-methereum/cmd/utils"
+	"github.com/MarconiProtocol/go-methereum/crypto"
+	"github.com/MarconiProtocol/go-methereum/log"
+	"github.com/MarconiProtocol/go-methereum/p2p/discover"
+	"github.com/MarconiProtocol/go-methereum/p2p/discv5"
+	"github.com/MarconiProtocol/go-methereum/p2p/enode"
+	"github.com/MarconiProtocol/go-methereum/p2p/nat"
+	"github.com/MarconiProtocol/go-methereum/p2p/netutil"
 )
 
 func main() {

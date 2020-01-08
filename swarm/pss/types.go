@@ -21,12 +21,12 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/common/hexutil"
-	"github.com/MarconiFoundation/go-ethereum/p2p"
-	"github.com/MarconiFoundation/go-ethereum/rlp"
-	"github.com/MarconiFoundation/go-ethereum/swarm/storage"
-	whisper "github.com/MarconiFoundation/go-ethereum/whisper/whisperv6"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/common/hexutil"
+	"github.com/MarconiProtocol/go-methereum/p2p"
+	"github.com/MarconiProtocol/go-methereum/rlp"
+	"github.com/MarconiProtocol/go-methereum/swarm/storage"
+	whisper "github.com/MarconiProtocol/go-methereum/whisper/whisperv6"
 )
 
 const (

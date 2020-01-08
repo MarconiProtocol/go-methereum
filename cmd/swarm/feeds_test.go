@@ -23,15 +23,15 @@ import (
 	"os"
 	"testing"
 
-	"github.com/MarconiFoundation/go-ethereum/common/hexutil"
-	"github.com/MarconiFoundation/go-ethereum/crypto"
-	"github.com/MarconiFoundation/go-ethereum/log"
-	"github.com/MarconiFoundation/go-ethereum/swarm/api"
-	swarm "github.com/MarconiFoundation/go-ethereum/swarm/api/client"
-	swarmhttp "github.com/MarconiFoundation/go-ethereum/swarm/api/http"
-	"github.com/MarconiFoundation/go-ethereum/swarm/storage/feed"
-	"github.com/MarconiFoundation/go-ethereum/swarm/storage/feed/lookup"
-	"github.com/MarconiFoundation/go-ethereum/swarm/testutil"
+	"github.com/MarconiProtocol/go-methereum/common/hexutil"
+	"github.com/MarconiProtocol/go-methereum/crypto"
+	"github.com/MarconiProtocol/go-methereum/log"
+	"github.com/MarconiProtocol/go-methereum/swarm/api"
+	swarm "github.com/MarconiProtocol/go-methereum/swarm/api/client"
+	swarmhttp "github.com/MarconiProtocol/go-methereum/swarm/api/http"
+	"github.com/MarconiProtocol/go-methereum/swarm/storage/feed"
+	"github.com/MarconiProtocol/go-methereum/swarm/storage/feed/lookup"
+	"github.com/MarconiProtocol/go-methereum/swarm/testutil"
 )
 
 func TestCLIFeedUpdate(t *testing.T) {

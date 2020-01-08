@@ -38,12 +38,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/log"
-	"github.com/MarconiFoundation/go-ethereum/metrics"
-	"github.com/MarconiFoundation/go-ethereum/p2p"
-	"github.com/MarconiFoundation/go-ethereum/rlp"
-	"github.com/MarconiFoundation/go-ethereum/swarm/spancontext"
-	"github.com/MarconiFoundation/go-ethereum/swarm/tracing"
+	"github.com/MarconiProtocol/go-methereum/log"
+	"github.com/MarconiProtocol/go-methereum/metrics"
+	"github.com/MarconiProtocol/go-methereum/p2p"
+	"github.com/MarconiProtocol/go-methereum/rlp"
+	"github.com/MarconiProtocol/go-methereum/swarm/spancontext"
+	"github.com/MarconiProtocol/go-methereum/swarm/tracing"
 	opentracing "github.com/opentracing/opentracing-go"
 )
 

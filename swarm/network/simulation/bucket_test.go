@@ -20,8 +20,8 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/MarconiFoundation/go-ethereum/node"
-	"github.com/MarconiFoundation/go-ethereum/p2p/simulations/adapters"
+	"github.com/MarconiProtocol/go-methereum/node"
+	"github.com/MarconiProtocol/go-methereum/p2p/simulations/adapters"
 )
 
 // TestServiceBucket tests all bucket functionality using subtests.

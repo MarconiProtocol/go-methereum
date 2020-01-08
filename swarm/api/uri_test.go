@@ -21,7 +21,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/MarconiFoundation/go-ethereum/swarm/storage"
+	"github.com/MarconiProtocol/go-methereum/swarm/storage"
 )
 
 func TestParseURI(t *testing.T) {

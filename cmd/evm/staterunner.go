@@ -23,10 +23,10 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/MarconiFoundation/go-ethereum/core/state"
-	"github.com/MarconiFoundation/go-ethereum/core/vm"
-	"github.com/MarconiFoundation/go-ethereum/log"
-	"github.com/MarconiFoundation/go-ethereum/tests"
+	"github.com/MarconiProtocol/go-methereum/core/state"
+	"github.com/MarconiProtocol/go-methereum/core/vm"
+	"github.com/MarconiProtocol/go-methereum/log"
+	"github.com/MarconiProtocol/go-methereum/tests"
 
 	cli "gopkg.in/urfave/cli.v1"
 )

@@ -22,11 +22,11 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/crypto"
-	"github.com/MarconiFoundation/go-ethereum/metrics"
-	"github.com/MarconiFoundation/go-ethereum/swarm/log"
-	whisper "github.com/MarconiFoundation/go-ethereum/whisper/whisperv6"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/crypto"
+	"github.com/MarconiProtocol/go-methereum/metrics"
+	"github.com/MarconiProtocol/go-methereum/swarm/log"
+	whisper "github.com/MarconiProtocol/go-methereum/whisper/whisperv6"
 )
 
 type KeyStore struct {

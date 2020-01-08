@@ -21,10 +21,10 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/core/types"
-	"github.com/MarconiFoundation/go-ethereum/ethdb"
-	"github.com/MarconiFoundation/go-ethereum/rlp"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/core/types"
+	"github.com/MarconiProtocol/go-methereum/ethdb"
+	"github.com/MarconiProtocol/go-methereum/rlp"
 	"golang.org/x/crypto/sha3"
 )
 

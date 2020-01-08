@@ -23,10 +23,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/log"
-	"github.com/MarconiFoundation/go-ethereum/swarm/shed"
-	"github.com/MarconiFoundation/go-ethereum/swarm/storage"
-	"github.com/MarconiFoundation/go-ethereum/swarm/storage/mock"
+	"github.com/MarconiProtocol/go-methereum/log"
+	"github.com/MarconiProtocol/go-methereum/swarm/shed"
+	"github.com/MarconiProtocol/go-methereum/swarm/storage"
+	"github.com/MarconiProtocol/go-methereum/swarm/storage/mock"
 )
 
 var (

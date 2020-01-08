@@ -23,8 +23,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/rlp"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/rlp"
 )
 
 // from bcValidBlockTest.json, "SimpleTx"

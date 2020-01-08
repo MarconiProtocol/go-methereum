@@ -24,10 +24,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/core/state"
-	"github.com/MarconiFoundation/go-ethereum/core/vm"
-	"github.com/MarconiFoundation/go-ethereum/params"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/core/state"
+	"github.com/MarconiProtocol/go-methereum/core/vm"
+	"github.com/MarconiProtocol/go-methereum/params"
 )
 
 type account struct{}

@@ -23,10 +23,10 @@ import (
 
 	"math/big"
 
-	"github.com/MarconiFoundation/go-ethereum/accounts"
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/common/hexutil"
-	"github.com/MarconiFoundation/go-ethereum/core/types"
+	"github.com/MarconiProtocol/go-methereum/accounts"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/common/hexutil"
+	"github.com/MarconiProtocol/go-methereum/core/types"
 )
 
 type Accounts []Account

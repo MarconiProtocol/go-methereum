@@ -27,10 +27,10 @@ import (
 	"errors"
 	"strconv"
 
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/crypto"
-	"github.com/MarconiFoundation/go-ethereum/crypto/ecies"
-	"github.com/MarconiFoundation/go-ethereum/log"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/crypto"
+	"github.com/MarconiProtocol/go-methereum/crypto/ecies"
+	"github.com/MarconiProtocol/go-methereum/log"
 )
 
 // MessageParams specifies the exact way a message should be wrapped into an Envelope.

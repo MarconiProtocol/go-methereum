@@ -19,7 +19,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/MarconiFoundation/go-ethereum/log"
+	"github.com/MarconiProtocol/go-methereum/log"
 )
 
 // deployDashboard queries the user for various input on deploying a web-service

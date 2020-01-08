@@ -19,11 +19,11 @@ package node
 import (
 	"reflect"
 
-	"github.com/MarconiFoundation/go-ethereum/accounts"
-	"github.com/MarconiFoundation/go-ethereum/ethdb"
-	"github.com/MarconiFoundation/go-ethereum/event"
-	"github.com/MarconiFoundation/go-ethereum/p2p"
-	"github.com/MarconiFoundation/go-ethereum/rpc"
+	"github.com/MarconiProtocol/go-methereum/accounts"
+	"github.com/MarconiProtocol/go-methereum/ethdb"
+	"github.com/MarconiProtocol/go-methereum/event"
+	"github.com/MarconiProtocol/go-methereum/p2p"
+	"github.com/MarconiProtocol/go-methereum/rpc"
 )
 
 // ServiceContext is a collection of service independent options inherited from

@@ -23,7 +23,7 @@ import (
 	"testing"
 	"time"
 
-	ch "github.com/MarconiFoundation/go-ethereum/swarm/chunk"
+	ch "github.com/MarconiProtocol/go-methereum/swarm/chunk"
 )
 
 var (

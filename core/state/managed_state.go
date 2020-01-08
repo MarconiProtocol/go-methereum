@@ -19,7 +19,7 @@ package state
 import (
 	"sync"
 
-	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiProtocol/go-methereum/common"
 )
 
 type account struct {

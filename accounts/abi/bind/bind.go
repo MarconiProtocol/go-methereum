@@ -29,7 +29,7 @@ import (
 	"text/template"
 	"unicode"
 
-	"github.com/MarconiFoundation/go-ethereum/accounts/abi"
+	"github.com/MarconiProtocol/go-methereum/accounts/abi"
 )
 
 // Lang is a target programming language selector to generate bindings for.

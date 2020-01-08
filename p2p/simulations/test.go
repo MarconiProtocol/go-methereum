@@ -3,10 +3,10 @@ package simulations
 import (
 	"testing"
 
-	"github.com/MarconiFoundation/go-ethereum/p2p"
-	"github.com/MarconiFoundation/go-ethereum/p2p/enode"
-	"github.com/MarconiFoundation/go-ethereum/p2p/enr"
-	"github.com/MarconiFoundation/go-ethereum/rpc"
+	"github.com/MarconiProtocol/go-methereum/p2p"
+	"github.com/MarconiProtocol/go-methereum/p2p/enode"
+	"github.com/MarconiProtocol/go-methereum/p2p/enr"
+	"github.com/MarconiProtocol/go-methereum/rpc"
 )
 
 // NoopService is the service that does not do anything

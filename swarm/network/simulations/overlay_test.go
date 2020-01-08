@@ -26,9 +26,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/p2p/enode"
-	"github.com/MarconiFoundation/go-ethereum/p2p/simulations"
-	"github.com/MarconiFoundation/go-ethereum/swarm/log"
+	"github.com/MarconiProtocol/go-methereum/p2p/enode"
+	"github.com/MarconiProtocol/go-methereum/p2p/simulations"
+	"github.com/MarconiProtocol/go-methereum/swarm/log"
 )
 
 var (

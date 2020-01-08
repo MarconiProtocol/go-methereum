@@ -22,8 +22,8 @@ import (
 	"testing"
 	"time"
 
-	p2ptest "github.com/MarconiFoundation/go-ethereum/p2p/testing"
-	"github.com/MarconiFoundation/go-ethereum/swarm/state"
+	p2ptest "github.com/MarconiProtocol/go-methereum/p2p/testing"
+	"github.com/MarconiProtocol/go-methereum/swarm/state"
 )
 
 func newHiveTester(t *testing.T, params *HiveParams, n int, store state.Store) (*bzzTester, *Hive) {

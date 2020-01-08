@@ -21,9 +21,9 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/MarconiFoundation/go-ethereum"
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/core/types"
+	"github.com/MarconiProtocol/go-methereum"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/core/types"
 )
 
 var (

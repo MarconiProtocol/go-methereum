@@ -17,9 +17,9 @@
 package runtime
 
 import (
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/core"
-	"github.com/MarconiFoundation/go-ethereum/core/vm"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/core"
+	"github.com/MarconiProtocol/go-methereum/core/vm"
 )
 
 func NewEnv(cfg *Config) *vm.EVM {

@@ -21,7 +21,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/common/mclock"
+	"github.com/MarconiProtocol/go-methereum/common/mclock"
 )
 
 const fcTimeConst = time.Millisecond

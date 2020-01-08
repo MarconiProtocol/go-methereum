@@ -21,9 +21,9 @@ import (
 	"context"
 	"testing"
 
-	"github.com/MarconiFoundation/go-ethereum/swarm/storage/encryption"
+	"github.com/MarconiProtocol/go-methereum/swarm/storage/encryption"
 
-	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiProtocol/go-methereum/common"
 )
 
 func TestHasherStore(t *testing.T) {

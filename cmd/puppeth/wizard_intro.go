@@ -26,7 +26,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/MarconiFoundation/go-ethereum/log"
+	"github.com/MarconiProtocol/go-methereum/log"
 )
 
 // makeWizard creates and returns a new puppeth wizard.

@@ -28,17 +28,17 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/node"
-	"github.com/MarconiFoundation/go-ethereum/p2p"
-	"github.com/MarconiFoundation/go-ethereum/p2p/enode"
-	"github.com/MarconiFoundation/go-ethereum/p2p/protocols"
-	"github.com/MarconiFoundation/go-ethereum/p2p/simulations"
-	"github.com/MarconiFoundation/go-ethereum/p2p/simulations/adapters"
-	"github.com/MarconiFoundation/go-ethereum/rlp"
-	"github.com/MarconiFoundation/go-ethereum/swarm/log"
-	"github.com/MarconiFoundation/go-ethereum/swarm/network/simulation"
-	"github.com/MarconiFoundation/go-ethereum/swarm/state"
-	"github.com/MarconiFoundation/go-ethereum/swarm/storage"
+	"github.com/MarconiProtocol/go-methereum/node"
+	"github.com/MarconiProtocol/go-methereum/p2p"
+	"github.com/MarconiProtocol/go-methereum/p2p/enode"
+	"github.com/MarconiProtocol/go-methereum/p2p/protocols"
+	"github.com/MarconiProtocol/go-methereum/p2p/simulations"
+	"github.com/MarconiProtocol/go-methereum/p2p/simulations/adapters"
+	"github.com/MarconiProtocol/go-methereum/rlp"
+	"github.com/MarconiProtocol/go-methereum/swarm/log"
+	"github.com/MarconiProtocol/go-methereum/swarm/network/simulation"
+	"github.com/MarconiProtocol/go-methereum/swarm/state"
+	"github.com/MarconiProtocol/go-methereum/swarm/storage"
 )
 
 /*

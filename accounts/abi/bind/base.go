@@ -22,12 +22,12 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/MarconiFoundation/go-ethereum"
-	"github.com/MarconiFoundation/go-ethereum/accounts/abi"
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/core/types"
-	"github.com/MarconiFoundation/go-ethereum/crypto"
-	"github.com/MarconiFoundation/go-ethereum/event"
+	"github.com/MarconiProtocol/go-methereum"
+	"github.com/MarconiProtocol/go-methereum/accounts/abi"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/core/types"
+	"github.com/MarconiProtocol/go-methereum/crypto"
+	"github.com/MarconiProtocol/go-methereum/event"
 )
 
 // SignerFn is a signer function callback when a contract requires a method to

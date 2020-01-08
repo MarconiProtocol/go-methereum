@@ -3,7 +3,7 @@ package lookup_test
 import (
 	"testing"
 
-	"github.com/MarconiFoundation/go-ethereum/swarm/storage/feed/lookup"
+	"github.com/MarconiProtocol/go-methereum/swarm/storage/feed/lookup"
 )
 
 func TestMarshallers(t *testing.T) {

@@ -6,13 +6,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/crypto"
-	"github.com/MarconiFoundation/go-ethereum/p2p"
-	"github.com/MarconiFoundation/go-ethereum/p2p/enode"
-	"github.com/MarconiFoundation/go-ethereum/p2p/protocols"
-	"github.com/MarconiFoundation/go-ethereum/swarm/network"
-	"github.com/MarconiFoundation/go-ethereum/swarm/pot"
-	whisper "github.com/MarconiFoundation/go-ethereum/whisper/whisperv6"
+	"github.com/MarconiProtocol/go-methereum/crypto"
+	"github.com/MarconiProtocol/go-methereum/p2p"
+	"github.com/MarconiProtocol/go-methereum/p2p/enode"
+	"github.com/MarconiProtocol/go-methereum/p2p/protocols"
+	"github.com/MarconiProtocol/go-methereum/swarm/network"
+	"github.com/MarconiProtocol/go-methereum/swarm/pot"
+	whisper "github.com/MarconiProtocol/go-methereum/whisper/whisperv6"
 )
 
 type testCase struct {

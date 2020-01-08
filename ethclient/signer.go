@@ -20,8 +20,8 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/core/types"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/core/types"
 )
 
 // senderFromServer is a types.Signer that remembers the sender address returned by the RPC

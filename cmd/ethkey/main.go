@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/MarconiFoundation/go-ethereum/cmd/utils"
+	"github.com/MarconiProtocol/go-methereum/cmd/utils"
 	"gopkg.in/urfave/cli.v1"
 )
 

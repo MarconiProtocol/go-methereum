@@ -24,8 +24,8 @@ import (
 	"net"
 	"sync"
 
-	"github.com/MarconiFoundation/go-ethereum/p2p/enode"
-	"github.com/MarconiFoundation/go-ethereum/p2p/enr"
+	"github.com/MarconiProtocol/go-methereum/p2p/enode"
+	"github.com/MarconiProtocol/go-methereum/p2p/enr"
 )
 
 var nullNode *enode.Node

@@ -21,8 +21,8 @@ package geth
 import (
 	"math/big"
 
-	"github.com/MarconiFoundation/go-ethereum/core/types"
-	"github.com/MarconiFoundation/go-ethereum/ethclient"
+	"github.com/MarconiProtocol/go-methereum/core/types"
+	"github.com/MarconiProtocol/go-methereum/ethclient"
 )
 
 // EthereumClient provides access to the Ethereum APIs.

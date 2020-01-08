@@ -26,8 +26,8 @@ import (
 	"os"
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/swarm/shed"
-	"github.com/MarconiFoundation/go-ethereum/swarm/storage"
+	"github.com/MarconiProtocol/go-methereum/swarm/shed"
+	"github.com/MarconiProtocol/go-methereum/swarm/storage"
 	"github.com/syndtr/goleveldb/leveldb"
 )
 

@@ -22,13 +22,13 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/MarconiFoundation/go-ethereum/accounts"
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/common/hexutil"
-	"github.com/MarconiFoundation/go-ethereum/core/types"
-	"github.com/MarconiFoundation/go-ethereum/internal/ethapi"
-	"github.com/MarconiFoundation/go-ethereum/signer/core"
-	"github.com/MarconiFoundation/go-ethereum/signer/storage"
+	"github.com/MarconiProtocol/go-methereum/accounts"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/common/hexutil"
+	"github.com/MarconiProtocol/go-methereum/core/types"
+	"github.com/MarconiProtocol/go-methereum/internal/ethapi"
+	"github.com/MarconiProtocol/go-methereum/signer/core"
+	"github.com/MarconiProtocol/go-methereum/signer/storage"
 )
 
 const JS = `

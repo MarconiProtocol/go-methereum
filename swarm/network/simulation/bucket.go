@@ -16,7 +16,7 @@
 
 package simulation
 
-import "github.com/MarconiFoundation/go-ethereum/p2p/enode"
+import "github.com/MarconiProtocol/go-methereum/p2p/enode"
 
 // BucketKey is the type that should be used for keys in simulation buckets.
 type BucketKey string

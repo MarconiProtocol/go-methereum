@@ -27,12 +27,12 @@ import (
 
 	cli "gopkg.in/urfave/cli.v1"
 
-	"github.com/MarconiFoundation/go-ethereum/cmd/utils"
-	"github.com/MarconiFoundation/go-ethereum/dashboard"
-	"github.com/MarconiFoundation/go-ethereum/eth"
-	"github.com/MarconiFoundation/go-ethereum/node"
-	"github.com/MarconiFoundation/go-ethereum/params"
-	whisper "github.com/MarconiFoundation/go-ethereum/whisper/whisperv6"
+	"github.com/MarconiProtocol/go-methereum/cmd/utils"
+	"github.com/MarconiProtocol/go-methereum/dashboard"
+	"github.com/MarconiProtocol/go-methereum/eth"
+	"github.com/MarconiProtocol/go-methereum/node"
+	"github.com/MarconiProtocol/go-methereum/params"
+	whisper "github.com/MarconiProtocol/go-methereum/whisper/whisperv6"
 	"github.com/naoina/toml"
 )
 

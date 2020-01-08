@@ -28,11 +28,11 @@
 //  	"context"
 //  	"fmt"
 //  	"os"
-//  	pss "github.com/MarconiFoundation/go-ethereum/swarm/pss/client"
-//  	"github.com/MarconiFoundation/go-ethereum/p2p/protocols"
-//  	"github.com/MarconiFoundation/go-ethereum/p2p"
-//  	"github.com/MarconiFoundation/go-ethereum/swarm/pot"
-//  	"github.com/MarconiFoundation/go-ethereum/swarm/log"
+//  	pss "github.com/MarconiProtocol/go-methereum/swarm/pss/client"
+//  	"github.com/MarconiProtocol/go-methereum/p2p/protocols"
+//  	"github.com/MarconiProtocol/go-methereum/p2p"
+//  	"github.com/MarconiProtocol/go-methereum/swarm/pot"
+//  	"github.com/MarconiProtocol/go-methereum/swarm/log"
 //  )
 //
 //  type FooMsg struct {

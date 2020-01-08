@@ -20,7 +20,7 @@ import (
 	"errors"
 	"strings"
 
-	"github.com/MarconiFoundation/go-ethereum/p2p/enode"
+	"github.com/MarconiProtocol/go-methereum/p2p/enode"
 )
 
 var (

@@ -24,12 +24,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/rlp"
+	"github.com/MarconiProtocol/go-methereum/rlp"
 
-	"github.com/MarconiFoundation/go-ethereum/p2p"
-	"github.com/MarconiFoundation/go-ethereum/p2p/enode"
-	"github.com/MarconiFoundation/go-ethereum/p2p/simulations/adapters"
-	p2ptest "github.com/MarconiFoundation/go-ethereum/p2p/testing"
+	"github.com/MarconiProtocol/go-methereum/p2p"
+	"github.com/MarconiProtocol/go-methereum/p2p/enode"
+	"github.com/MarconiProtocol/go-methereum/p2p/simulations/adapters"
+	p2ptest "github.com/MarconiProtocol/go-methereum/p2p/testing"
 )
 
 // handshake message type

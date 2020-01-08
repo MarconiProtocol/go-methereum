@@ -20,8 +20,8 @@ import (
 	"context"
 	"net"
 
-	"github.com/MarconiFoundation/go-ethereum/log"
-	"github.com/MarconiFoundation/go-ethereum/p2p/netutil"
+	"github.com/MarconiProtocol/go-methereum/log"
+	"github.com/MarconiProtocol/go-methereum/p2p/netutil"
 )
 
 // ServeListener accepts connections on l, serving JSON-RPC on them.

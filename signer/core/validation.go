@@ -23,7 +23,7 @@ import (
 	"math/big"
 	"regexp"
 
-	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiProtocol/go-methereum/common"
 )
 
 // The validation package contains validation checks for transactions

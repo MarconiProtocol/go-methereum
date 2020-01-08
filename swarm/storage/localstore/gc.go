@@ -92,8 +92,8 @@ package localstore
 import (
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/log"
-	"github.com/MarconiFoundation/go-ethereum/swarm/shed"
+	"github.com/MarconiProtocol/go-methereum/log"
+	"github.com/MarconiProtocol/go-methereum/swarm/shed"
 	"github.com/syndtr/goleveldb/leveldb"
 )
 

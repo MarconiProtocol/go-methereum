@@ -22,12 +22,12 @@ import (
 	"os"
 	"strings"
 
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/internal/ethapi"
-	"github.com/MarconiFoundation/go-ethereum/log"
-	"github.com/MarconiFoundation/go-ethereum/signer/core"
-	"github.com/MarconiFoundation/go-ethereum/signer/rules/deps"
-	"github.com/MarconiFoundation/go-ethereum/signer/storage"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/internal/ethapi"
+	"github.com/MarconiProtocol/go-methereum/log"
+	"github.com/MarconiProtocol/go-methereum/signer/core"
+	"github.com/MarconiProtocol/go-methereum/signer/rules/deps"
+	"github.com/MarconiProtocol/go-methereum/signer/storage"
 	"github.com/robertkrimen/otto"
 )
 

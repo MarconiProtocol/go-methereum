@@ -21,7 +21,7 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/MarconiFoundation/go-ethereum/swarm/pot"
+	"github.com/MarconiProtocol/go-methereum/swarm/pot"
 )
 
 // discovery bzz extension for requesting and relaying node address records

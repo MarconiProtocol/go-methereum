@@ -26,12 +26,12 @@ import (
 	"testing"
 	"time"
 
-	ethereum "github.com/MarconiFoundation/go-ethereum"
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/core/types"
-	"github.com/MarconiFoundation/go-ethereum/ethdb"
-	"github.com/MarconiFoundation/go-ethereum/event"
-	"github.com/MarconiFoundation/go-ethereum/trie"
+	ethereum "github.com/MarconiProtocol/go-methereum"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/core/types"
+	"github.com/MarconiProtocol/go-methereum/ethdb"
+	"github.com/MarconiProtocol/go-methereum/event"
+	"github.com/MarconiProtocol/go-methereum/trie"
 )
 
 // Reduce some of the parameters to make the tester faster.

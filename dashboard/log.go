@@ -26,7 +26,7 @@ import (
 	"sort"
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/log"
+	"github.com/MarconiProtocol/go-methereum/log"
 	"github.com/mohae/deepcopy"
 	"github.com/rjeczalik/notify"
 )

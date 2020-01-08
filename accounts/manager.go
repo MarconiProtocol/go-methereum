@@ -21,7 +21,7 @@ import (
 	"sort"
 	"sync"
 
-	"github.com/MarconiFoundation/go-ethereum/event"
+	"github.com/MarconiProtocol/go-methereum/event"
 )
 
 // Manager is an overarching account manager that can communicate with various

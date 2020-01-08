@@ -22,8 +22,8 @@ import (
 	"io/ioutil"
 	"strings"
 
-	"github.com/MarconiFoundation/go-ethereum/accounts/abi"
-	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiProtocol/go-methereum/accounts/abi"
+	"github.com/MarconiProtocol/go-methereum/common"
 
 	"bytes"
 	"os"

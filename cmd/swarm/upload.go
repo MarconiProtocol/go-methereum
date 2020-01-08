@@ -29,10 +29,10 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/MarconiFoundation/go-ethereum/log"
-	swarm "github.com/MarconiFoundation/go-ethereum/swarm/api/client"
+	"github.com/MarconiProtocol/go-methereum/log"
+	swarm "github.com/MarconiProtocol/go-methereum/swarm/api/client"
 
-	"github.com/MarconiFoundation/go-ethereum/cmd/utils"
+	"github.com/MarconiProtocol/go-methereum/cmd/utils"
 	"gopkg.in/urfave/cli.v1"
 )
 

@@ -21,13 +21,13 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/common/hexutil"
-	"github.com/MarconiFoundation/go-ethereum/crypto"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/common/hexutil"
+	"github.com/MarconiProtocol/go-methereum/crypto"
 
-	"github.com/MarconiFoundation/go-ethereum/cmd/utils"
-	swarm "github.com/MarconiFoundation/go-ethereum/swarm/api/client"
-	"github.com/MarconiFoundation/go-ethereum/swarm/storage/feed"
+	"github.com/MarconiProtocol/go-methereum/cmd/utils"
+	swarm "github.com/MarconiProtocol/go-methereum/swarm/api/client"
+	"github.com/MarconiProtocol/go-methereum/swarm/storage/feed"
 	"gopkg.in/urfave/cli.v1"
 )
 

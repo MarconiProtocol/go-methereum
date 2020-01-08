@@ -27,10 +27,10 @@ import (
 	"testing/quick"
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/crypto"
-	"github.com/MarconiFoundation/go-ethereum/p2p/enode"
-	"github.com/MarconiFoundation/go-ethereum/p2p/enr"
-	"github.com/MarconiFoundation/go-ethereum/p2p/netutil"
+	"github.com/MarconiProtocol/go-methereum/crypto"
+	"github.com/MarconiProtocol/go-methereum/p2p/enode"
+	"github.com/MarconiProtocol/go-methereum/p2p/enr"
+	"github.com/MarconiProtocol/go-methereum/p2p/netutil"
 )
 
 func TestTable_pingReplace(t *testing.T) {

@@ -23,7 +23,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/log"
+	"github.com/MarconiProtocol/go-methereum/log"
 )
 
 //TestReporter tests that the metrics being collected for p2p accounting

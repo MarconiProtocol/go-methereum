@@ -1,5 +1,5 @@
 language: go
-go_import_path: github.com/MarconiFoundation/go-ethereum
+go_import_path: github.com/MarconiProtocol/go-methereum
 sudo: false
 matrix:
   include:

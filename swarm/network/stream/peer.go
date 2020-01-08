@@ -23,14 +23,14 @@ import (
 	"sync"
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/metrics"
-	"github.com/MarconiFoundation/go-ethereum/p2p/protocols"
-	"github.com/MarconiFoundation/go-ethereum/swarm/log"
-	pq "github.com/MarconiFoundation/go-ethereum/swarm/network/priorityqueue"
-	"github.com/MarconiFoundation/go-ethereum/swarm/network/stream/intervals"
-	"github.com/MarconiFoundation/go-ethereum/swarm/spancontext"
-	"github.com/MarconiFoundation/go-ethereum/swarm/state"
-	"github.com/MarconiFoundation/go-ethereum/swarm/storage"
+	"github.com/MarconiProtocol/go-methereum/metrics"
+	"github.com/MarconiProtocol/go-methereum/p2p/protocols"
+	"github.com/MarconiProtocol/go-methereum/swarm/log"
+	pq "github.com/MarconiProtocol/go-methereum/swarm/network/priorityqueue"
+	"github.com/MarconiProtocol/go-methereum/swarm/network/stream/intervals"
+	"github.com/MarconiProtocol/go-methereum/swarm/spancontext"
+	"github.com/MarconiProtocol/go-methereum/swarm/state"
+	"github.com/MarconiProtocol/go-methereum/swarm/storage"
 	opentracing "github.com/opentracing/opentracing-go"
 )
 

@@ -26,12 +26,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/consensus/ethash"
-	"github.com/MarconiFoundation/go-ethereum/core"
-	"github.com/MarconiFoundation/go-ethereum/eth"
-	"github.com/MarconiFoundation/go-ethereum/internal/jsre"
-	"github.com/MarconiFoundation/go-ethereum/node"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/consensus/ethash"
+	"github.com/MarconiProtocol/go-methereum/core"
+	"github.com/MarconiProtocol/go-methereum/eth"
+	"github.com/MarconiProtocol/go-methereum/internal/jsre"
+	"github.com/MarconiProtocol/go-methereum/node"
 )
 
 const (

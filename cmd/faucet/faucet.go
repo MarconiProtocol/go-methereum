@@ -41,23 +41,23 @@ import (
 	"sync"
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/accounts"
-	"github.com/MarconiFoundation/go-ethereum/accounts/keystore"
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/core"
-	"github.com/MarconiFoundation/go-ethereum/core/types"
-	"github.com/MarconiFoundation/go-ethereum/eth"
-	"github.com/MarconiFoundation/go-ethereum/eth/downloader"
-	"github.com/MarconiFoundation/go-ethereum/ethclient"
-	"github.com/MarconiFoundation/go-ethereum/ethstats"
-	"github.com/MarconiFoundation/go-ethereum/les"
-	"github.com/MarconiFoundation/go-ethereum/log"
-	"github.com/MarconiFoundation/go-ethereum/node"
-	"github.com/MarconiFoundation/go-ethereum/p2p"
-	"github.com/MarconiFoundation/go-ethereum/p2p/discv5"
-	"github.com/MarconiFoundation/go-ethereum/p2p/enode"
-	"github.com/MarconiFoundation/go-ethereum/p2p/nat"
-	"github.com/MarconiFoundation/go-ethereum/params"
+	"github.com/MarconiProtocol/go-methereum/accounts"
+	"github.com/MarconiProtocol/go-methereum/accounts/keystore"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/core"
+	"github.com/MarconiProtocol/go-methereum/core/types"
+	"github.com/MarconiProtocol/go-methereum/eth"
+	"github.com/MarconiProtocol/go-methereum/eth/downloader"
+	"github.com/MarconiProtocol/go-methereum/ethclient"
+	"github.com/MarconiProtocol/go-methereum/ethstats"
+	"github.com/MarconiProtocol/go-methereum/les"
+	"github.com/MarconiProtocol/go-methereum/log"
+	"github.com/MarconiProtocol/go-methereum/node"
+	"github.com/MarconiProtocol/go-methereum/p2p"
+	"github.com/MarconiProtocol/go-methereum/p2p/discv5"
+	"github.com/MarconiProtocol/go-methereum/p2p/enode"
+	"github.com/MarconiProtocol/go-methereum/p2p/nat"
+	"github.com/MarconiProtocol/go-methereum/params"
 	"golang.org/x/net/websocket"
 )
 
@@ -449,7 +449,7 @@ func (f *faucet) apiHandler(conn *websocket.Conn) {
 		case *noauthFlag:
 			username, avatar, address, err = authNoAuth(msg.URL)
 		default:
-			err = errors.New("Something funky happened, please open an issue at https://github.com/MarconiFoundation/go-ethereum/issues")
+			err = errors.New("Something funky happened, please open an issue at https://github.com/MarconiProtocol/go-methereum/issues")
 		}
 		if err != nil {
 			if err = sendError(conn, err); err != nil {

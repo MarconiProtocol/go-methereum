@@ -21,7 +21,7 @@ import (
 	"encoding/hex"
 	"fmt"
 
-	"github.com/MarconiFoundation/go-ethereum/core/vm"
+	"github.com/MarconiProtocol/go-methereum/core/vm"
 )
 
 // Iterator for disassembled EVM instructions

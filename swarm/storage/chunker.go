@@ -24,10 +24,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/metrics"
-	ch "github.com/MarconiFoundation/go-ethereum/swarm/chunk"
-	"github.com/MarconiFoundation/go-ethereum/swarm/log"
-	"github.com/MarconiFoundation/go-ethereum/swarm/spancontext"
+	"github.com/MarconiProtocol/go-methereum/metrics"
+	ch "github.com/MarconiProtocol/go-methereum/swarm/chunk"
+	"github.com/MarconiProtocol/go-methereum/swarm/log"
+	"github.com/MarconiProtocol/go-methereum/swarm/spancontext"
 	opentracing "github.com/opentracing/opentracing-go"
 	olog "github.com/opentracing/opentracing-go/log"
 )

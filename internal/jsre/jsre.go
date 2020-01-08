@@ -26,8 +26,8 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/internal/jsre/deps"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/internal/jsre/deps"
 	"github.com/robertkrimen/otto"
 )
 

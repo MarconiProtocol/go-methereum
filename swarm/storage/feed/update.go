@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/MarconiFoundation/go-ethereum/swarm/chunk"
+	"github.com/MarconiProtocol/go-methereum/swarm/chunk"
 )
 
 // ProtocolVersion defines the current version of the protocol that will be included in each update message

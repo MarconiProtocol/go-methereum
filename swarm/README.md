@@ -27,9 +27,9 @@ Swarm is a distributed storage platform and content distribution service, a nati
 
 Building Swarm requires Go (version 1.10 or later).
 
-    go get -d github.com/MarconiFoundation/go-ethereum
+    go get -d github.com/MarconiProtocol/go-methereum
 
-    go install github.com/MarconiFoundation/go-ethereum/cmd/swarm
+    go install github.com/MarconiProtocol/go-methereum/cmd/swarm
 
 ## Running Swarm
 
@@ -90,12 +90,12 @@ Swarm documentation can be found at [https://swarm-guide.readthedocs.io](https:/
 
 We assume that you have Go v1.10 installed, and `GOPATH` is set.
 
-You must have your working copy under `$GOPATH/src/github.com/MarconiFoundation/go-ethereum`.
+You must have your working copy under `$GOPATH/src/github.com/MarconiProtocol/go-methereum`.
 
 Most likely you will be working from your fork of `go-ethereum`, let's say from `github.com/nirname/go-ethereum`. Clone or move your fork into the right place:
 
 ```
-git clone git@github.com:nirname/go-ethereum.git $GOPATH/src/github.com/MarconiFoundation/go-ethereum
+git clone git@github.com:nirname/go-ethereum.git $GOPATH/src/github.com/MarconiProtocol/go-methereum
 ```
 
 
@@ -181,7 +181,7 @@ Once you have `stateth` installed, and you have Docker running locally, you have
 
 1. Run `stateth` and keep it running in the background
 ```
-stateth --rm --grafana-dashboards-folder $GOPATH/src/github.com/MarconiFoundation/go-ethereum/swarm/grafana_dashboards --influxdb-database metrics
+stateth --rm --grafana-dashboards-folder $GOPATH/src/github.com/MarconiProtocol/go-methereum/swarm/grafana_dashboards --influxdb-database metrics
 ```
 
 2. Run `swarm` with at least the following params:

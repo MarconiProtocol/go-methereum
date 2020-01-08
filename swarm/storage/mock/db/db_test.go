@@ -23,7 +23,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/MarconiFoundation/go-ethereum/swarm/storage/mock/test"
+	"github.com/MarconiProtocol/go-methereum/swarm/storage/mock/test"
 )
 
 // TestDBStore is running a test.MockStore tests

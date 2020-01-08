@@ -22,11 +22,11 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/common/prque"
-	"github.com/MarconiFoundation/go-ethereum/consensus"
-	"github.com/MarconiFoundation/go-ethereum/core/types"
-	"github.com/MarconiFoundation/go-ethereum/log"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/common/prque"
+	"github.com/MarconiProtocol/go-methereum/consensus"
+	"github.com/MarconiProtocol/go-methereum/core/types"
+	"github.com/MarconiProtocol/go-methereum/log"
 )
 
 const (

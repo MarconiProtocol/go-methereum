@@ -7,11 +7,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/metrics"
-	"github.com/MarconiFoundation/go-ethereum/swarm/api"
-	"github.com/MarconiFoundation/go-ethereum/swarm/log"
-	"github.com/MarconiFoundation/go-ethereum/swarm/sctx"
-	"github.com/MarconiFoundation/go-ethereum/swarm/spancontext"
+	"github.com/MarconiProtocol/go-methereum/metrics"
+	"github.com/MarconiProtocol/go-methereum/swarm/api"
+	"github.com/MarconiProtocol/go-methereum/swarm/log"
+	"github.com/MarconiProtocol/go-methereum/swarm/sctx"
+	"github.com/MarconiProtocol/go-methereum/swarm/spancontext"
 	"github.com/pborman/uuid"
 )
 

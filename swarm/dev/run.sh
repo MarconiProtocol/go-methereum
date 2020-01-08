@@ -80,7 +80,7 @@ run_image() {
     --rm \
     --hostname "${name}" \
     --name     "${name}" \
-    --volume   "${ROOT}:/go/src/github.com/MarconiFoundation/go-ethereum" \
+    --volume   "${ROOT}:/go/src/github.com/MarconiProtocol/go-methereum" \
     --volume   "/var/run/docker.sock:/var/run/docker.sock" \
     ${docker_args} \
     "${name}" \

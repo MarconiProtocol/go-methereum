@@ -24,13 +24,13 @@ import (
 	"sync"
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/core/types"
-	"github.com/MarconiFoundation/go-ethereum/eth"
-	"github.com/MarconiFoundation/go-ethereum/les/flowcontrol"
-	"github.com/MarconiFoundation/go-ethereum/light"
-	"github.com/MarconiFoundation/go-ethereum/p2p"
-	"github.com/MarconiFoundation/go-ethereum/rlp"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/core/types"
+	"github.com/MarconiProtocol/go-methereum/eth"
+	"github.com/MarconiProtocol/go-methereum/les/flowcontrol"
+	"github.com/MarconiProtocol/go-methereum/light"
+	"github.com/MarconiProtocol/go-methereum/p2p"
+	"github.com/MarconiProtocol/go-methereum/rlp"
 )
 
 var (

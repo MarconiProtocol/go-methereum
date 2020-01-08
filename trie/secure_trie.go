@@ -19,8 +19,8 @@ package trie
 import (
 	"fmt"
 
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/log"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/log"
 )
 
 // SecureTrie wraps a trie with key hashing. In a secure trie, all

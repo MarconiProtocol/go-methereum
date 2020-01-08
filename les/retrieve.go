@@ -26,8 +26,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/common/mclock"
-	"github.com/MarconiFoundation/go-ethereum/light"
+	"github.com/MarconiProtocol/go-methereum/common/mclock"
+	"github.com/MarconiProtocol/go-methereum/light"
 )
 
 var (

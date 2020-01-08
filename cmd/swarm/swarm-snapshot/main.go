@@ -19,8 +19,8 @@ package main
 import (
 	"os"
 
-	"github.com/MarconiFoundation/go-ethereum/cmd/utils"
-	"github.com/MarconiFoundation/go-ethereum/log"
+	"github.com/MarconiProtocol/go-methereum/cmd/utils"
+	"github.com/MarconiProtocol/go-methereum/log"
 	cli "gopkg.in/urfave/cli.v1"
 )
 

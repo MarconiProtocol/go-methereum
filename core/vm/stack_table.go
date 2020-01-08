@@ -19,7 +19,7 @@ package vm
 import (
 	"fmt"
 
-	"github.com/MarconiFoundation/go-ethereum/params"
+	"github.com/MarconiProtocol/go-methereum/params"
 )
 
 func makeStackFunc(pop, push int) stackValidationFunc {

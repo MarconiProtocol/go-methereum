@@ -22,11 +22,11 @@ import (
 	"sort"
 	"sync"
 
-	"github.com/MarconiFoundation/go-ethereum/common"
-	"github.com/MarconiFoundation/go-ethereum/core/types"
-	"github.com/MarconiFoundation/go-ethereum/internal/ethapi"
-	"github.com/MarconiFoundation/go-ethereum/params"
-	"github.com/MarconiFoundation/go-ethereum/rpc"
+	"github.com/MarconiProtocol/go-methereum/common"
+	"github.com/MarconiProtocol/go-methereum/core/types"
+	"github.com/MarconiProtocol/go-methereum/internal/ethapi"
+	"github.com/MarconiProtocol/go-methereum/params"
+	"github.com/MarconiProtocol/go-methereum/rpc"
 )
 
 var maxPrice = big.NewInt(500 * params.GWei)

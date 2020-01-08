@@ -22,8 +22,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/MarconiFoundation/go-ethereum/common/math"
-	"github.com/MarconiFoundation/go-ethereum/core/vm"
+	"github.com/MarconiProtocol/go-methereum/common/math"
+	"github.com/MarconiProtocol/go-methereum/core/vm"
 )
 
 // Compiler contains information about the parsed source

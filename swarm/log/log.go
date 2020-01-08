@@ -1,8 +1,8 @@
 package log
 
 import (
-	l "github.com/MarconiFoundation/go-ethereum/log"
-	"github.com/MarconiFoundation/go-ethereum/metrics"
+	l "github.com/MarconiProtocol/go-methereum/log"
+	"github.com/MarconiProtocol/go-methereum/metrics"
 )
 
 const (

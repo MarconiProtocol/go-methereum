@@ -23,11 +23,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/common/mclock"
-	"github.com/MarconiFoundation/go-ethereum/common/prque"
-	"github.com/MarconiFoundation/go-ethereum/ethdb"
-	"github.com/MarconiFoundation/go-ethereum/log"
-	"github.com/MarconiFoundation/go-ethereum/rlp"
+	"github.com/MarconiProtocol/go-methereum/common/mclock"
+	"github.com/MarconiProtocol/go-methereum/common/prque"
+	"github.com/MarconiProtocol/go-methereum/ethdb"
+	"github.com/MarconiProtocol/go-methereum/log"
+	"github.com/MarconiProtocol/go-methereum/rlp"
 )
 
 // freeClientPool implements a client database that limits the connection time

@@ -22,11 +22,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/log"
-	"github.com/MarconiFoundation/go-ethereum/node"
-	"github.com/MarconiFoundation/go-ethereum/p2p/simulations/adapters"
-	"github.com/MarconiFoundation/go-ethereum/swarm/network"
-	"github.com/MarconiFoundation/go-ethereum/swarm/network/simulation"
+	"github.com/MarconiProtocol/go-methereum/log"
+	"github.com/MarconiProtocol/go-methereum/node"
+	"github.com/MarconiProtocol/go-methereum/p2p/simulations/adapters"
+	"github.com/MarconiProtocol/go-methereum/swarm/network"
+	"github.com/MarconiProtocol/go-methereum/swarm/network/simulation"
 )
 
 // Every node can have a Kademlia associated using the node bucket under

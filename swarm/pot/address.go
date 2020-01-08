@@ -24,7 +24,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiProtocol/go-methereum/common"
 )
 
 var (

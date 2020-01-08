@@ -19,7 +19,7 @@ package params
 import (
 	"math/big"
 
-	"github.com/MarconiFoundation/go-ethereum/common"
+	"github.com/MarconiProtocol/go-methereum/common"
 )
 
 // DAOForkBlockExtra is the block header extra-data field to set for the DAO fork

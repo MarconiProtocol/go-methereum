@@ -4,8 +4,8 @@ Official golang implementation of the Ethereum protocol.
 
 [![API Reference](
 https://camo.githubusercontent.com/915b7be44ada53c290eb157634330494ebe3e30a/68747470733a2f2f676f646f632e6f72672f6769746875622e636f6d2f676f6c616e672f6764646f3f7374617475732e737667
-)](https://godoc.org/github.com/MarconiFoundation/go-ethereum)
-[![Go Report Card](https://goreportcard.com/badge/github.com/MarconiFoundation/go-ethereum)](https://goreportcard.com/report/github.com/MarconiFoundation/go-ethereum)
+)](https://godoc.org/github.com/MarconiProtocol/go-methereum)
+[![Go Report Card](https://goreportcard.com/badge/github.com/MarconiProtocol/go-methereum)](https://goreportcard.com/report/github.com/MarconiProtocol/go-methereum)
 [![Travis](https://travis-ci.org/ethereum/go-ethereum.svg?branch=master)](https://travis-ci.org/ethereum/go-ethereum)
 [![Discord](https://img.shields.io/badge/discord-join%20chat-blue.svg)](https://discord.gg/nthXNEv)
 
@@ -40,7 +40,7 @@ The go-ethereum project comes with several wrappers/executables found in the `cm
 | `evm` | Developer utility version of the EVM (Ethereum Virtual Machine) that is capable of running bytecode snippets within a configurable environment and execution mode. Its purpose is to allow isolated, fine-grained debugging of EVM opcodes (e.g. `evm --code 60ff60ff --debug`). |
 | `gethrpctest` | Developer utility tool to support our [ethereum/rpc-test](https://github.com/ethereum/rpc-tests) test suite which validates baseline conformity to the [Ethereum JSON RPC](https://github.com/ethereum/wiki/wiki/JSON-RPC) specs. Please see the [test suite's readme](https://github.com/ethereum/rpc-tests/blob/master/README.md) for details. |
 | `rlpdump` | Developer utility tool to convert binary RLP ([Recursive Length Prefix](https://github.com/ethereum/wiki/wiki/RLP)) dumps (data encoding used by the Ethereum protocol both network as well as consensus wise) to user friendlier hierarchical representation (e.g. `rlpdump --hex CE0183FFFFFFC4C304050583616263`). |
-| `swarm`    | Swarm daemon and tools. This is the entrypoint for the Swarm network. `swarm --help` for command line options and subcommands. See [Swarm README](https://github.com/MarconiFoundation/go-ethereum/tree/master/swarm) for more information. |
+| `swarm`    | Swarm daemon and tools. This is the entrypoint for the Swarm network. `swarm --help` for command line options and subcommands. See [Swarm README](https://github.com/MarconiProtocol/go-methereum/tree/master/swarm) for more information. |
 | `puppeth`    | a CLI wizard that aids in creating a new Ethereum network. |
 
 ## Running geth

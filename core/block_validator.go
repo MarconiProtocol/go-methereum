@@ -19,10 +19,10 @@ package core
 import (
 	"fmt"
 
-	"github.com/MarconiFoundation/go-ethereum/consensus"
-	"github.com/MarconiFoundation/go-ethereum/core/state"
-	"github.com/MarconiFoundation/go-ethereum/core/types"
-	"github.com/MarconiFoundation/go-ethereum/params"
+	"github.com/MarconiProtocol/go-methereum/consensus"
+	"github.com/MarconiProtocol/go-methereum/core/state"
+	"github.com/MarconiProtocol/go-methereum/core/types"
+	"github.com/MarconiProtocol/go-methereum/params"
 )
 
 // BlockValidator is responsible for validating block headers, uncles and

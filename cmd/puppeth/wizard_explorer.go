@@ -21,7 +21,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/MarconiFoundation/go-ethereum/log"
+	"github.com/MarconiProtocol/go-methereum/log"
 )
 
 // deployExplorer creates a new block explorer based on some user input.

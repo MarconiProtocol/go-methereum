@@ -24,9 +24,9 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/MarconiFoundation/go-ethereum/swarm/api"
-	swarm "github.com/MarconiFoundation/go-ethereum/swarm/api/client"
-	swarmhttp "github.com/MarconiFoundation/go-ethereum/swarm/api/http"
+	"github.com/MarconiProtocol/go-methereum/swarm/api"
+	swarm "github.com/MarconiProtocol/go-methereum/swarm/api/client"
+	swarmhttp "github.com/MarconiProtocol/go-methereum/swarm/api/http"
 )
 
 // TestManifestChange tests manifest add, update and remove

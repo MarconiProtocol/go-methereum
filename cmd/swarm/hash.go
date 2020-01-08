@@ -22,8 +22,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/MarconiFoundation/go-ethereum/cmd/utils"
-	"github.com/MarconiFoundation/go-ethereum/swarm/storage"
+	"github.com/MarconiProtocol/go-methereum/cmd/utils"
+	"github.com/MarconiProtocol/go-methereum/swarm/storage"
 	"gopkg.in/urfave/cli.v1"
 )
 

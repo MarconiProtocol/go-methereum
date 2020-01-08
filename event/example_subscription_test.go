@@ -19,7 +19,7 @@ package event_test
 import (
 	"fmt"
 
-	"github.com/MarconiFoundation/go-ethereum/event"
+	"github.com/MarconiProtocol/go-methereum/event"
 )
 
 func ExampleNewSubscription() {

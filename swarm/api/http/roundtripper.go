@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/MarconiFoundation/go-ethereum/swarm/log"
+	"github.com/MarconiProtocol/go-methereum/swarm/log"
 )
 
 /*
@@ -29,8 +29,8 @@ see https://github.com/ethereum/go-ethereum/issues/2040
 Usage:
 
 import (
- "github.com/MarconiFoundation/go-ethereum/common/httpclient"
- "github.com/MarconiFoundation/go-ethereum/swarm/api/http"
+ "github.com/MarconiProtocol/go-methereum/common/httpclient"
+ "github.com/MarconiProtocol/go-methereum/swarm/api/http"
 )
 client := httpclient.New()
 // for (private) swarm proxy running locally

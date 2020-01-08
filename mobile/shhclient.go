@@ -19,8 +19,8 @@
 package geth
 
 import (
-	"github.com/MarconiFoundation/go-ethereum/whisper/shhclient"
-	whisper "github.com/MarconiFoundation/go-ethereum/whisper/whisperv6"
+	"github.com/MarconiProtocol/go-methereum/whisper/shhclient"
+	whisper "github.com/MarconiProtocol/go-methereum/whisper/whisperv6"
 )
 
 // WhisperClient provides access to the Ethereum APIs.

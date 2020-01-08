@@ -42,7 +42,7 @@ import (
 	"fmt"
 	"hash"
 
-	ethcrypto "github.com/MarconiFoundation/go-ethereum/crypto"
+	ethcrypto "github.com/MarconiProtocol/go-methereum/crypto"
 )
 
 var (
